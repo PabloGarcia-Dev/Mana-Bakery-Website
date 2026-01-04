@@ -124,12 +124,12 @@
             const qtyInput = product.querySelector(".quantity_input");
 
             plusBtn.addEventListener("click", () => {
-                qtyInput.value = parseInt(qtyInput.value) + 1;
+                qtyInput.value = parseInt(qtyInput.value);
             });
 
             minusBtn.addEventListener("click", () => {
                 if (parseInt(qtyInput.value) > 1) {
-                    qtyInput.value = parseInt(qtyInput.value) - 1;
+                    qtyInput.value = parseInt(qtyInput.value); 
                 }
             });
         });
