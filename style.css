@@ -852,6 +852,7 @@ main{
     transition: max-height 0.8s ease-out, opacity 0.25s ease;
     opacity: 0;
     font-size: 1.3rem;
+    margin-bottom: 2rem;
 }
 .product-view-display .product_info_container .ingredients.show{
     max-height: 10rem; /* Higher than content will ever be */
@@ -879,6 +880,26 @@ main{
     font-size: 1.3rem;
     width: 33rem;
 }
+.product-view-display .product_info_container .allergen-warning{
+    background-color: whitesmoke;
+    border: .3rem outset var(--tertiary_color);
+    padding: 1rem 0 1rem 0;
+    border-radius: 2rem;
+}
+.product-view-display .product_info_container .allergen-warning i{
+    margin-left: 43%;
+    text-shadow: .1rem .1rem 0 var(--shadow_color);
+    font-size: 3.5rem;
+    color: var(--tertiary_color);
+}   
+.product-view-display .product_info_container .allergen-warning p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+    width: 75%;
+    margin: 0 auto;
+}
+
 /*----------------------------------------------------------------------------------------------- Cart Checkout -----------------------------------------------------------------------------------------------*/
 /* Cart Page Specific Layout */
 .cart-header-row {
