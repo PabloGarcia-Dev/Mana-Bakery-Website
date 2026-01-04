@@ -1158,12 +1158,15 @@ main{
     font-weight: bold; 
     color: #3d95ce;
 }
+#blue-venmo{
+    color: #3d95ce;
+    border-bottom: none;
+}
 #order-warning{
     font-size: 1.3rem; 
     font-style: italic; 
     margin-top: 1rem;
 }
-
 .venmo-logo{
     color: whitesmoke; /* Official Venmo Blue */
     font-weight: 700;
@@ -1176,7 +1179,7 @@ main{
     box-shadow: .1rem .1rem 0 var(--shadow_color);
 }
 .payment-info b{
-    color: #3d95ce;
+    border-bottom: .1rem solid black;
 }
 /*----------------------------------------------------------------------------------------------- About Us -----------------------------------------------------------------------------------------------*/
 .about-us-container{
