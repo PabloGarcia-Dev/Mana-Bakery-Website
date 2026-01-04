@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mana Bakery</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/logos/Mana-logo-background-semi-removed.png">
+    <script src="https://kit.fontawesome.com/58e49f57a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header_container">
+        <div class="header">
+            <nav class="header_section social_links_icons">
+                <a href="https://m.facebook.com/profile.php?id=61584971847612" target="_blank" title="Go to Our Official Facebook Page"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mana.bakery.1635?igsh=ejdxdzRsa2gwdTNm" target="_blank" title="Go to Our Official Instagram Page"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mana.home.bakery?_r=1&_t=ZP-927RXbzBLTi" target="_blank" title="Go to Our Official TikTok Page"><i class="fa-brands fa-tiktok"></i></a>
+            </nav>
+
+            <div class="header_section shopping_icons">
+                <div class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+        </div>
+
+        <nav class="page_navigation">
+            <a href="bakedGoods.html" class="pn_link pn_text">Baked Goods</a>
+            <a href="../index.html" class="pn_link pn_link_logo">
+                <img src="../images/logos/Mana-Logo.png" alt="Mana Logo">
+            </a>
+            <a href="about.html" class="pn_link pn_text">About Us</a>
+        </nav>
+    </header>
+
+    <div class="section_divider header-content_divider">
+        <hr>
+    </div>
+
+    <main>
+        <div class="product-view-display">
+            <div class="other-images">
+                <div class="side-images product-imge" id="side-image-1"></div>
+                <div class="side-images product-imge" id="side-image-2"></div>
+            </div>
+            <div class="main-product-image product-imge"></div>
+            <div class="product_info_container">
+                <h2 class="info-item product_title"></h2>
+                <h2 class="info-item product_price"></h2>
+                <p class="info-item product_info"></p>
+
+                <div class="product_purchase_actions product-view_product_purchase_actions">
+                    <div class="quantity_selector">
+                        <button type="button" class="quantity_btn">−</button>
+                        <input type="number" class="quantity_input" value="1" min="1">
+                        <button type="button" class="quantity_btn">+</button>
+                    </div>
+                    <button type="submit" class="add_to_cart_btn">Add to Cart</button>
+                </div>
+                
+                <h3 class="info-item product-ingredients-title" onclick="showIngredients()">
+                    Product Info <i class="fa-solid fa-chevron-down" id="arrow"></i>
+                </h3>
+                <p class="info-item ingredients"></p>
+            </div>
+        </div>
+
+        <div class="section_divider">
+            <hr>
+        </div>
+
+        <div class="section_divider">
+            <hr>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <nav class="footer_item page_navigation_container_footer">
+            <a class="single_pn_link_footer" id="pn_home" href="../index.html" title="Go to Home Page">Home</a>
+            <a class="single_pn_link_footer" id="ph_backedGoods" href="bakedGoods.html" title="Go to Baked Goods Page">Baked Goods</a>
+            <a class="single_pn_link_footer" id="pn_about" href="about.html" title="Go to About Page">About us</a>
+        </nav>
+
+        <div class="footer_item logo-info">
+            <img src="../images/logos/Mana-Logo-bg-removed.png" alt="Mana Bakery Logo">
+            <p>"All Mana Bakery products are made in a cottage food operation that is not subject to</p>
+            <p>Florida's food safety regulations</p>
+            <p>Products are produced in a home kitchen that handles treenuts and peanuts"</p>
+        </div>
+
+        <nav class="footer_item social_links_info">
+            <h2>Check out our socials!</h2>
+            <div class="social_links_icons">
+                <a href="https://m.facebook.com/profile.php?id=61584971847612" target="_blank" title="Go to Our Official Facebook Page"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mana.bakery.1635?igsh=ejdxdzRsa2gwdTNm" target="_blank" title="Go to Our Official Instagram Page"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mana.home.bakery?_r=1&_t=ZP-927RXbzBLTi" target="_blank" title="Go to Our Official TikTok Page"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </nav>
+    </footer>
+    <div class="developer-credit">
+        <p>© <span id="year"></span> Mana Bakery. All rights reserved. Site Developed by <a href="https://github.com/PabloGarcia-Dev" target="_blank">Pablo Garcia</a></p>
+    </div>
+    <script>
+        // Automatically sets the year to the current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+<!-- Button script -->
+    <script>
+        function showIngredients(){
+            const ingredients = document.querySelector(".ingredients");
+            const arrow = document.getElementById("arrow");
+            
+            ingredients.classList.toggle("show");
+            arrow.classList.toggle("show-arrow");
+        }
+
+        // 1. Select all product action containers
+        const products = document.querySelectorAll(".product_purchase_actions");
+
+        products.forEach((product) => {
+            // 2. Find the specific buttons and input INSIDE this one product
+            const plusBtn = product.querySelector(".quantity_btn:nth-of-type(2)"); // The second button (+)
+            const minusBtn = product.querySelector(".quantity_btn:nth-of-type(1)"); // The first button (-)
+            const qtyInput = product.querySelector(".quantity_input");
+
+            plusBtn.addEventListener("click", () => {
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+            });
+
+            minusBtn.addEventListener("click", () => {
+                if (parseInt(qtyInput.value) > 1) {
+                    qtyInput.value = parseInt(qtyInput.value) - 1;
+                }
+            });
+        });
+    </script>
+
+<!-- Side Cart -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h2>Your Cart</h2>
+            <i class="fa-solid fa-xmark close-cart" onclick="toggleCart()"></i>
+        </div>
+        <div id="sidebar-cart-content" class="sidebar-cart-content">
+            </div>
+        <div class="cart-sidebar-footer">
+            <div class="total-container">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <a href="/Mana_Bakery/pages/orderRequests.html" class="checkout-btn">Order Now</a>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <script src="../products.js"></script>
+    <script src="../cart.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>

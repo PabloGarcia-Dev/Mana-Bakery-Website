@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Cart - Mana Bakery</title>
+    <link rel="icon" href="../images/logos/Mana-logo-background-semi-removed.png">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/58e49f57a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header_container">
+        <div class="header">
+            <nav class="header_section social_links_icons">
+                <a href="https://m.facebook.com/profile.php?id=61584971847612" target="_blank" title="Go to Our Official Facebook Page"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mana.bakery.1635?igsh=ejdxdzRsa2gwdTNm" target="_blank" title="Go to Our Official Instagram Page"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mana.home.bakery?_r=1&_t=ZP-927RXbzBLTi" target="_blank" title="Go to Our Official TikTok Page"><i class="fa-brands fa-tiktok"></i></a>
+            </nav>
+        </div>
+
+        <nav class="page_navigation">
+            <a href="bakedGoods.html" class="pn_link pn_text">Baked Goods</a>
+            <a href="../index.html" class="pn_link pn_link_logo">
+                <img src="../images/logos/Mana-Logo.png" alt="Mana Logo">
+            </a>
+            <a href="about.html" class="pn_link pn_text">About Us</a>
+        </nav>
+    </header>
+
+    <div class="section_divider header-content_divider">
+        <hr>
+    </div>
+    
+    <main>
+        <h2 class="section_title">Your Order Request!</h2>
+
+        <div id="min-order-alert" class="min-order-alert" style="display: none;">
+            For cookies, a minimum of 4 cookies need to be selected to checkout.
+        </div>
+
+        <div id="cart-items-container"></div>
+        
+        <div class="section_divider">
+            <hr>
+        </div>
+
+        <form id="order-form" action="https://formspree.io/f/xvzgqoqa" method="POST" target="_blank">
+            <h3>Customer Information</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <input type="text" name="Name" placeholder="Full Name" required>
+                <input type="tel" id="phone-input" name="Phone Number" placeholder="Phone Number" maxlength="14" required>
+                <input type="email" name="Email" placeholder="Email Address" style="grid-column: span 2;" id="email-input" required>
+
+                <div class="terms-container" style="grid-column: span 2;">
+                    <div class="date-picker-group">
+                        <label for="pickup-date">Pick-up Date</label>
+                        <input type="date" id="pickup-date" name="Pick-up Date" required>
+                    </div>
+
+                    <label for="term-item" id="terms-and-conditions-title">Terms and Conditions</label>
+                    <div class="term-item">
+                        <input type="checkbox" name="Terms and Conditions" id="cancellations" required>
+                        <label for="cancellations">Cancellations can only be made before payment is made. Email us to cancel prior to payment.</label>
+                    </div>
+                    <div class="term-item">
+                        <input type="checkbox" name="Terms and Conditions" id="refunds" required>
+                        <label for="refunds">I understand that orders are non-refundable and must be picked up during the scheduled pick-up time.</label>
+                    </div>
+                    <div class="term-item">
+                        <input type="checkbox" name="Terms and Conditions" id="pickup-window" required>
+                        <label for="pickup-window">I understand that if I miss my pick-up window, I cannot receive a refund.</label>
+                    </div>
+                    <div class="term-item">
+                        <input type="checkbox" name="Terms and Conditions" id="allergens" required>
+                        <label for="allergens">I understand that Mana bakery operates from a home kitchen that may contain allergens.</label>
+                    </div>
+                    <div class="term-item">
+                        <input type="checkbox" name="Terms and Conditions" id="reviewed-terms" required>
+                        <label for="reviewed-terms">I have reviewed my order and agree to the terms.</label>
+                    </div>
+                </div>
+            </div>
+            
+            <input type="hidden" name="Purchased Products" id="hidden-cart-input">
+
+            <div class="payment-info">
+                <h3 id="payment-title">Payment Information</h3>
+                <p id="payment-message">Once we confirm your order availability and pick-up time, payment can be made via <b>Venmo</b>.</p>
+                <p class="venmo-logo">V</p>
+                <span id="venmo-id">Venmo ID: @Mana-bakery</span>
+                <p id="order-warning">*Please do not send payment until your order is confirmed via email/text.</p>
+            </div>
+
+            <div class="message">
+                <p><b>By submitting, you are requesting an order</b>. We will contact you to confirm availability and pickup time!</p>
+            </div>
+            
+            <button type="submit" class="add_to_cart_btn">Submit Order Request</button>
+        </form>
+    </main>
+    <footer class="footer">
+        <nav class="footer_item page_navigation_container_footer">
+            <a class="single_pn_link_footer" id="pn_home" href="../index.html" title="Go to Home Page">Home</a>
+            <a class="single_pn_link_footer" id="ph_backedGoods" href="bakedGoods.html" title="Go to Baked Goods Page">Baked Goods</a>
+            <a class="single_pn_link_footer" id="pn_about" href="about.html" title="Go to About Page">About us</a>
+        </nav>
+
+        <div class="footer_item logo-info">
+            <img src="../images/logos/Mana-Logo-bg-removed.png" alt="Mana Bakery Logo">
+            <p>"All Mana Bakery products are made in a cottage food operation that is not subject to</p>
+            <p>Florida's food safety regulations</p>
+            <p>Products are produced in a home kitchen that handles treenuts and peanuts"</p>
+        </div>
+
+        <nav class="footer_item social_links_info">
+            <h2>Check out our socials!</h2>
+            <div class="social_links_icons">
+                <a href="https://m.facebook.com/profile.php?id=61584971847612" target="_blank" title="Go to Our Official Facebook Page"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mana.bakery.1635?igsh=ejdxdzRsa2gwdTNm" target="_blank" title="Go to Our Official Instagram Page"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mana.home.bakery?_r=1&_t=ZP-927RXbzBLTi" target="_blank" title="Go to Our Official TikTok Page"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </nav>
+    </footer>
+    <div class="developer-credit">
+        <p>© <span id="year"></span> Mana Bakery. All rights reserved. Site Developed by <a href="https://github.com/PabloGarcia-Dev" target="_blank">Pablo Garcia</a></p>
+    </div>
+    <script>
+        // Automatically sets the year to the current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script src="../products.js"></script>
+    <script src="../cart.js"></script>
+    <script src="../main.js"></script>
+    <script src="../orderRequests.js"></script>
+</body>
+</html>

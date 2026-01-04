@@ -1,0 +1,1281 @@
+@font-face{
+    font-family: Dancing Script;
+    src: url(fonts/DancingScript-VariableFont_wght.ttf);
+}
+@font-face{
+    font-family: Lobster;
+    src: url(fonts/Lobster-Regular.ttf);
+}
+@font-face{
+    font-family: Dosis;
+    src: url(fonts/Dosis-VariableFont_wght.ttf);
+}
+@keyframes horizontal-scroll {
+  0% {
+    transform: translateX(0%); /* Star from the left side of the screen */
+  }
+  100% {
+    transform: translateX(-50%); /* Scroll right until you go through 50% of the items */
+  }
+}
+:root{
+    --main-color: #F9E4BC;
+    --secondary_color: #e8cebe;
+    --tertiary_color: #6E4555;
+    --bg_image_color: #7A9E7E;
+    --shadow_color: rgba(0, 0, 0, 0.12);
+    --header_font: 'Dancing Script', Lobster;
+    --sub_header_font: 'Dosis';
+    --text_font: 'Dosis';
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: all .25s ease-in-out;
+    font-family: var(--text_font);
+    list-style: none;
+}
+html{
+    font-size: 62.5%; /*This is like a universal constant for 1px*/
+    /*overflow: hidden;                                                                                                    Change Later*/
+}
+
+/*--------------------------------------------- Header ---------------------------------------------*/
+.header_container{
+    background-color: var(--main-color);
+}
+.header_container .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    padding: 2rem 0;
+    border-bottom: .1rem solid #c1923c;
+    min-height: 6rem;
+}
+.header_container .header .header_section{
+    display: flex;
+}
+/*--------------------------------------------- Social Nav ---------------------------------------------*/
+.header_container .header .social_links_icons a{
+    font-size: 3rem;
+    margin-left: 2rem;
+    color: black;
+}
+.header_container .header .social_links_icons a:hover{
+    color: var(--tertiary_color);
+}
+/*--------------------------------------------- Page Title ---------------------------------------------*/
+.header_container .header .page_title h1{
+    font-family: var(--sub_header_font);
+    font-size: clamp(20px, 3vw, 3rem);
+    margin-left: -1rem;
+}
+/*--------------------------------------------- Shopping Icons ---------------------------------------------*/
+.header_container .header .shopping_icons{
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+}
+.header_container .header .shopping_icons div{
+    font-size: 3rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+.header_container .header .shopping_icons div:hover{
+    color: var(--tertiary_color);
+}
+/*--------------------------------------------- Shopping Cart ---------------------------------------------*/
+/* Sidebar Container */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Hidden off-screen by default */
+    width: 350px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0 15px var(--shadow_color);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+/* When active, move to screen edge */
+.cart-sidebar.active {
+    right: 0;
+}
+
+.cart-sidebar-header {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.close-cart {
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.sidebar-cart-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+/* Individual Item Style */
+.sidebar-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0; /* Light divider between items */
+}
+
+.sidebar-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.sidebar-item .item-details {
+    flex-grow: 1; /* Takes up all available middle space */
+}
+.sidebar-item .item-details h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.sidebar-item .item-details p {
+    font-size: 1.4rem;
+    color: var(--tertiary_color); /* The teal/green color from your image */
+    font-weight: bold;
+}
+
+/* The "X" Remove Button */
+.sidebar-item .remove-item {
+    font-size: 1.8rem;
+    color: var(--tertiary_color);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.sidebar-item .remove-item:hover {
+    transform: scale(1.2);
+    color: #ff4d4d; /* Red on hover */
+}
+
+.cart-sidebar-footer {
+    padding: 2rem;
+    border-top: 1px solid #ddd;
+}
+/* Sidebar Footer (The teal button) */
+.cart-sidebar-footer .checkout-btn {
+    background-color: var(--tertiary_color); /* Teal color matching the image */
+    color: white;
+    text-transform: none; /* Keeps "Order Now" from being all caps if preferred */
+    font-size: 1.6rem;
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cart-sidebar-footer .checkout-btn:hover {
+    background-color: #a15e78;
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-btn {
+    display: block;
+    text-align: center;
+    background-color: var(--tertiary_color);
+    color: white;
+    padding: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Dimming Background Overlay */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 999;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+/*--------------------------------------------- Banner ---------------------------------------------*/
+.header_container .image_banner{
+    background-color: #7A9E7E;
+    height: 35rem;
+    width: 100%;
+    background-image: url(images/banner/Mana-banner_v5.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /*background-attachment: fixed;*/
+}
+/*--------------------------------------------- Page Nav ---------------------------------------------*/
+.header_container .page_navigation{
+    height: 8rem; /* Increased slightly to give the logo breathing room */
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    border-top: .1rem solid #c1923c;
+    padding: 0 2rem;
+}
+.header_container .page_navigation a{
+    font-family: var(--header_font);
+    font-size: clamp(25px, 5vw, 5rem);
+    color: var(--tertiary_color);
+    font-weight: 700;
+    padding: 0.7rem 1rem;
+    border-radius: 4.5rem;
+    text-align: center;
+}
+.header_container .page_navigation .pn_text{
+    width: 27rem;
+}
+.header_container .page_navigation .pn_link_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.header_container .page_navigation .pn_text:hover{
+    background-color: whitesmoke;
+    transform: scale(1.05);
+}
+.header_container .page_navigation a img{
+    height: 16rem;
+    width: 14rem;
+    border: .8rem outset #6E4555;
+    box-shadow: .2rem .4rem .3rem #4d303b, -.2rem -.4rem .3rem #4d303b;
+    border-radius: 50%;
+}
+.header_container .page_navigation a img:hover{
+    transform: scale(1.05);
+}
+/*--------------------------------------------- Section Diviers ---------------------------------------------*/
+.section_divider{
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+.section_divider hr{
+    border: .05rem solid var(--tertiary_color); /* Gives it color and thickness */
+    width: 80%; /*Mmakes it look cleaner than edge-to-edge */
+}
+/*--------------------------------------------- Header/Baked Goods of the Month Divider ---------------------------------------------*/
+.header-content_divider{
+    margin-top: 4.5rem;
+}
+/*--------------------------------------------- Section Titles ---------------------------------------------*/
+.section_title{
+    text-align: center;
+    font-size: clamp(22px, 3vw, 4.5rem);
+    font-family: var(--text_font);
+    font-weight: 500;
+}
+/*--------------------------------------------- Cookies of the Month Card ---------------------------------------------*/
+.bago_card_container {
+    background-color: whitesmoke;
+    border-top: .3rem solid var(--tertiary_color);
+    border-bottom: .3rem solid var(--tertiary_color);
+    padding: 1rem 0;
+    overflow: hidden;
+    display: flex;
+    width: 80%;
+    margin: 0 10%;
+
+    --fade-size: 7rem;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black var(--fade-size),
+        black calc(100% - var(--fade-size)),
+        transparent
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black var(--fade-size),
+        black calc(100% - var(--fade-size)),
+        transparent
+    );
+}
+.bago_card_container .bago_card_box{
+    display: flex;
+    gap: 3rem;
+    padding: 1rem;
+    width: fit-content;
+
+    /* Calculate animation duration based on content length */
+    animation: horizontal-scroll 50s linear infinite;
+}
+.bago_card_container .bago_card_box:hover{
+  animation-play-state: paused; /* Pause the animation on hover */
+}
+.bago_card_container .bago_card_box .bago_card{
+    flex-shrink: 0;
+    background-color: var(--secondary_color);
+    height: fit-content;
+    width: 24rem;
+    border-radius: 2rem 0 2rem 0;
+    box-shadow: .5rem .5rem .3rem var(--shadow_color);
+    padding: 1rem 0;
+}
+.bago_card_container .bago_card_box .bago_card:hover {
+    transform: translateY(-.6rem);
+}
+.bago_card_container .bago_card_box .bago_card .bago_card_title{
+    width: 90%;
+    text-align: center;
+    font-family: var(--text_font);
+    font-size: 2rem;
+    margin: 0 6.4%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.bago_card_container .bago_card_box .bago_card .bago_card_image{
+    display: block;
+    margin: 0 auto.5vw auto; /* Simplified centering */
+    background-color: var(--bg_image_color);
+    height: 22rem;
+    width: 22rem;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+.bago_card_description{
+    display: inline-block;
+    background-color: whitesmoke;  
+    height: 5rem;
+    width: 22rem;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: Dosis;
+    margin: 0 1rem;
+}
+.bago_card_description:hover{
+    transform: scale(1.3);
+    height: 7rem;
+    overflow: auto;
+    box-shadow: .5vw .5vw .3vw var(--shadow_color);
+    scrollbar-width: thin;
+}
+.to_all_bago_link{
+    color: #6E4555;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: xx-large;
+    display: block;
+    text-align: center;
+}
+.to_all_bago_link:hover{
+    color: var(--bg_image_color);
+}
+/*--------------------------------------------- Message ---------------------------------------------*/
+.message{
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1.4rem;
+}
+/*--------------------------------------------- Baked Goods Care ---------------------------------------------*/
+/*------------- Slider -------------*/
+.bago_care_container{
+    background-color: var(--secondary_color);
+}
+.bago_care_container .slider-wrapper{
+    background-color: var(--main-color);
+    max-width: 75rem;
+    position: relative;
+    margin: 0 auto;
+}
+.bago_care_container .slider-wrapper .slider{
+    display: flex;
+    overflow: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem var(--shadow_color);
+    margin: 1rem;
+}
+.bago_care_container .slider-wrapper .slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.bago_care_container .slider-wrapper .slider-nav a{
+    width: 4rem;
+    height: 1.2rem;
+    background-color: var(--tertiary_color);
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+.bago_care_container .slider-wrapper .slider-nav a:hover{
+    opacity: 1;
+}
+/*------------- Cards -------------*/
+.bago_care_container .slider-wrapper .slider .bago_care_card{
+    background-color: whitesmoke;
+    padding: 1rem 0;
+    position: relative;
+    margin: 1rem;
+    width: 75rem;
+    flex: 1 0 100%;
+    border-radius: 0.5rem;
+    scroll-snap-align: start;
+}
+.bago_care_container .slider-wrapper .slider .bago_care_card .bago_care_card_icon{
+    font-size: clamp(90px, 2vw, 11rem);
+    position: absolute;
+    right: 5%;
+    top: 3%;
+}
+.bago_care_container .slider-wrapper .slider .bago_care_card .bago_care_title{
+    margin: 1rem;
+    margin-left: 4rem; /*Used to align text*/
+    font: Dosis;
+    font-size: 3rem;
+}
+.bago_care_container .slider-wrapper .slider .bago_care_card .instruction_title{
+    margin: 1rem;
+    margin-left: 6rem; /*Used to align text*/
+    font-size: 2rem;
+}
+.bago_care_container .slider-wrapper .slider .bago_care_card .bago_care_intstruction{
+    margin: 2rem;
+    margin-left: 6rem; /*Used to align text*/
+    font-size: 1.5rem;
+}
+/*--------------------------------------------- Review ---------------------------------------------*/
+.all-reviews{
+    background-color: var(--secondary_color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 8rem;
+    margin-bottom: 6rem;
+    flex-wrap: wrap;
+}
+.all-reviews .reviews-container{
+    width: 60rem;
+    height: fit-content;
+}
+.all-reviews .reviews-container .review{
+    background-color: whitesmoke;
+    box-shadow: .5rem .5rem .2rem var(--shadow_color);
+    width: 45rem;
+    height: fit-content;
+    margin:  0 auto 2rem auto;
+    text-align: right;
+    padding: 2rem;
+    border-radius: .5rem;
+
+    opacity: 0;
+    filter: blur(.1rem);
+    transform: translateY(30px); /* Slide up effect */
+    transition: all 0.8s ease-out;
+}
+.all-reviews .reviews-container .review-spaced-1 {
+    transform: translateX(-50px); /* Slide in from left */
+}
+
+.all-reviews .reviews-container .review-spaced-2 {
+    transform: translateX(50px); /* Slide in from right */
+}
+
+/* 3. The state triggered by JavaScript */
+.all-reviews .reviews-container .review.show-review {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0) translateY(0);
+}
+.all-reviews .reviews-container .review:hover{
+    transform: scale(1.1);
+}
+.all-reviews .reviews-container .review-spaced-1{
+    margin-right: 3rem;
+}
+.all-reviews .reviews-container .review-spaced-2{
+    margin-left: 3rem;
+}
+.all-reviews .reviews-container .review .quote{
+    font-size: 15rem;
+    float: left;
+    height: 5rem;
+    margin-left: -1rem;
+    margin-top: -3rem;
+    font-family: 'Dancing Script';
+    font-weight: bold;
+    color: var(--tertiary_color);
+}
+.all-reviews .reviews-container .review .review-text{
+    font-size: 1.5rem;
+    margin-left: 4.5rem;
+}
+.all-reviews .reviews-container .review .stars{
+    height: 2.5rem;
+    width: 12rem;
+    font-size: 1.5rem;
+    background-image: url(images/misc/stars.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: 74%;
+    margin-top: .5rem;
+}
+.all-reviews .reviews-container .review .review-name{
+    font-size: 3rem;
+    font-family: 'Dancing Script';
+}
+/*--------------------------------------------- Footer ---------------------------------------------*/
+.footer{
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1rem;
+}
+.footer .footer_item{
+    padding-top: 2.5rem;
+}
+/*------------- Page Navigation -------------*/
+.footer .page_navigation_container_footer{
+    font-size: clamp(20px, 2vw, 3.8rem);
+}
+.footer .page_navigation_container_footer a{
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 3rem;
+    color: var(--tertiary_color);
+    font-family: 'Dancing Script', cursive;
+    font-weight: 900;
+    
+    border-bottom: .3rem solid var(--main-color);
+}
+.footer .page_navigation_container_footer a:hover{
+    transition: border-bottom .1s ease-in;
+    border-bottom: .3rem solid var(--tertiary_color);
+}
+#selected{
+    border-bottom: .3rem solid var(--tertiary_color);
+}
+/*------------- Message -------------*/
+.footer .logo-info{
+    display: grid;
+    place-items: center;
+    margin-bottom: 2rem;
+}
+.footer .logo-info img{
+    height: 12rem;
+    margin-bottom: 1rem;
+}
+.footer .logo-info p{
+    text-align: center;
+}
+/*------------- Social Links -------------*/
+.footer .social_links_info h2{
+    font-size: clamp(20px, 3vw, 2rem);
+    text-align: center;
+}
+.footer .social_links_info .social_links_icons{
+    display: flex;
+    justify-content: center;
+    font-size: 3.2rem;
+    gap: 1rem;
+}
+.footer .social_links_info .social_links_icons a{
+    flex-shrink: 0;
+    color: var(--tertiary_color);
+    border-radius: 50%;
+}
+.footer .social_links_info .social_links_icons a:hover{
+    background-color: whitesmoke;
+}
+/*------------- Developer Credit -------------*/
+.developer-credit {
+    background-color: #333; /* A dark bar to separate it from the bakery's main colors */
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.developer-credit a {
+    color: var(--secondary_color); /* Use your existing theme color for the link */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.developer-credit a:hover {
+    color: white;
+}
+/*----------------------------------------------------------------------------------------------- Baked Goods Page -----------------------------------------------------------------------------------------------*/
+main{
+    margin: 0 6rem;
+    margin-bottom: 6rem;
+}
+.all-goods_container .bago_display_deck_container .container_title{
+    font-size: clamp(40px, 3vw, 5rem);
+    padding-left: 7vw;
+    background-color: var(--tertiary_color);
+    color: whitesmoke;
+    font-family: 'Dancing Script';
+}
+.all-goods_container .bago_display_deck_container .container_sub_title{
+    font-size: clamp(25px, 3vw, 3rem);;
+    margin: 0 4rem;
+    padding-left: 8vw;
+    background-color: var(--bg_image_color);
+    color: whitesmoke;
+    font-family: Dosis;
+}
+.all-goods_container .bago_display_deck_container .cookies_title_pf{
+    margin-top: 4rem;
+}
+.all-goods_container .bago_display_deck_container .card_content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 4rem;
+}
+.all-goods_container .bago_display_deck_container .card_content .bago_display{
+    background-color: var(--secondary_color);
+    height: auto;
+    width: fit-content;
+    box-shadow: .5rem .5rem .3rem var(--shadow_color);
+    padding: 1rem .5rem;
+    border-radius: 2rem;
+}
+.all-goods_container .bago_display_deck_container .card_content .bago_display:hover{
+    transform: scale(1.05);
+}
+.all-goods_container .bago_display_deck_container .card_content .bago_display img{
+    display: block;
+    margin: 0 auto; /* Simplified centering */
+    margin-bottom: .5rem;
+    background-color: var(--bg_image_color);
+    height: 35rem;
+    width: 35rem;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+.all-goods_container .bago_display_deck_container .card_content .bago_display_info{
+    width: fit-content;
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto;
+}
+.all-goods_container .bago_display_deck_container .card_content .bago_display_info input{
+    width: 15rem;
+}
+/*------------- Purchase Action Buttons -------------*/
+.product_purchase_actions{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: .5rem;
+}
+
+.product_purchase_actions .quantity_selector{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: .1rem solid var(--tertiary_color);
+    border-radius: .4rem;
+    padding: .5rem;
+}
+
+.product_purchase_actions .quantity_selector .quantity_btn{
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--tertiary_color);
+    cursor: pointer;
+    padding: 0 1.5rem;
+}
+
+.product_purchase_actions .quantity_selector .quantity_btn:hover{
+    color: #9f647b;
+}
+
+.product_purchase_actions .quantity_selector .quantity_input{
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 15rem;
+    font-family: 'Dosis', sans-serif;
+    outline: none;
+}
+
+.quantity_input::-webkit-inner-spin-button{
+    display: none;
+}
+.product_purchase_actions .add_to_cart_btn{
+    background-color: var(--tertiary_color); /* Mauve Shadow */
+    color: whitesmoke;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.product_purchase_actions .add_to_cart_btn:hover{
+    background-color: #9f647b; /* A lighter shade of mauve */
+}
+/*----------------------------------------------------------------------------------------------- Product View Page -----------------------------------------------------------------------------------------------*/
+.product-view-display{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2.5rem;
+}
+.product-view-display .other-images{
+    height: 15rem;
+    width: 8rem;
+}
+.product-view-display .other-images .side-images{
+    background-color: var(--bg_image_color);
+    height: 6rem;
+    width: 6rem;
+    margin: 1rem auto;
+    cursor: pointer;
+    opacity: 80%;
+    border: .1rem solid var(--shadow_color);
+}
+.product-view-display .other-images .side-images:hover{
+    transform: scale(1.08);
+    opacity: 1;
+    border: .1rem solid var(--tertiary_color);
+}
+.product-view-display .main-product-image{
+    background-color: var(--bg_image_color);
+    height: 45rem;
+    width: 45rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2rem;
+    box-shadow: 0 1.5rem 3rem -0.75rem var(--shadow_color);
+    border: .5rem solid var(--main-color);
+}
+.product-imge{
+    background-position: center;
+    background-size: cover;
+}
+.product-view-display .product_info_container{
+    background-color: var(--secondary_color);
+    width: 35rem;
+    font-size: 2.3rem;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+.product-view-display .product_info_container .info-item{
+    padding: .6rem;
+}
+.product-view-display .product_info_container .product_title{
+    font-family: Lobster;
+    font-weight: 100;
+}
+.product-view-display .product_info_container .product_price{
+    font-size: 2.5rem;
+}
+.product-view-display .product_info_container .product_info{
+    font-size: 1.6rem;
+    padding-bottom: 2rem;
+}
+.product-view-display .product_info_container .product-ingredients-title{
+    font-size: 1.8rem;
+    border: .2rem solid var(--tertiary_color);
+    border-radius: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+.product-view-display .product_info_container .product-ingredients-title:hover{
+    color: whitesmoke;
+    background-color: var(--tertiary_color);
+}
+.product-view-display .product_info_container .ingredients{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out, opacity 0.25s ease;
+    opacity: 0;
+    font-size: 1.3rem;
+}
+.product-view-display .product_info_container .ingredients.show{
+    max-height: 10rem; /* Higher than content will ever be */
+    opacity: 1;
+}
+.product-view-display .product_info_container .product-ingredients-title #arrow{
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+}
+/* Rotate the arrow when the parent is open */
+.product-view-display .product_info_container .product-ingredients-title .show-arrow{
+    transform: rotate(180deg);
+}
+.product-view_product_purchase_actions{
+    margin-bottom: 1.5rem;
+    width: 55%;
+}
+.product-view_product_purchase_actions .quantity_selector .quantity_input{
+    width: 10rem;
+}
+.product-view_product_purchase_actions .quantity_selector .quantity_btn{
+    padding: 0 1rem;
+}
+.product-view_product_purchase_actions .add_to_cart_btn{
+    font-size: 1.3rem;
+    width: 33rem;
+}
+/*----------------------------------------------------------------------------------------------- Cart Checkout -----------------------------------------------------------------------------------------------*/
+/* Cart Page Specific Layout */
+.cart-header-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Structure for Product | Quantity | Total */
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #888;
+    letter-spacing: 1px;
+}
+.min-order-alert {
+    background-color: var(--tertiary_color); /* The blue color from your reference image */
+    color: white;
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 1.8rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+    font-family: var(--text_font);
+}
+.cart-list {
+    margin-top: 2rem;
+}
+
+.cart-item-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Matches the header */
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-product-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cart-product-info img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-details h4 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.product-details .unit-price {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.cart-item-row .quantity_selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: .1rem solid var(--tertiary_color);
+    border-radius: .4rem;
+    padding: .5rem;
+    background-color: transparent;
+    width: 130px; /* Specific width to fit the grid */
+}
+
+.cart-item-row .quantity_selector .quantity_btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--tertiary_color);
+    cursor: pointer;
+    padding: 0 1rem;
+    line-height: 1;
+}
+
+.cart-item-row .quantity_selector .quantity_input {
+    border: none;
+    text-align: center;
+    font-size: 1.4rem;
+    width: 4rem;
+    background-color: white;
+    font-family: 'Dosis', sans-serif;
+    outline: none;
+}
+
+/* Hide spin buttons for a cleaner look */
+.cart-item-row .quantity_input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.cart-item-row .item-total-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.trash-btn {
+    color: #888;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.trash-btn:hover {
+    color: #ff4d4d;
+}
+/*---------------------- Final Total -----------------------------*/
+/* Container for the final total row */
+.cart-total-footer{
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr; /* Matches your item row grid */
+    padding: 3rem 0;
+    margin-top: 1rem;
+    border-top: 2px solid #333; /* Darker line to separate total from items */
+}
+
+/* "Total" text placement */
+.cart-total-footer .total-label{
+    grid-column: 4; /* Moves the label under the Quantity column */
+    text-align: right;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-right: 2rem;
+    align-self: center;
+}
+
+/* Grand Total price placement */
+.cart-total-footer .total-amount{
+    grid-column: 5; /* Moves the price under the Total column */
+    text-align: right;
+    font-size: 2.4rem;
+    font-weight: 800; /* Boldest text on the page */
+    color: #000;
+}
+/*---------------------- Order Form -----------------------------*/
+/* Order Form Layout */
+#order-form {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Adds space between text boxes */
+}
+#order-form h3 {
+    font-size: 2.4rem; /* Larger "Customer Information" header */
+    margin-bottom: 1rem;
+    color: var(--tertiary_color);
+}
+
+#order-form input {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.8rem; /* Makes typed text larger */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: var(--text_font);
+}
+#email-input{
+    text-transform: none;
+}
+
+#order-form input:hover{
+    border-color: var(--tertiary_color);
+    background-color: #fffafb; /* Slight tint when clicking box */
+}
+#order-form input:focus{
+    border-color: var(--tertiary_color);
+    background-color: #fffafb; /* Slight tint when clicking box */
+}
+
+/* Response Message text size */
+.message p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+/* Submit Button size */
+#order-form .add_to_cart_btn{
+    font-size: 2rem;
+    padding: 1.8rem;
+    border-radius: 4px;
+}
+#order-form .add_to_cart_btn:hover{
+    transform: scale(1.05);
+    color: whitesmoke;
+    background-color: var(--tertiary_color);
+}
+/* Styling for the Pick-up Date Section */
+.date-picker-group {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.date-picker-group label {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--tertiary_color);
+}
+
+.terms-container #terms-and-conditions-title{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--tertiary_color);
+}
+/* Customizing the actual Date Input */
+#order-form input[type="date"] {
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    border: .1rem solid var(--shadow_color);
+}
+
+#order-form input[type="date"]:hover{
+    border-color: var(--tertiary_color);
+    background-color: #fffafb; /* Slight tint when clicking box */
+}
+
+/* Terms and Conditions Styling */
+.terms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+.term-item {
+    display: grid;
+    grid-template-columns: 30px 1fr; /* Fixed width for checkbox, remaining for text */
+    align-items: flex-start;
+    gap: 1rem;
+}
+.term-item input[type="checkbox"]{
+    width: 20px !important; /* Force smaller size */
+    height: 20px !important;
+    cursor: pointer;
+    accent-color: var(--tertiary_color); /* Colors the checkbox to match your brand */
+}
+.term-item label {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    cursor: pointer;
+    color: #444;
+    text-transform: none; /* Keeps terms from being forced into caps */
+}
+.term-item:hover label {
+    color: var(--tertiary_color);
+}
+
+.payment-info{
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border: .1rem solid var(--tertiary_color);
+}
+
+#payment-message{
+    font-size: 1.5rem; 
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+#venmo-id{
+    font-size: 1.6rem; 
+    margin-top: 1rem; 
+    font-weight: bold; 
+    color: #3d95ce;
+}
+#order-warning{
+    font-size: 1.3rem; 
+    font-style: italic; 
+    margin-top: 1rem;
+}
+
+.venmo-logo{
+    color: whitesmoke; /* Official Venmo Blue */
+    font-weight: 700;
+    background-color: #3d95ce;
+    padding:  0 .9rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    width: fit-content;
+    display: inline;
+    box-shadow: .1rem .1rem 0 var(--shadow_color);
+}
+.payment-info b{
+    color: #3d95ce;
+}
+/*----------------------------------------------------------------------------------------------- About Us -----------------------------------------------------------------------------------------------*/
+.about-us-container{
+    background-color: var(--secondary_color);
+    height: fit-content;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 2rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.about-us-container .about-us-section{
+    background-color: whitesmoke;
+    height: fit-content;
+    width: 65rem;
+    padding: 4rem;
+    border-radius: 2rem;
+    flex-shrink: 5rem;
+}
+.about-us-container .ourStoryText-container{
+    border-radius: 3rem .5rem;
+}
+.about-us-container .ourStoryText-container h2{
+    font-family: 'Lobster';
+    font-weight: lighter;
+    margin: -2rem auto .5rem auto;
+    border-bottom: .2rem solid var(--tertiary_color);
+    color: var(--tertiary_color);
+    width: fit-content;
+    padding: 0 2rem;
+}
+.about-us-container .ourStoryText-container p{
+    font-size: 2rem;
+    text-align: center;
+}
+.about-us-container .about-us-images-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem 3rem;
+    flex-wrap: wrap;
+    padding: .5rem;
+}
+.about-us-container .about-us-images-container .about-us-image{
+    border-radius: .5rem;
+    background-color: var(--bg_image_color);
+    height: 25rem;
+    width: 25rem;
+    margin: 1.5rem;
+    box-shadow: .5rem .5rem .2rem var(--shadow_color);
+}
+.about-us-container .about-us-images-container #image1-small{   
+    transform: rotate(-2deg);
+}
+.about-us-container .about-us-images-container #image2-small{   
+    transform: rotate(2deg);
+}
+.about-us-container .about-us-images-container #image3-large{   
+    height: 51.5rem;
+    margin-left: 0;
+    transform: rotate(1deg);
+}
+
+.contact-container{
+    text-align: center;
+    background-color: var(--tertiary_color);
+    font-size: 2.5rem;
+    padding: 3rem 5rem;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    color: whitesmoke;
+    box-shadow: .5rem .5rem .2rem var(--shadow_color);
+}
+.contact-container div{
+    margin-top: 1rem;
+}
+.contact-container h2{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.contact-container a{
+    color: whitesmoke;
+    padding: 0 2rem;
+}
+.contact-container a:hover{
+    border-bottom: .1rem solid whitesmoke;
+}
+.contact-container .contact-social-container{
+    margin-top: 2rem;
+}
+.contact-container .contact-social-container a{
+    border-bottom: none;
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+.contact-container .contact-social-container a:hover{
+    background-color: whitesmoke;
+    color: black;
+}
