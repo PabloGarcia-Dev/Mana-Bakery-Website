@@ -18,6 +18,7 @@
     transform: translateX(-50%); /* Scroll right until you go through 50% of the items */
   }
 }
+
 :root{
     --main-color: #F9E4BC;
     --secondary_color: #e8cebe;
@@ -683,7 +684,7 @@ main{
 }
 .all-goods_container .bago_display_deck_container .card_content .bago_display{
     background-color: var(--secondary_color);
-    height: auto;
+    height: fit-content;
     width: fit-content;
     box-shadow: .5rem .5rem .3rem var(--shadow_color);
     padding: 1rem .5rem;
@@ -697,20 +698,17 @@ main{
     margin: 0 auto; /* Simplified centering */
     margin-bottom: .5rem;
     background-color: var(--bg_image_color);
-    height: 35rem;
-    width: 35rem;
+    height: 60rem;
+    width: 60rem;
     object-fit: cover;
     border-radius: 2rem;
 }
 .all-goods_container .bago_display_deck_container .card_content .bago_display_info{
     width: fit-content;
-    font-size: 1.9rem;
+    font-size: 3.9rem;
     font-weight: 700;
     text-align: center;
     margin: 0 auto;
-}
-.all-goods_container .bago_display_deck_container .card_content .bago_display_info input{
-    width: 15rem;
 }
 /*------------- Purchase Action Buttons -------------*/
 .product_purchase_actions{
@@ -733,7 +731,7 @@ main{
 .product_purchase_actions .quantity_selector .quantity_btn{
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 6rem;
     color: var(--tertiary_color);
     cursor: pointer;
     padding: 0 1.5rem;
@@ -746,8 +744,8 @@ main{
 .product_purchase_actions .quantity_selector .quantity_input{
     border: none;
     text-align: center;
-    font-size: 1.2rem;
-    width: 15rem;
+    font-size: 2.7rem;
+    width: 24rem;
     font-family: 'Dosis', sans-serif;
     outline: none;
 }
@@ -760,7 +758,7 @@ main{
     color: whitesmoke;
     border: none;
     padding: 1rem;
-    font-size: 1.1rem;
+    font-size: 2.6rem;
     font-family: 'Dosis', sans-serif;
     font-weight: bold;
     cursor: pointer;
@@ -1324,4 +1322,28 @@ main{
 .contact-container .contact-social-container a:hover{
     background-color: whitesmoke;
     color: black;
+}
+
+/* --- Desktop Override --- */
+@media (min-width: 768px) {
+    .all-goods_container .bago_display_deck_container .card_content .bago_display img{
+        height: 35rem; /* Desktop height */
+        width: 35rem;  /* Desktop width */
+    }
+
+    .all-goods_container .bago_display_deck_container .card_content .bago_display_info{
+        font-size: 1.9rem; /* Desktop title font */
+    }
+    .product_purchase_actions .quantity_selector .quantity_btn{
+        font-size: 2rem; /* Desktop Selector Button */
+    }
+
+    .product_purchase_actions .quantity_selector .quantity_input{
+        font-size: 1.2rem; /* Desktop Input Font */
+        width: 15rem;      /* Desktop Input Width */
+    }
+
+    .product_purchase_actions .add_to_cart_btn{
+        font-size: 1.1rem; /* Desktop Add to Cart Font */
+    }
 }
