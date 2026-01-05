@@ -29,8 +29,8 @@ const productData = {
     "original_sourdough":{
         title: "Original Sourdough Bread",
         price: "$8.00",
-        info: "This is a placeholder",
-        ingredients: "Ingredients: Product-Ingredients",
+        info: "Naturally leavened sourdough bread with a crisp, golden crust and a soft, chewy interior. Slow-fermented for deep, tangy flavor and perfect for slicing, toasting, or enjoying fresh",
+        ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt",
         mainImg: "../images/sourdough/original_sourdough_bg.png",
         secondImg: "../images/sourdough/original_sourdough_bg_white.png",
         ongoing: true
@@ -38,7 +38,7 @@ const productData = {
     "rosemary-focaccia_sourdough":{
         title: "Rosemary Sourdough Focaccia",
         price: "$10.00",
-        info: "This is a placeholder",
+        info: "Bubbly and airy with a chewy crumb, this naturally leavened sourdough focaccia is topped with fresh rosemary and extra-virgin olive oil. Ideal for dipping or enjoying all on its own",
         ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Rosemary",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_white.png",
@@ -47,7 +47,7 @@ const productData = {
     "dinner-rolls_sourdough":{
         title: "Sourdough Dinner Rolls",
         price: "$10.00",
-        info: "This is a placeholder",
+        info: "Soft, Buttery, and mildly tangy and sweet, these sourdough dinner rolls are naturally fermented with our own sourdough starter and will be the perfect addition to your dinner table for any occasion!",
         ingredients: "Ingredients: Ingredients: Bread flour, All purpose flour, Milk, Sourdough starter (Bread flour, All purpose Flour, Water), Sugar, Unsalted butter, Pink Himalayan salt, Egg",
         mainImg: "../images/sourdough/dinner-rolls_sourdough_bg.png",
         secondImg: "../images/sourdough/dinner-rolls_sourdough_bg_white.png",
