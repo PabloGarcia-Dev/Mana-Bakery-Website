@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 2. Small delay to ensure the form submission initiates before the refresh
             setTimeout(() => {
                 window.location.reload();
-            }, 500);
+            }, 700);
         });
     }
 });
