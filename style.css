@@ -46,7 +46,10 @@ html{
     font-size: 62.5%; /*This is like a universal constant for 1px*/
     /*overflow: hidden;                                                                                                    Change Later*/
 }
-
+main{
+    margin: 0 1rem; /* Reduced from 6rem to fit phone screens */
+    margin-bottom: 6rem;
+}
 /*--------------------------------------------- Header ---------------------------------------------*/
 .header_container{
     background-color: var(--main-color);
@@ -64,8 +67,8 @@ html{
 }
 /*--------------------------------------------- Social Nav ---------------------------------------------*/
 .header_container .header .social_links_icons a{
-    font-size: 3rem;
-    margin-left: 2rem;
+    font-size: clamp(20px, 3vw, 3rem);
+    margin-left: .8rem;
     color: black;
 }
 .header_container .header .social_links_icons a:hover{
@@ -74,17 +77,17 @@ html{
 /*--------------------------------------------- Page Title ---------------------------------------------*/
 .header_container .header .page_title h1{
     font-family: var(--sub_header_font);
-    font-size: clamp(20px, 3vw, 3rem);
-    margin-left: -1rem;
+    font-size: clamp(16px, 3vw, 3rem);
+    margin-left: 6rem;
 }
 /*--------------------------------------------- Shopping Icons ---------------------------------------------*/
 .header_container .header .shopping_icons{
     width: 16rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .header_container .header .shopping_icons div{
-    font-size: 3rem;
+    font-size: clamp(30px, 3vw, 3rem);
     margin-right: 2rem;
     cursor: pointer;
 }
@@ -245,9 +248,9 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6rem;
     border-top: .1rem solid #c1923c;
     padding: 0 2rem;
+    margin-left: -2.5rem;
 }
 .header_container .page_navigation a{
     font-family: var(--header_font);
@@ -259,7 +262,7 @@ html{
     text-align: center;
 }
 .header_container .page_navigation .pn_text{
-    width: 27rem;
+    width: fit-content;
 }
 .header_container .page_navigation .pn_link_logo{
     display: flex;
@@ -277,6 +280,7 @@ html{
     border: .8rem outset #6E4555;
     box-shadow: .2rem .4rem .3rem #4d303b, -.2rem -.4rem .3rem #4d303b;
     border-radius: 50%;
+    background-color: var(--bg_image_color);
 }
 .header_container .page_navigation a img:hover{
     transform: scale(1.05);
@@ -298,7 +302,7 @@ html{
 /*--------------------------------------------- Section Titles ---------------------------------------------*/
 .section_title{
     text-align: center;
-    font-size: clamp(22px, 3vw, 4.5rem);
+    font-size: clamp(36px, 3vw, 4.5rem);
     font-family: var(--text_font);
     font-weight: 500;
 }
@@ -487,7 +491,7 @@ html{
     margin-left: 6rem; /*Used to align text*/
     font-size: 1.5rem;
 }
-/*--------------------------------------------- Review ---------------------------------------------*/
+/*--------------------------------------------- Reviews ---------------------------------------------*/
 .all-reviews{
     background-color: var(--secondary_color);
     display: flex;
@@ -504,7 +508,7 @@ html{
 .all-reviews .reviews-container .review{
     background-color: whitesmoke;
     box-shadow: .5rem .5rem .2rem var(--shadow_color);
-    width: 45rem;
+    width: 36rem;
     height: fit-content;
     margin:  0 auto 2rem auto;
     text-align: right;
@@ -561,7 +565,7 @@ html{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin-left: 74%;
+    margin-left: 65%;
     margin-top: .5rem;
 }
 .all-reviews .reviews-container .review .review-name{
@@ -653,19 +657,15 @@ html{
     color: white;
 }
 /*----------------------------------------------------------------------------------------------- Baked Goods Page -----------------------------------------------------------------------------------------------*/
-main{
-    margin: 0 6rem;
-    margin-bottom: 6rem;
-}
 .all-goods_container .bago_display_deck_container .container_title{
-    font-size: clamp(40px, 3vw, 5rem);
+    font-size: clamp(39px, 3vw, 5rem);
     padding-left: 7vw;
     background-color: var(--tertiary_color);
     color: whitesmoke;
     font-family: 'Dancing Script';
 }
 .all-goods_container .bago_display_deck_container .container_sub_title{
-    font-size: clamp(25px, 3vw, 3rem);;
+    font-size: clamp(22px, 3vw, 3rem);
     margin: 0 4rem;
     padding-left: 8vw;
     background-color: var(--bg_image_color);
@@ -680,7 +680,7 @@ main{
     flex-wrap: wrap;
     justify-content: center;
     padding: 2rem 0;
-    gap: 4rem;
+    gap: 2rem;
 }
 .all-goods_container .bago_display_deck_container .card_content .bago_display{
     background-color: var(--secondary_color);
@@ -698,14 +698,14 @@ main{
     margin: 0 auto; /* Simplified centering */
     margin-bottom: .5rem;
     background-color: var(--bg_image_color);
-    height: 60rem;
-    width: 60rem;
+    height: 35rem;
+    width: 35rem;
     object-fit: cover;
     border-radius: 2rem;
 }
 .all-goods_container .bago_display_deck_container .card_content .bago_display_info{
     width: fit-content;
-    font-size: 3.9rem;
+    font-size: 2.6rem;
     font-weight: 700;
     text-align: center;
     margin: 0 auto;
@@ -731,7 +731,7 @@ main{
 .product_purchase_actions .quantity_selector .quantity_btn{
     background: none;
     border: none;
-    font-size: 6rem;
+    font-size: 3.2rem;
     color: var(--tertiary_color);
     cursor: pointer;
     padding: 0 1.5rem;
@@ -744,8 +744,8 @@ main{
 .product_purchase_actions .quantity_selector .quantity_input{
     border: none;
     text-align: center;
-    font-size: 2.7rem;
-    width: 24rem;
+    font-size: 2rem;
+    width: 18rem;
     font-family: 'Dosis', sans-serif;
     outline: none;
 }
@@ -758,7 +758,7 @@ main{
     color: whitesmoke;
     border: none;
     padding: 1rem;
-    font-size: 2.6rem;
+    font-size: 1.8rem;
     font-family: 'Dosis', sans-serif;
     font-weight: bold;
     cursor: pointer;
@@ -781,6 +781,7 @@ main{
 .product-view-display .all-images .other-images{
     height: 15rem;
     width: 8rem;
+    position: absolute;
 }
 .product-view-display .all-images .other-images .side-images{
     background-color: var(--bg_image_color);
@@ -798,8 +799,8 @@ main{
 }
 .product-view-display .all-images .main-product-image{
     background-color: var(--bg_image_color);
-    height: 45rem;
-    width: 45rem;
+    height: 39rem;
+    width: 39rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -903,7 +904,7 @@ main{
 
 /*----------------------------------------------------------------------------------------------- Cart Checkout -----------------------------------------------------------------------------------------------*/
 /* Cart Page Specific Layout */
-.cart-header-row {
+.cart-header-row{
     display: grid;
     grid-template-columns: 2fr 1fr 1fr; /* Structure for Product | Quantity | Total */
     padding: 1rem 0;
@@ -913,7 +914,7 @@ main{
     color: #888;
     letter-spacing: 1px;
 }
-.min-order-alert {
+.min-order-alert{
     background-color: var(--tertiary_color); /* The blue color from your reference image */
     color: white;
     text-align: center;
@@ -923,11 +924,11 @@ main{
     border-radius: 4px;
     font-family: var(--text_font);
 }
-.cart-list {
+.cart-list{
     margin-top: 2rem;
 }
 
-.cart-item-row {
+.cart-item-row{
     display: grid;
     grid-template-columns: 2fr 1fr 1fr; /* Matches the header */
     align-items: center;
@@ -935,31 +936,31 @@ main{
     border-bottom: 1px solid #eee;
 }
 
-.cart-product-info {
+.cart-product-info{
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.cart-product-info img {
-    width: 120px;
-    height: 120px;
+.cart-product-info img{
+    width: 8.3rem;
+    height: 8.3rem;
     object-fit: cover;
     border-radius: 4px;
 }
 
-.product-details h4 {
+.product-details h4{
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 0.5rem;
 }
 
-.product-details .unit-price {
+.product-details .unit-price{
     font-size: 1.4rem;
     color: #666;
 }
 
-.cart-item-row .quantity_selector {
+.cart-item-row .quantity_selector{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -967,35 +968,35 @@ main{
     border-radius: .4rem;
     padding: .5rem;
     background-color: transparent;
-    width: 130px; /* Specific width to fit the grid */
+    width: 9rem; /* Specific width to fit the grid */
 }
 
-.cart-item-row .quantity_selector .quantity_btn {
+.cart-item-row .quantity_selector .quantity_btn{
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: var(--tertiary_color);
     cursor: pointer;
-    padding: 0 1rem;
+    padding: 0 .5rem;
     line-height: 1;
 }
 
-.cart-item-row .quantity_selector .quantity_input {
+.cart-item-row .quantity_selector .quantity_input{
     border: none;
     text-align: center;
-    font-size: 1.4rem;
-    width: 4rem;
+    font-size: 1.2rem;
+    width: 2rem;
     background-color: white;
     font-family: 'Dosis', sans-serif;
     outline: none;
 }
 
 /* Hide spin buttons for a cleaner look */
-.cart-item-row .quantity_input::-webkit-outer-spin-button {
+.cart-item-row .quantity_input::-webkit-outer-spin-button{
     -webkit-appearance: none;
 }
 
-.cart-item-row .item-total-price {
+.cart-item-row .item-total-price{
     font-size: 1.8rem;
     font-weight: bold;
     text-align: right;
@@ -1005,13 +1006,13 @@ main{
     gap: 2rem;
 }
 
-.trash-btn {
+.trash-btn{
     color: #888;
     cursor: pointer;
     font-size: 1.6rem;
 }
 
-.trash-btn:hover {
+.trash-btn:hover{
     color: #ff4d4d;
 }
 /*---------------------- Final Total -----------------------------*/
@@ -1045,7 +1046,7 @@ main{
 }
 /*---------------------- Order Form -----------------------------*/
 /* Order Form Layout */
-#order-form {
+#order-form{
     max-width: 800px;
     margin: 4rem auto;
     padding: 2rem;
@@ -1053,13 +1054,13 @@ main{
     flex-direction: column;
     gap: 2rem; /* Adds space between text boxes */
 }
-#order-form h3 {
+#order-form h3{
     font-size: 2.4rem; /* Larger "Customer Information" header */
     margin-bottom: 1rem;
     color: var(--tertiary_color);
 }
 
-#order-form input {
+#order-form input{
     width: 100%;
     padding: 1.5rem;
     font-size: 1.8rem; /* Makes typed text larger */
@@ -1081,7 +1082,7 @@ main{
 }
 
 /* Response Message text size */
-.message p {
+.message p{
     font-size: 1.6rem;
     line-height: 1.6;
     padding: 1rem;
@@ -1099,7 +1100,7 @@ main{
     background-color: var(--tertiary_color);
 }
 /* Styling for the Pick-up Date Section */
-.date-picker-group {
+.date-picker-group{
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
@@ -1118,7 +1119,7 @@ main{
     color: var(--tertiary_color);
 }
 /* Customizing the actual Date Input */
-#order-form input[type="date"] {
+#order-form input[type="date"]{
     cursor: pointer;
     background-color: #fff;
     color: #333;
@@ -1131,7 +1132,7 @@ main{
 }
 
 /* Terms and Conditions Styling */
-.terms-container {
+.terms-container{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -1150,7 +1151,7 @@ main{
     cursor: pointer;
     accent-color: var(--tertiary_color); /* Colors the checkbox to match your brand */
 }
-.term-item label {
+.term-item label{
     font-size: 1.5rem;
     line-height: 1.4;
     cursor: pointer;
@@ -1239,7 +1240,7 @@ main{
     padding: 0 2rem;
 }
 .about-us-container .ourStoryText-container p{
-    font-size: 2rem;
+    font-size: 1.3rem;
     text-align: center;
 }
 .about-us-container .about-us-images-container{
@@ -1250,11 +1251,18 @@ main{
     flex-wrap: wrap;
     padding: .5rem;
 }
+.about-us-container .about-us-images-container .small-image-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 .about-us-container .about-us-images-container .about-us-image{
     border-radius: .5rem;
     background-color: var(--bg_image_color);
-    height: 25rem;
-    width: 25rem;
+    border: .1rem solid var(--shadow_color);
+    height: 26rem;
+    width: 20rem;
     margin: 1.5rem;
     box-shadow: .5rem .5rem .2rem var(--shadow_color);
     display: flex;
@@ -1274,16 +1282,18 @@ main{
 }
 .about-us-container .about-us-images-container #image1-small{   
     transform: rotate(-2deg);
+    background-image: url(images/misc/victoria-img.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .about-us-container .about-us-images-container #image2-small{   
     transform: rotate(2deg);
+    background-image: url(images/misc/valentina-img.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-.about-us-container .about-us-images-container #image3-large{   
-    height: 51.5rem;
-    margin-left: 0;
-    transform: rotate(1deg);
-}
-
 .contact-container{
     text-align: center;
     background-color: var(--tertiary_color);
@@ -1326,6 +1336,24 @@ main{
 
 /* --- Desktop Override --- */
 @media (min-width: 768px) {
+    /*--------------------------------- All Pages --------------------------------------------*/
+    .header_container .header .page_title h1{
+        margin-left: -1rem;
+    }
+    .header_container .page_navigation{
+        gap: 6rem;
+        margin-left: -6rem;
+    }
+
+    /*--------------------------------- Home Page --------------------------------------------*/
+    .all-reviews .reviews-container .review{
+        width: 45rem;
+    }
+    .all-reviews .reviews-container .review .stars{
+        margin-left: 74%;
+    }
+
+    /*--------------------------------- Baked Goods Page --------------------------------------------*/
     .all-goods_container .bago_display_deck_container .card_content .bago_display img{
         height: 35rem; /* Desktop height */
         width: 35rem;  /* Desktop width */
@@ -1345,5 +1373,56 @@ main{
 
     .product_purchase_actions .add_to_cart_btn{
         font-size: 1.1rem; /* Desktop Add to Cart Font */
+    }
+    .header_container .header .social_links_icons a{
+        margin-left: 2rem;
+    }
+    /*--------------------------------- About Us --------------------------------------------*/
+    .about-us-container .ourStoryText-container p{
+    font-size: 2rem;
+    }
+    .about-us-container .about-us-images-container .small-image-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 4rem 0;
+        align-items: center;
+        height: 45rem;
+    }
+    .about-us-container .about-us-images-container .about-us-image{
+        height: 25rem;
+        width: 25rem;
+    }
+    .about-us-container .about-us-images-container #image3-large{   
+        height: 51.5rem;
+    }
+
+
+    /*--------------------------------- Product View --------------------------------------------*/
+    .product-view-display .all-images .other-images{
+        position: relative;
+    }
+    .product-view-display .all-images .main-product-image{
+        height: 45rem;
+        width: 45rem;
+    }
+
+    /*--------------------------------- Order Requests --------------------------------------------*/
+    .cart-product-info img{
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    .cart-item-row .quantity_selector{
+        width: 130px; /* Specific width to fit the grid */
+    }
+    .cart-item-row .quantity_selector .quantity_btn{
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    .cart-item-row .quantity_selector .quantity_input{
+        font-size: 1.4rem;
+        width: 4rem;
     }
 }
