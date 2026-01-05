@@ -39,7 +39,7 @@ const productData = {
         title: "Rosemary Sourdough Focaccia",
         price: "$10.00",
         info: "Bubbly and airy with a chewy crumb, this naturally leavened sourdough focaccia is topped with fresh rosemary and extra-virgin olive oil. Ideal for dipping or enjoying all on its own",
-        ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Rosemary",
+        ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_white.png",
         ongoing: true
