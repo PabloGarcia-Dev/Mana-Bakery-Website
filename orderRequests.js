@@ -199,3 +199,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const orderForm = document.getElementById('order-form');
+
+    if (orderForm) {
+        orderForm.addEventListener('submit', () => {
+            // 1. Clear the specific cart key from localStorage
+            localStorage.removeItem('bakery_cart');
+
+            // 2. Small delay to ensure the form submission initiates before the refresh
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        });
+    }
+});
