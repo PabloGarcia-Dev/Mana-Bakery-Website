@@ -109,18 +109,25 @@ function displayCart() {
         summaryText += `${item.title} (x${item.quantity}), `;
     });
 
-    const grandTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
     cartHTML += `
         </div> 
         <div class="cart-total-footer">
             <div class="total-label">Total:</div>
-            <div class="total-amount">$${grandTotal.toFixed(2)}</div>
+            <div class="total-amount">$${orderTotal.toFixed(2)}</div>
         </div>
     `;
     
     container.innerHTML = cartHTML;
-    if(hiddenInput) hiddenInput.value = summaryText;
+    if(hiddenInput){
+        hiddenInput.value = summaryText;
+    }
+
+    const totalInput = document.getElementById('hidden-total-input');
+    if (totalInput) {
+        totalInput.value = `$${orderTotal.toFixed(2)}`;
+    }
 }
 
 // Global window functions so the HTML buttons can reach them
