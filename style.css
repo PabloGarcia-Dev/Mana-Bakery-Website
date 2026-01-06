@@ -43,12 +43,14 @@
     list-style: none;
 }
 html{
-    font-size: 62.5%; /*This is like a universal constant for 1px*/
-    /*overflow: hidden;                                                                                                    Change Later*/
+    font-size: 62.5%; /*This is like a universal constant for 1px*/                                                                                             
 }
 main{
     margin: 0 1rem; /* Reduced from 6rem to fit phone screens */
     margin-bottom: 6rem;
+}
+body{
+    height: fit-content;
 }
 /*--------------------------------------------- Header ---------------------------------------------*/
 .header_container{
@@ -74,12 +76,7 @@ main{
 .header_container .header .social_links_icons a:hover{
     color: var(--tertiary_color);
 }
-/*--------------------------------------------- Page Title ---------------------------------------------*/
-.header_container .header .page_title h1{
-    font-family: var(--sub_header_font);
-    font-size: clamp(16px, 3vw, 3rem);
-    margin-left: 6rem;
-}
+
 /*--------------------------------------------- Shopping Icons ---------------------------------------------*/
 .header_container .header .shopping_icons{
     width: 16rem;
@@ -307,15 +304,15 @@ main{
     font-weight: 500;
 }
 /*--------------------------------------------- Cookies of the Month Card ---------------------------------------------*/
-.bago_card_container {
+.bago_card_container{
     background-color: whitesmoke;
     border-top: .3rem solid var(--tertiary_color);
     border-bottom: .3rem solid var(--tertiary_color);
     padding: 1rem 0;
     overflow: hidden;
     display: flex;
-    width: 80%;
-    margin: 0 10%;
+    width: 90%;
+    margin: 0 auto;
 
     --fade-size: 7rem;
 
@@ -497,7 +494,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 8rem;
+    padding: 2rem 1rem;
     margin-bottom: 6rem;
     flex-wrap: wrap;
 }
@@ -508,7 +505,7 @@ main{
 .all-reviews .reviews-container .review{
     background-color: whitesmoke;
     box-shadow: .5rem .5rem .2rem var(--shadow_color);
-    width: 36rem;
+    width: 90vw;
     height: fit-content;
     margin:  0 auto 2rem auto;
     text-align: right;
@@ -1297,8 +1294,8 @@ main{
 .contact-container{
     text-align: center;
     background-color: var(--tertiary_color);
-    font-size: 2.5rem;
-    padding: 3rem 5rem;
+    font-size: 1.8rem;
+    padding: 3rem 2rem;
     width: fit-content;
     margin: 0 auto;
     margin-top: 3rem;
@@ -1337,9 +1334,6 @@ main{
 /* --- Desktop Override --- */
 @media (min-width: 768px) {
     /*--------------------------------- All Pages --------------------------------------------*/
-    .header_container .header .page_title h1{
-        margin-left: -1rem;
-    }
     .header_container .page_navigation{
         gap: 6rem;
         margin-left: -6rem;
@@ -1395,6 +1389,10 @@ main{
     }
     .about-us-container .about-us-images-container #image3-large{   
         height: 51.5rem;
+    }
+    .contact-container{
+        font-size: 2.5rem;
+        padding: 3rem 5rem;
     }
 
 
