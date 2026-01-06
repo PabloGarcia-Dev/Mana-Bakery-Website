@@ -30,7 +30,7 @@ const productData = {
         title: "Original Sourdough Bread",
         price: "$8.00",
         info: "Naturally leavened sourdough bread with a crisp, golden crust and a soft, chewy interior. Slow-fermented for deep, tangy flavor and perfect for slicing, toasting, or enjoying fresh",
-        ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt <br>Weight: 810g</br>",
+        ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 810g",
         mainImg: "../images/sourdough/original_sourdough_bg.png",
         secondImg: "../images/sourdough/original_sourdough_bg_white.png",
         ongoing: true
@@ -39,7 +39,7 @@ const productData = {
         title: "Rosemary Sourdough Focaccia",
         price: "$10.00",
         info: "Bubbly and airy with a chewy crumb, this naturally leavened sourdough focaccia is topped with fresh rosemary and extra-virgin olive oil. Ideal for dipping or enjoying all on its own",
-        ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary<br>Weight: 611g</br>",
+        ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary. Weight: 611g",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_white.png",
         ongoing: true
