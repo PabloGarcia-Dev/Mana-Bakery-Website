@@ -28,6 +28,7 @@
     --header_font: 'Dancing Script', Lobster;
     --sub_header_font: 'Dosis';
     --text_font: 'Dosis';
+    color-scheme: only light;
 }
 *{
     margin: 0;
