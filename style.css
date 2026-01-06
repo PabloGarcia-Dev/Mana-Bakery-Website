@@ -497,6 +497,7 @@ body{
     padding: 2rem 1rem;
     margin-bottom: 6rem;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 .all-reviews .reviews-container{
     width: 60rem;
@@ -1294,8 +1295,8 @@ body{
 .contact-container{
     text-align: center;
     background-color: var(--tertiary_color);
-    font-size: 1.8rem;
-    padding: 3rem 2rem;
+    font-size: 1.4rem;
+    padding: 2rem 1rem;
     width: fit-content;
     margin: 0 auto;
     margin-top: 3rem;
