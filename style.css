@@ -189,6 +189,7 @@ body{
     padding: 1.5rem;
     border-radius: 4px;
     transition: background-color 0.3s;
+    margin-bottom: 2rem;
 }
 
 .cart-sidebar-footer .checkout-btn:hover {
@@ -249,11 +250,11 @@ body{
     align-items: center;
     border-top: .1rem solid #c1923c;
     padding: 0 2rem;
-    margin-left: -2.5rem;
+    margin-left: -2rem;
 }
 .header_container .page_navigation a{
     font-family: var(--header_font);
-    font-size: clamp(20px, 5vw, 4rem);
+    font-size: clamp(22px, 5vw, 4rem);
     color: var(--tertiary_color);
     font-weight: 700;
     padding: 0.7rem 1rem;
@@ -1340,7 +1341,7 @@ body{
     /*--------------------------------- All Pages --------------------------------------------*/
     .header_container .page_navigation{
         gap: 6rem;
-        margin-left: -6rem;
+        margin-left: -5.5rem;
     }
     .footer .logo-info img{
         height: 12rem;
@@ -1435,5 +1436,9 @@ body{
     .cart-item-row .quantity_selector .quantity_input{
         font-size: 1.4rem;
         width: 4rem;
+    }
+
+    .cart-sidebar-footer .checkout-btn {
+        margin-bottom: 0;
     }
 }
