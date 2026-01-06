@@ -1374,7 +1374,7 @@ body{
     }
     /*--------------------------------- About Us --------------------------------------------*/
     .about-us-container .ourStoryText-container p{
-    font-size: 2rem;
+    font-size: 1.7rem;
     }
     .about-us-container .about-us-images-container .small-image-container{
         display: flex;
