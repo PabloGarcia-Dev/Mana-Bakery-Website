@@ -52,6 +52,7 @@ main{
 }
 body{
     height: fit-content;
+    background-color: white;
 }
 /*--------------------------------------------- Header ---------------------------------------------*/
 .header_container{
