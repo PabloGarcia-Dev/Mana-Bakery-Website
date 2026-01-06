@@ -276,7 +276,7 @@ body{
 .header_container .page_navigation a img{
     height: 16rem;
     width: 14rem;
-    border: .8rem outset #6E4555;
+    border: .4rem outset #6E4555;
     box-shadow: .2rem .4rem .3rem #4d303b, -.2rem -.4rem .3rem #4d303b;
     border-radius: 50%;
     background-color: var(--bg_image_color);
