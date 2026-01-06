@@ -1373,8 +1373,11 @@ body{
         margin-left: 2rem;
     }
     /*--------------------------------- About Us --------------------------------------------*/
+    .about-us-container{
+    width: fit-content;
+    }
     .about-us-container .ourStoryText-container p{
-    font-size: 1.7rem;
+    font-size: 1.73rem;
     }
     .about-us-container .about-us-images-container .small-image-container{
         display: flex;
