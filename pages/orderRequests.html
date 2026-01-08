@@ -57,6 +57,19 @@
                         <input type="date" id="pickup-date" name="Pick-up Date" required>
                     </div>
 
+                    <div class="date-picker-group pick-up_time">
+                        <label for="pickup-date">Preferred Pick-up Time</label>
+                        <select id="pickup-time" name="Pick-up Time" required>
+                            <option value="" disabled selected hidden>-- Choose a Pick-up Option! --</option>
+                            <option value="12:00pm - 1:00pm">12:00pm - 1:00pm</option>
+                            <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
+                            <option value="2:00pm - 3:00pm">2:00pm - 3:00pm</option>
+                            <option value="3:00pm - 4:00pm">3:00pm - 4:00pm</option>
+                            <option value="4:00pm - 5:00pm">4:00pm - 5:00pm</option>
+                            <option value="5:00pm - 6:00pm">5:00pm - 6:00pm</option>
+                        </select>
+                    </div>
+
                     <label for="term-item" id="terms-and-conditions-title">Terms and Conditions</label>
                     <div class="term-item">
                         <input type="checkbox" name="Terms and Conditions" id="cancellations" required>
@@ -82,6 +95,17 @@
 
                 <input type="hidden" name="Order Total" id="hidden-total-input">
             </div>
+
+            <div class="comments">
+                <div class="instructions-check">
+                    <input type="checkbox" id="toggle-instructions" name="Comments/Special Instructions">
+                    <label class="checkbox-container">Any comments or Special Instructions?</label>
+                </div>
+                
+                <div id="instructions-box" style="display: none; margin-top: 10px;">
+                    <textarea id="comments-box" name="Special Instructions" placeholder="Small custom messages with the order, comments, suggestions, etc."></textarea>
+                </div>
+            </div>
             
             <input type="hidden" name="Purchased Products" id="hidden-cart-input">
 
@@ -94,10 +118,10 @@
             </div>
 
             <div class="message">
-                <p><b>By submitting, you are requesting an order</b>. We will contact you with order and pick-up confirmation once we receive your payment!</p>
+                <p><b>By submitting, you are requesting an order</b>. We will contact you with your order confirmation once we receive your payment!</p>
             </div>
             
-            <button type="submit" class="add_to_cart_btn">Submit Order Request</button>
+            <button type="submit" class="submit_btn">Submit Order Request</button>
         </form>
     </main>
     <footer class="footer">

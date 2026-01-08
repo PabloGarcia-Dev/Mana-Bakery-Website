@@ -1,7 +1,7 @@
 function displayCart() {
     const container = document.getElementById('cart-items-container');
     const alertBox = document.getElementById('min-order-alert'); // Found in orderRequests.html
-    const submitBtn = document.querySelector('#order-form .add_to_cart_btn');
+    const submitBtn = document.querySelector('#order-form .submit_btn');
     const dateInput = document.getElementById('pickup-date');
     
     if(!container) return; // Guard
@@ -211,7 +211,23 @@ document.addEventListener('DOMContentLoaded', () => {
             // 2. Small delay to ensure the form submission initiates before the refresh
             setTimeout(() => {
                 window.location.reload();
-            }, 700);
+            }, 1000);
         });
+    }
+});
+
+const checkbox = document.getElementById('toggle-instructions');
+const instructionsBox = document.getElementById('instructions-box');
+
+checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        instructionsBox.style.display = 'block';
+        // Optional: Make the textarea required only when visible
+        document.getElementById('comments').setAttribute('required', '');
+    } else {
+        instructionsBox.style.display = 'none';
+        document.getElementById('comments').removeAttribute('required');
+        // Clear the text if they uncheck it
+        document.getElementById('comments').value = '';
     }
 });

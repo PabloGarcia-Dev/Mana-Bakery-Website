@@ -189,7 +189,7 @@ body{
     padding: 1.5rem;
     border-radius: 4px;
     transition: background-color 0.3s;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 }
 
 .cart-sidebar-footer .checkout-btn:hover {
@@ -1017,6 +1017,9 @@ body{
 .trash-btn:hover{
     color: #ff4d4d;
 }
+#cart-items-container{
+    margin: 0 2rem 0 2rem;
+}
 /*---------------------- Final Total -----------------------------*/
 /* Container for the final total row */
 .cart-total-footer{
@@ -1083,24 +1086,6 @@ body{
     background-color: #fffafb; /* Slight tint when clicking box */
 }
 
-/* Response Message text size */
-.message p{
-    font-size: 1.6rem;
-    line-height: 1.6;
-    padding: 1rem;
-}
-
-/* Submit Button size */
-#order-form .add_to_cart_btn{
-    font-size: 2rem;
-    padding: 1.8rem;
-    border-radius: 4px;
-}
-#order-form .add_to_cart_btn:hover{
-    transform: scale(1.05);
-    color: whitesmoke;
-    background-color: var(--tertiary_color);
-}
 /* Styling for the Pick-up Date Section */
 .date-picker-group{
     margin-bottom: 2rem;
@@ -1113,6 +1098,17 @@ body{
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--tertiary_color);
+}
+
+.pick-up_time select{
+    border: .1rem solid var(--shadow_color);
+    padding: 1.8rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.pick-up_time select:hover{
+    border-color: var(--tertiary_color);
+    background-color: #fffafb;
 }
 
 .terms-container #terms-and-conditions-title{
@@ -1164,6 +1160,34 @@ body{
     color: var(--tertiary_color);
 }
 
+.comments{
+    margin-top: 1.8rem;
+    font-family: Dosis;
+    font-weight: bold;
+    color: var(--tertiary_color);
+}
+.comments .instructions-check input[type="checkbox"]{
+    width: 2rem !important;
+    height: 2rem !important;
+    cursor: pointer;
+}
+.comments label{
+    font-size: 1.8rem;
+}
+.comments .instructions-check{
+    display: flex;
+    gap: 1rem;
+}
+#comments-box{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    resize: vertical; /* Allows users to expand the box if needed */
+    text-transform: none;
+}
+
 .payment-info{
     background-color: #f9f9f9;
     padding: 2rem;
@@ -1205,6 +1229,25 @@ body{
 }
 .payment-info b{
     border-bottom: .1rem solid black;
+}
+
+/* Response Message text size */
+.message p{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+/* Submit Button size */
+#order-form .submit_btn{
+    font-size: 2rem;
+    padding: 1.8rem;
+    border-radius: 4px;
+}
+#order-form .submit_btn:hover{
+    transform: scale(1.05);
+    color: whitesmoke;
+    background-color: var(--tertiary_color);
 }
 /*----------------------------------------------------------------------------------------------- About Us -----------------------------------------------------------------------------------------------*/
 .about-us-container{
@@ -1440,5 +1483,8 @@ body{
 
     .cart-sidebar-footer .checkout-btn {
         margin-bottom: 0;
+    }
+    #cart-items-container{
+        margin: 0 3rem 0 3rem;
     }
 }
