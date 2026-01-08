@@ -1017,9 +1017,6 @@ body{
 .trash-btn:hover{
     color: #ff4d4d;
 }
-#cart-items-container{
-    margin: 0 2rem 0 2rem;
-}
 /*---------------------- Final Total -----------------------------*/
 /* Container for the final total row */
 .cart-total-footer{
