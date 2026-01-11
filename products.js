@@ -44,7 +44,7 @@ const productData = {
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_white.png",
         ongoing: true
     },
-    "orgegano-garlic-focaccia_sourdough":{
+    "oregano-garlic-focaccia_sourdough":{
         title: "Oregano-Garlic Sourdough Focaccia",
         price: "$10.00",
         info: "Naturally fermented sourdough focaccia made with fresh oregano, garlic powder, and olive oil. Light, airy, and full of flavor, this focaccia pairs beautifully with soups, salads, dips, or enjoyed on its own",
