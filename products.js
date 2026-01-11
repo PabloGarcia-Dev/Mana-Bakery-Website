@@ -44,6 +44,15 @@ const productData = {
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_white.png",
         ongoing: true
     },
+    "orgegano-garlic-focaccia_sourdough":{
+        title: "Oregano-Garlic Sourdough Focaccia",
+        price: "$10.00",
+        info: "Naturally fermented sourdough focaccia made with fresh oregano, garlic powder, and olive oil. Light, airy, and full of flavor, this focaccia pairs beautifully with soups, salads, dips, or enjoyed on its own",
+        ingredients: "Ingredients: Bread Flour, Water, Sourdough Starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Extra Virgin Olive Oil, Fresh Oregano, Garlic Powder, Sea Salt (for topping). Weight: 611g",
+        mainImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_bg.png",
+        secondImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_og_bg.jpeg",
+        ongoing: true
+    },
     "dinner-rolls_sourdough":{
         title: "Sourdough Dinner Rolls",
         price: "$10.00",
