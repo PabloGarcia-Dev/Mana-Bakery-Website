@@ -79,7 +79,7 @@ const productData = {
     "cookies-and-cream_cookie":{
         title: "Cookies & Cream Cookie",
         price: "$5.50",
-        info: "White and chocolate chip cookie mixed with oreo bits, filled with cookies and cream spread, topped with a Hershey's mini square, white chocolate bark drizzle, Oreo half, and crushed Oreo. Weight: 170g",
+        info: "White and chocolate chip cookie mixed with oreo bits, filled with cookies and cream spread, topped with a Hershey's mini square, white chocolate bark drizzle, Oreo half, and crushed Oreo",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 170g",
         ongoingProductImg: "../images/cookies/cookies-&-cream_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/cookies-&-cream_cookie_bg_seasoned.png",
@@ -92,7 +92,7 @@ const productData = {
     "dubai-chocolate_cookie":{
         title: "Dubai Chocolate Cookie",
         price: "$5.50",
-        info: "Chocolate chip cookie, filled with pistachio spread and crispy Kataifi, topped with Nutella, Kataifi, pistachios, and pistachio shavings. Weight: 170g",
+        info: "Chocolate chip cookie, filled with pistachio spread and crispy Kataifi, topped with Nutella, Kataifi, pistachios, and pistachio shavings",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 170g",
         ongoingProductImg: "../images/cookies/dubai-choco_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/dubai-choco_cookie_bg_seasoned.png",
@@ -105,7 +105,7 @@ const productData = {
     "ghirardelli-chocolate-caramel_cookie":{
         title: "Ghirardelli Chocolate-Caramel Cookie",
         price: "$5.50",
-        info: "Chocolate chip cookie mixed with caramel bits, filled with Nutella and a Ghirardelli triangle, topped with chocolate bark drizzle and a Ghirardelli triangle. Weight: 170g",
+        info: "Chocolate chip cookie mixed with caramel bits, filled with Nutella and a Ghirardelli triangle, topped with chocolate bark drizzle and a Ghirardelli triangle",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 170g",
         ongoingProductImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_seasoned.png",
@@ -131,7 +131,7 @@ const productData = {
     "kinder-bueno_cookie":{
         title: "Kinder Bueno Cookie",
         price: "$5.50",
-        info: "White and milk chocolate chip cookie mixed with Bueno squares, filled with white chocolate hazelnut spread, topped with Bueno squares and white chocolate hazelnut drizzle. Weight: 170g",
+        info: "White and milk chocolate chip cookie mixed with Bueno squares, filled with white chocolate hazelnut spread, topped with Bueno squares and white chocolate hazelnut drizzle",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 170g",
         ongoingProductImg: "../images/cookies/kinder-bueno_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/kinder-bueno_cookie_bg_seasoned.png",
@@ -144,8 +144,8 @@ const productData = {
     "winter-hot-cocoa_cookie":{
         title: "Winter Hot Cocoa",
         price: "$5.50",
-        info: "Chocolate cookie with chocolate chips, filled with marshmallow fluff, topped with a giant marshmallow and a dash of cinnamon. Weight: 170g",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
+        info: "Chocolate cookie with chocolate chips, filled with marshmallow fluff, topped with a giant marshmallow and a dash of cinnamon",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 170g",
         ongoingProductImg: "../images/cookies/winter-hot-cocoa_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/winter-hot-cocoa_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/winter-hot-cocoa_cookie_bg_white.png",
