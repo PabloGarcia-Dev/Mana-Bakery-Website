@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Setup the Observer options
     const observerOptions = {
-        threshold: 0.15, // Trigger when 15% of the review is visible
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
     };
 
@@ -67,3 +67,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviews = document.querySelectorAll('.review');
     reviews.forEach((el) => observer.observe(el));
 });
+
+// Function for the endless cycle in Home Page
+function renderNewProducts() {
+    const scrollContainer = document.querySelector('.bago_card_box');
+    if (!scrollContainer) return;
+
+    // Filter products where 'new' is true and 'ongoing' is true (to ensure they are purchasable)
+    // Convert the object to an array to filter it
+    const newProducts = Object.entries(productData).filter(([id, product]) => {
+        return product.new === true;
+    });
+
+    // Generate the HTML for each card
+    let htmlContent = "";
+    newProducts.forEach(([id, product]) => {
+        htmlContent += `
+            <li class="bago_card">
+                <h3 class="bago_card_title">${product.title}</h3>
+                <a href="pages/productView.html?id=${id}" title="Go to Product View">
+                    <img class="bago_card_image" src="${product.mainImg.replace('../', '')}" alt="Image of ${product.title}">
+                </a>
+                <p class="bago_card_description">${product.info}</p>
+            </li>
+        `;
+    });
+
+    // Inject the items into the container
+    scrollContainer.innerHTML = htmlContent;
+
+    // Infinite Loop Logic: Clone the contents so it scrolls seamlessly
+    // Only clone if there are actually items to scroll
+    if (newProducts.length > 0) {
+        scrollContainer.innerHTML += scrollContainer.innerHTML;
+    }
+}
+
+// Run the function when the page loads
+document.addEventListener('DOMContentLoaded', renderNewProducts);

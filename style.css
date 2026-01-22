@@ -235,7 +235,7 @@ body{
     background-color: #7A9E7E;
     height: 35rem;
     width: 100%;
-    background-image: url(images/banner/Mana-banner_v5.png);
+    background-image: url(images/banner/Mana-banner_Valentines_Day.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -342,7 +342,7 @@ body{
     width: fit-content;
 
     /* Calculate animation duration based on content length */
-    animation: horizontal-scroll 50s linear infinite;
+    animation: horizontal-scroll 80s linear infinite;
 }
 .bago_card_container .bago_card_box:hover{
   animation-play-state: paused; /* Pause the animation on hover */
@@ -666,6 +666,12 @@ body{
     color: whitesmoke;
     font-family: 'Dancing Script';
 }
+/*------------------------------------------------------------------------------------------------ Holiday Special Title ----------------------------------------------------------------------------*/
+#holiday-specials-title{
+    background-color: rgb(232, 142, 192);
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 .all-goods_container .bago_display_deck_container .container_sub_title{
     font-size: clamp(22px, 3vw, 3rem);
     margin: 0 4rem;
@@ -832,6 +838,23 @@ body{
 .product-view-display .product_info_container .product_price{
     font-size: 2.5rem;
 }
+.size-dropdown{
+    padding: 8px;
+    font-size: 1.7rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    margin-top: 10px;
+    width: 15rem;
+    max-width: 300px;
+    cursor: pointer;
+}
+#size-selection-container label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
 .product-view-display .product_info_container .product_info{
     font-size: 1.6rem;
     padding-bottom: 2rem;

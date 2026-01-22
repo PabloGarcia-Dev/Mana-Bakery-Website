@@ -16,7 +16,24 @@ function addToCart(productId, quantity){
     const product = productData[productId];
     if(!product) return;
 
-    const existingItem = cart.find(item => item.id === productId);
+    let finalPrice;
+    let displayTitle = product.title;
+
+    // Logic for Cookie Cakes with multiple sizes
+    if (product.sizes) {
+        const sizeSelect = document.getElementById('size-select');
+        const selectedIndex = sizeSelect ? sizeSelect.value : 0;
+        const selectedSize = product.sizes[selectedIndex];
+        
+        finalPrice = selectedSize.price;
+        displayTitle += ` (${selectedSize.label})`;
+    } else {
+        // Standard logic for breads and single cookies
+        finalPrice = parseFloat(product.price.replace('$', ''));
+    }
+
+    // Check if THIS specific version (size) is already in the cart
+    const existingItem = cart.find(item => item.title === displayTitle);
 
     if(existingItem){
         existingItem.quantity += quantity;
@@ -24,8 +41,8 @@ function addToCart(productId, quantity){
     else{
         cart.push({
             id: productId,
-            title: product.title,
-            price: parseFloat(product.price.replace('$', '')),
+            title: displayTitle, // Includes the size label for cookie cakes
+            price: finalPrice,
             image: product.mainImg,
             quantity: quantity
         });
@@ -33,7 +50,7 @@ function addToCart(productId, quantity){
 
     localStorage.setItem('bakery_cart', JSON.stringify(cart));
     updateCartUI();
-    toggleCart(); // Open the sidebar automatically when an item is added
+    toggleCart(); 
 }
 
 // Remove from Cart

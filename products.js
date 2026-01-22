@@ -4,22 +4,24 @@
         price: "$Product-price",
         info: "Product-description",
         ingredients: "Ingredients: Product-Ingredients",
-        mainImg: "Main-product-image"
+        mainImg: "Main-product-image",
         secondImg: "Second-product-image",
-        ongoing: true or false
+        ongoing: true or false,
+        new: true or false
     },
     "product-id-cookies":{
         title: "Product-title",
         price: "$Product-price",
         info: "Product-description",
-        ingredients: "Ingredients: Product-Ingredients",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
         ongoingProductImg: "Main-ongoing-product-image",
         seasonedProductImg: "Main-seasoned-product-image",
         secondImg: "Second-product-image",
         ongoing: true or false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: true or false
     },
     */
 
@@ -33,7 +35,8 @@ const productData = {
         ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 810g",
         mainImg: "../images/sourdough/original_sourdough_bg.png",
         secondImg: "../images/sourdough/original_sourdough_bg_white.png",
-        ongoing: true
+        ongoing: true,
+        new: false
     },
     "rosemary-focaccia_sourdough":{
         title: "Rosemary Sourdough Focaccia",
@@ -42,7 +45,8 @@ const productData = {
         ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary. Weight: 611g",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_white.png",
-        ongoing: true
+        ongoing: true,
+        new: false
     },
     "oregano-garlic-focaccia_sourdough":{
         title: "Oregano-Garlic Sourdough Focaccia",
@@ -51,7 +55,8 @@ const productData = {
         ingredients: "Ingredients: Bread Flour, Water, Sourdough Starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Extra Virgin Olive Oil, Fresh Oregano, Garlic Powder, Sea Salt (for topping). Weight: 611g",
         mainImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_bg.png",
         secondImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_og_bg.png",
-        ongoing: true
+        ongoing: true,
+        new: false
     },
     "dinner-rolls_sourdough":{
         title: "Sourdough Dinner Rolls",
@@ -60,37 +65,96 @@ const productData = {
         ingredients: "Ingredients: Ingredients: Bread flour, All purpose flour, Milk, Sourdough starter (Bread flour, All purpose Flour, Water), Sugar, Unsalted butter, Pink Himalayan salt, Egg",
         mainImg: "../images/sourdough/dinner-rolls_sourdough_bg.png",
         secondImg: "../images/sourdough/dinner-rolls_sourdough_bg_white.png",
-        ongoing: true
+        ongoing: true,
+        new: false
     },
     //----------- Cookies -------------
-    "chocolate-chip_cookie":{
-        title: "Chocolate Chip Cookie",
-        price: "$4.00",
-        info: "Chocolate chip cookie topped with sea salt",
+    "red-velvet_cookie":{
+        title: "Red Velvet Cookie",
+        price: "$5.00",
+        info: "Red velvet cookie with white chocolate chips, filled with white chocolate",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
-        ongoingProductImg: "../images/cookies/chocolate-chip_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/chocolate-chip_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/chocolate-chip_cookie_rbg-1.jpeg",
+        ongoingProductImg: "../images/cookies/red-velvet_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/red-velvet_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/red-velvet_cookie_bg.png",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: true
     },
-    "cookies-and-cream_cookie":{
-        title: "Cookies & Cream Cookie",
+    "ferrero-kisses_cookie":{
+        title: "Ferrero Kisses Cookie",
+        price: "$6.00",
+        info: "Chocolate cookie with chocolate chips, filled with Nutella and a Ferrero Rocher, topped with half a Ferrero, chocolate drizzle, and macadamia shavings",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/ferrero-kisses_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/ferrero-kisses_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/ferrero-kisses_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "neapolitan-ice-cream_cookie":{
+        title: "Neapolitan Ice Cream Cookie",
         price: "$5.50",
-        info: "White and chocolate chip cookie mixed with oreo bits, filled with cookies and cream spread, topped with a Hershey's mini square, white chocolate bark drizzle, Oreo half, and crushed Oreo",
+        info: "Vanilla cookie with chocolate chips, filled with white and strawberry chocolate spreads, topped with a mini chocolate cone and peanuts",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
-        ongoingProductImg: "../images/cookies/cookies-&-cream_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/cookies-&-cream_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/cookies-&-cream_cookie_bg_white.png",
+        ongoingProductImg: "../images/cookies/neapolitan-ice-cream_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/neapolitan-ice-cream_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/neapolitan-ice-cream_cookie_bg.png",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: true
     },
-    "dubai-chocolate_cookie":{
-        title: "Dubai Chocolate Cookie",
+    "love-and-lotus_cookie":{
+        title: "Love and Lotus Cookie",
+        price: "$5.50",
+        info: "Vanilla cookie with white chocolate chips and Lotus cookie chunks, filled with Biscoff cookie butter, topped with a Biscoff cookie and Lotus cookie butter drizzle",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/love-and-lotus_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/love-and-lotus_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/love-and-lotus_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "sweetheart-monster_cookie":{
+        title: "Sweetheart Monster Cookie",
+        price: "$5.00",
+        info: "Vanilla cookie with chocolate chips, mixed with Oreos and Chips Ahoy, filled with an Oreo, topped with candy eyes and half an Oreo",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/sweetheart-monster_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/sweetheart-monster_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/sweetheart-monster_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "nutella-M-and-M_cookie":{
+        title: "Nutella M&M Cookie",
+        price: "$5.00",
+        info: "M&M cookie filled with nutella",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/nutella-M-and-M_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/nutella-M-and-M_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/nutella-M-and-M_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "dubai-choco_cookie":{
+        title: "Dubai Valentine Cookie", /*Change back after Febuary (Currently Valentine's Day Themed Name)*/
         price: "$5.50",
         info: "Chocolate chip cookie, filled with pistachio spread and crispy Kataifi, topped with Nutella, Kataifi, pistachios, and pistachio shavings",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
@@ -100,7 +164,64 @@ const productData = {
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: true
+    },
+    "heart-chocolate-chip_cookie":{
+        title: "Heart Chocolate Chip Cookie",
+        price: "$4.00",
+        info: "Chocolate chip cookie topped with sea salt",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/heart-chocolate-chip_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/heart-chocolate-chip_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/heart-chocolate-chip_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "cupids-tiramisu_cookie":{
+        title: "Cupid's Tiramisu Cookie",
+        price: "$5.00",
+        info: "Vanilla cookie with white and chocolate chips, filled with a ladyfinger square and tiramisu spread, topped with white chocolate and cocoa powder",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/cupids-tiramisu_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/cupids-tiramisu_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/cupids-tiramisu_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "chocolate-chip_cookie":{
+        title: "Chocolate Chip Cookie",
+        price: "$4.00",
+        info: "Chocolate chip cookie topped with sea salt",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/chocolate-chip_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/chocolate-chip_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/chocolate-chip_cookie_rbg-1.jpeg",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "cookies-and-cream_cookie":{
+        title: "Cookies & Cream Cookie",
+        price: "$5.50",
+        info: "White and chocolate chip cookie mixed with oreo bits, filled with cookies and cream spread, topped with a Hershey's mini square, white chocolate bark drizzle, Oreo half, and crushed Oreo",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/cookies-&-cream_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/cookies-&-cream_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/cookies-&-cream_cookie_bg_white.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
     },
     "ghirardelli-chocolate-caramel_cookie":{
         title: "Ghirardelli Chocolate-Caramel Cookie",
@@ -110,10 +231,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_white.png",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "guava-dulce-de-leche_cookie":{
         title: "Guava-Dulce de Leche Cookie",
@@ -123,10 +245,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_white.png",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "kinder-bueno_cookie":{
         title: "Kinder Bueno Cookie",
@@ -136,10 +259,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/kinder-bueno_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/kinder-bueno_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/kinder-bueno_cookie_bg_white.png",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "winter-hot-cocoa_cookie":{
         title: "Winter Hot Cocoa",
@@ -149,10 +273,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/winter-hot-cocoa_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/winter-hot-cocoa_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/winter-hot-cocoa_cookie_bg_white.png",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "nutella-pirulin_cookie":{
         title: "Nutella-Pirulin Cookie",
@@ -162,10 +287,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/nutella-pirulin_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/nutella-pirulin_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/nutella-pirulin_cookie_bg_white.png",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "circus-animal_cookie":{
         title: "Circus Animal Cookie",
@@ -178,7 +304,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "cookie-monster_cookie":{
         title: "Cookie Monster Cookie",
@@ -191,7 +318,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "ferrero-rocher_cookie":{
         title: "Ferrero Rocher Cookie",
@@ -204,7 +332,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "holiday-half-dipped_cookie":{
         title: "Holiday Half-Dipped Cookie",
@@ -217,7 +346,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "holiday-M-and-M_cookie":{
         title: "Holiday M&M Cookie",
@@ -230,7 +360,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "lotus-biscoff_cookie":{
         title: "Lotus-Biscoff Cookie",
@@ -243,7 +374,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "M-and-M_cookie":{
         title: "M&M Cookie",
@@ -256,7 +388,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "Mr-Grinch_cookie":{
         title: "Mr. Grinch Cookie",
@@ -269,7 +402,8 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
+        },
+        new: false
     },
     "s-mores_cookie":{
         title: "S'Mores Cookie",
@@ -282,8 +416,51 @@ const productData = {
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        }
-    }
+        },
+        new: false
+    },
+    "happy-valentines-day_cookie-cake":{
+        title: "Happy Valentine's Day Cookie Cake",
+        sizes:[
+            { label: "Small (210g)", price: 9.00 },
+            { label: "Medium (420g)", price: 18.00 },
+            { label: "Large (770g)", price: 27.00 }
+        ],
+        info: "Buttercream border, chocolate letters, chocolate roses",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
+        mainImg: "../images/seasonalProducts/happy-valentines-day_cookie-cake.png",
+        secondImg: "../images/seasonalProducts/Cookie-Cakes_bg.jpg",
+        ongoing: true,
+        new: false
+    },
+    "happy-vday_cookie-cake":{
+        title: "Happy V-Day Cookie Cake",
+        sizes:[
+            { label: "Small (210g)", price: 9.00 },
+            { label: "Medium (420g)", price: 18.00 },
+            { label: "Large (770g)", price: 27.00 }
+        ],
+        info: "Buttercream border, Nutella coating, sprinkle topping, chocolate letters",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
+        mainImg: "../images/seasonalProducts/happy-vday_cookie-cake.png",
+        secondImg: "../images/seasonalProducts/Cookie-Cakes_bg.jpg",
+        ongoing: true,
+        new: false
+    },
+    "xoxo_cookie-cake":{
+        title: "XOXO Cookie Cake",
+        sizes:[
+            { label: "Small (210g)", price: 9.00 },
+            { label: "Medium (420g)", price: 18.00 },
+            { label: "Large (770g)", price: 27.00 }
+        ],
+        info: "Sprinkle border, Nutella coating, chocolate letters",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
+        mainImg: "../images/seasonalProducts/xoxo_cookie-cake.png",
+        secondImg: "../images/seasonalProducts/Cookie-Cakes_bg.jpg",
+        ongoing: true,
+        new: false
+    },
 };
 
 // Function to open the page content
@@ -295,6 +472,8 @@ function loadProductDetails(){
     // If the ID exists in our data, update the page
     if(productId && productData[productId]){
         const item = productData[productId];
+        const priceElement = document.querySelector('.product_price');
+        const sizeContainer = document.querySelector('#size-selection-container');
 
         // Update Information
         document.querySelector('.product_title').textContent = item.title;
@@ -302,6 +481,31 @@ function loadProductDetails(){
         document.querySelector('.ingredients').textContent = item.ingredients;
         if(item.ongoing){
             document.querySelector('.product_price').textContent = item.price;
+        }
+        // Logic for Multi-size products (Cookie Cakes)
+        if (item.sizes) {
+            let selectHTML = `<label for="size-select">Select Size: </label>`;
+            selectHTML += `<select id="size-select" class="size-dropdown">`;
+            
+            item.sizes.forEach((size, index) => {
+                selectHTML += `<option value="${index}">${size.label}</option>`;
+            });
+            selectHTML += `</select>`;
+            
+            sizeContainer.innerHTML = selectHTML;
+
+            // Set initial price
+            priceElement.textContent = `$${item.sizes[0].price.toFixed(2)}`;
+
+            // Add event listener to change price
+            document.getElementById('size-select').addEventListener('change', (e) => {
+                const selectedIndex = e.target.value;
+                priceElement.textContent = `$${item.sizes[selectedIndex].price.toFixed(2)}`;
+            });
+        } else {
+            // Standard price logic for breads/cookies
+            priceElement.textContent = item.price;
+            sizeContainer.innerHTML = ''; // Clear if not a cake
         }
 
         // Update the image
@@ -329,6 +533,8 @@ function loadProductDetails(){
                 mainImgDiv.style.backgroundImage = newImgUrl;
             });
         });
+
+        // Logic for the sizes
     }
     else{
         console.error("Product not found or no ID provided in URL.");

@@ -44,48 +44,6 @@
     <div class="bago_card_container">
         <!--'bago' stands for 'Baked Goods'-->
         <ul class="bago_card_box">
-            <li class="bago_card">
-                <h3 class="bago_card_title">Guava-Dulce de Leche</h3>
-                <a href="pages/productView.html?id=guava-dulce-de-leche_cookie" title="Go to Product View">
-                    <img class="bago_card_image" id="bago_card_1" src="images/cookies/guava-dulce-de-leche_cookie_bg_ongoing.png" alt="Image of Guava-Dulce de Leche Cookie">
-                </a>
-                <p class="bago_card_description">White chocolate chip cookie, filled with dulce de leche and guava paste, topped with a guava paste chunk</p>
-            </li>
-            <li class="bago_card">
-                <h3 class="bago_card_title">Winter Hot Cocoa</h3>
-                <a href="pages/productView.html?id=winter-hot-cocoa_cookie" title="Go to Product View">
-                    <img class="bago_card_image" id="bago_card_2" src="images/cookies/winter-hot-cocoa_cookie_bg_ongoing.png" alt="Image of Winter Hot Coco Cookie">
-                </a>
-                <p class="bago_card_description">Chocolate cookie with chocolate chips, filled with marshmallow fluff, topped with a giant marshmallow and a dash of cinnamon</p>
-            </li>
-            <li class="bago_card">
-                <h3 class="bago_card_title">Ghirardelli Chocolate Caramel</h3>
-                <a href="pages/productView.html?id=ghirardelli-chocolate-caramel_cookie" title="Go to Product View">
-                    <img class="bago_card_image" id="bago_card_3" src="images/cookies/ghirardelli_choco-caramel_cookie_bg_ongoing.png" alt="Image of Ghirardeli Chocolate-Carmel Cookie">
-                </a>
-                <p class="bago_card_description">Chocolate chip cookie mixed with caramel bits, filled with Nutella and a Ghirardelli triangle, topped with chocolate bark drizzle and a Ghirardelli triangle</p>
-            </li>
-            <li class="bago_card">
-                <h3 class="bago_card_title">Kinder Bueno</h3>
-                <a href="pages/productView.html?id=kinder-bueno_cookie" title="Go to Product View">
-                    <img class="bago_card_image" id="bago_card_4" src="images/cookies/kinder-bueno_cookie_bg_ongoing.png" alt="Image of Kinder Bueno Cookie">
-                </a>
-                <p class="bago_card_description">White and milk chocolate chip cookie mixed with Bueno squares, filled with white chocolate hazelnut spread, topped with Bueno squares and white chocolate hazelnut drizzle</p>
-            </li>
-            <li class="bago_card">
-                <h3 class="bago_card_title">Nutella-Pirulin</h3>
-                <a href="pages/productView.html?id=nutella-pirulin_cookie" title="Go to Product View">
-                    <img class="bago_card_image" id="bago_card_5" src="images/cookies/nutella-pirulin_cookie_bg_ongoing.png" alt="Image of Nutella Pirulin Cookie">
-                </a>
-                <p class="bago_card_description">Chocolate chip cookie mixed with pirulin bits, filled with nutella and pirulin pieces, topped with pirulin wafers</p>
-            </li>
-            <li class="bago_card">
-                <h3 class="bago_card_title">Cookies & Cream</h3>
-                <a href="pages/productView.html?id=cookies-and-cream_cookie" title="Go to Product View">
-                    <img class="bago_card_image" id="bago_card_6" src="images/cookies/cookies-&-cream_cookie_bg_ongoing.png" alt="Image of Cookies & Cream Cookie">
-                </a>
-                <p class="bago_card_description">White and chocolate chip cookie mixed with oreo bits, filled with cookies and cream spread, topped with a Hershey's mini square, white chocolate bark drizzle, Oreo half, and crushed Oreo</p>
-            </li>
         </ul>
     </div>
     
@@ -253,13 +211,6 @@
         </div>
     </div>
     <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
-
-    <!-- Script for the bagootm infinite loop -->
-    <script>
-        const scrollContainer = document.querySelector('.bago_card_box');
-        // Clone the contents of the list and append them to the end
-        scrollContainer.innerHTML += scrollContainer.innerHTML;
-    </script>
     
     <script src="products.js" defer></script>
     <script src="cart.js" defer></script>
