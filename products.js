@@ -33,7 +33,7 @@ const productData = {
         price: "$8.00",
         info: "Naturally leavened sourdough bread with a crisp, golden crust and a soft, chewy interior. Slow-fermented for deep, tangy flavor and perfect for slicing, toasting, or enjoying fresh",
         ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 810g",
-        mainImg: "../images/sourdough/original_sourdough_bg.png",
+        mainImg: "../images/sourdough/original_sourdough_bg_val.png",
         secondImg: "../images/sourdough/original_sourdough_bg_white.png",
         ongoing: true,
         new: false
@@ -43,7 +43,7 @@ const productData = {
         price: "$8.00",
         info: "Bubbly and airy with a chewy crumb, this naturally leavened sourdough focaccia is topped with fresh rosemary and extra-virgin olive oil. Ideal for dipping or enjoying all on its own",
         ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary. Weight: 611g",
-        mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
+        mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg_val.png",
         secondImg: "../images/sourdough/rosemary_focaccia_sourdough_og_bg.png",
         ongoing: true,
         new: false
@@ -53,7 +53,7 @@ const productData = {
         price: "$10.00",
         info: "Naturally fermented sourdough focaccia made with fresh oregano, garlic powder, and olive oil. Light, airy, and full of flavor, this focaccia pairs beautifully with soups, salads, dips, or enjoyed on its own",
         ingredients: "Ingredients: Bread Flour, Water, Sourdough Starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Extra Virgin Olive Oil, Fresh Oregano, Garlic Powder, Sea Salt (for topping). Weight: 611g",
-        mainImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_bg.png",
+        mainImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_bg_val.png",
         secondImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_og_bg.png",
         ongoing: true,
         new: false
@@ -63,7 +63,7 @@ const productData = {
         price: "$10.00",
         info: "Soft, Buttery, and mildly tangy and sweet, these sourdough dinner rolls are naturally fermented with our own sourdough starter and will be the perfect addition to your dinner table for any occasion!",
         ingredients: "Ingredients: Ingredients: Bread flour, All purpose flour, Milk, Sourdough starter (Bread flour, All purpose Flour, Water), Sugar, Unsalted butter, Pink Himalayan salt, Egg",
-        mainImg: "../images/sourdough/dinner-rolls_sourdough_bg.png",
+        mainImg: "../images/sourdough/dinner-rolls_sourdough_bg_val.png",
         secondImg: "../images/sourdough/dinner-rolls_sourdough_bg_white.png",
         ongoing: true,
         new: false
