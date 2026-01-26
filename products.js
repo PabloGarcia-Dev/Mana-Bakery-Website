@@ -68,6 +68,16 @@ const productData = {
         ongoing: true,
         new: false
     },
+    "variety-pack_sourdough":{
+        title: "Mini Sourdough Variety Pack",
+        price: "$15.00",
+        info: "With four mini sourdough loaves of rosemary, cinnamon sugar, original sourdough, and chocolate chip, our variety pack gives you the best of our four flavors!",
+        ingredients: 'Ingredients: Bread flour, Water, Sourdough starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Fresh Rosemary, Semi Sweet Chocolate Chip, Butter, Brown Sugar, Cinnamon (250 grams each)',
+        mainImg: "../images/sourdough/variety-pack_sourdough_bg_val.png",
+        secondImg: "../images/sourdough/variety-pack_sourdough_og_bg.jpeg",
+        ongoing: true,
+        new: true
+    },
     //----------- Cookies -------------
     "red-velvet_cookie":{
         title: "Red Velvet Cookie",
