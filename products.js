@@ -69,7 +69,7 @@ const productData = {
         new: false
     },
     "variety-pack_sourdough":{
-        title: "Mini Sourdough Variety Pack",
+        title: "Mini Sourdough Variety Pack - 4 Pack",
         price: "$15.00",
         info: "With four mini sourdough loaves of rosemary, cinnamon sugar, original sourdough, and chocolate chip, our variety pack gives you the best of our four flavors!",
         ingredients: 'Ingredients: Bread flour, Water, Sourdough starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Fresh Rosemary, Semi Sweet Chocolate Chip, Butter, Brown Sugar, Cinnamon (250 grams each)',
@@ -81,7 +81,7 @@ const productData = {
     //----------- Mini Treats -------------
     "banana-muffins_mini-treats":{
         title: "Mini Banana Muffins - 6 Pack",
-        price: "$15.75",
+        price: "$16.00",
         info: "6-pack of all natural banana muffins with no preservatives",
         ingredients: "Ingredients: Flour, Baking Soda, Baking Powder, salt, butter, sugar, eggs, bananas, sour cream, chocolate chips",
         mainImg: "../images/miniTreats/banana-muffins_mini-treats_bg_val.png",
