@@ -78,6 +78,27 @@ const productData = {
         ongoing: true,
         new: true
     },
+    //----------- Mini Treats -------------
+    "banana-muffins_mini-treats":{
+        title: "Mini Banana Muffins - 6 Pack",
+        price: "$15.75",
+        info: "6-pack of all natural banana muffins with no preservatives",
+        ingredients: "Ingredients: Flour, Baking Soda, Baking Powder, salt, butter, sugar, eggs, bananas, sour cream, chocolate chips",
+        mainImg: "../images/miniTreats/banana-muffins_mini-treats_bg_val.png",
+        secondImg: "../images/miniTreats/banana-muffins_mini-treats_og_bg.jpeg",
+        ongoing: true,
+        new: true
+    },
+    "chocolate-chip-cookies_mini-treats":{
+        title: "Mini Chocolate Chip Cookies - 15 Pack",
+        price: "$8.00",
+        info: "15 mini chocolate chip cookies with a Nutella cup",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla.",
+        mainImg: "../images/miniTreats/chocolate-chip-cookies_mini-treats_bg_val.png",
+        secondImg: "../images/miniTreats/chocolate-chip-cookies_mini-treats_og_bg.jpeg",
+        ongoing: true,
+        new: true
+    },
     //----------- Cookies -------------
     "red-velvet_cookie":{
         title: "Red Velvet Cookie",
