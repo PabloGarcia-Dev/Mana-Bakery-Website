@@ -68,34 +68,34 @@ const productData = {
         ongoing: true,
         new: false
     },
-    "variety-pack_sourdough":{
-        title: "Mini Sourdough Variety Pack - 4 Pack",
-        price: "$15.00",
-        info: "With four mini sourdough loaves of rosemary, cinnamon sugar, original sourdough, and chocolate chip, our variety pack gives you the best of our four flavors!",
-        ingredients: 'Ingredients: Bread flour, Water, Sourdough starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Fresh Rosemary, Semi Sweet Chocolate Chip, Butter, Brown Sugar, Cinnamon (250 grams each)',
-        mainImg: "../images/sourdough/variety-pack_sourdough_bg_val.png",
-        secondImg: "../images/sourdough/variety-pack_sourdough_og_bg.jpeg",
-        ongoing: true,
-        new: true
-    },
-    //----------- Mini Treats -------------
-    "banana-muffins_mini-treats":{
+    //----------- Other Treats -------------
+    "banana-muffins_other-treats":{
         title: "Mini Banana Muffins - 6 Pack",
         price: "$16.00",
         info: "6-pack of all natural banana muffins with no preservatives",
         ingredients: "Ingredients: Flour, Baking Soda, Baking Powder, salt, butter, sugar, eggs, bananas, sour cream, chocolate chips",
-        mainImg: "../images/miniTreats/banana-muffins_mini-treats_bg_val.png",
-        secondImg: "../images/miniTreats/banana-muffins_mini-treats_og_bg.jpeg",
+        mainImg: "../images/otherTreats/banana-muffins_other-treats_bg_val.png",
+        secondImg: "../images/otherTreats/banana-muffins_other-treats_og_bg.jpeg",
         ongoing: true,
         new: true
     },
-    "chocolate-chip-cookies_mini-treats":{
+    "chocolate-chip-cookies_other-treats":{
         title: "Mini Chocolate Chip Cookies - 15 Pack",
         price: "$8.00",
         info: "15 mini chocolate chip cookies with a Nutella cup",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla.",
-        mainImg: "../images/miniTreats/chocolate-chip-cookies_mini-treats_bg_val.png",
-        secondImg: "../images/miniTreats/chocolate-chip-cookies_mini-treats_og_bg.jpeg",
+        mainImg: "../images/otherTreats/chocolate-chip-cookies_other-treats_bg_val.png",
+        secondImg: "../images/otherTreats/chocolate-chip-cookies_other-treats_og_bg.jpeg",
+        ongoing: true,
+        new: true
+    },
+    "variety-pack_other-treats_sourdough":{
+        title: "Mini Sourdough Variety Pack - 4 Pack",
+        price: "$15.00",
+        info: "With four mini sourdough loaves of rosemary, cinnamon sugar, original sourdough, and chocolate chip, our variety pack gives you the best of our four flavors!",
+        ingredients: 'Ingredients: Bread flour, Water, Sourdough starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Fresh Rosemary, Semi Sweet Chocolate Chip, Butter, Brown Sugar, Cinnamon (250 grams each)',
+        mainImg: "../images/otherTreats/variety-pack_sourdough_other-treats_bg_val.png",
+        secondImg: "../images/otherTreats/variety-pack_sourdough_other-treats_og_bg.jpeg",
         ongoing: true,
         new: true
     },
