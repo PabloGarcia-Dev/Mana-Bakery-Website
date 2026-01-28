@@ -70,8 +70,8 @@ const productData = {
     },
     //----------- Other Treats -------------
     "banana-muffins_other-treats":{
-        title: "Mini Banana Muffins - 6 Pack",
-        price: "$16.00",
+        title: "Banana Muffins - 6 Pack",
+        price: "$18.00",
         info: "6-pack of all natural banana muffins with no preservatives",
         ingredients: "Ingredients: Flour, Baking Soda, Baking Powder, salt, butter, sugar, eggs, bananas, sour cream, chocolate chips",
         mainImg: "../images/otherTreats/banana-muffins_other-treats_bg_val.png",
