@@ -450,7 +450,7 @@ const productData = {
         },
         new: false
     },
-    "happy-valentines-day_cookie-cake":{
+    "happy-valentines-day_c-cake":{
         title: "Happy Valentine's Day Cookie Cake",
         sizes:[
             { label: "Small (210g)", price: 9.00 },
@@ -464,7 +464,7 @@ const productData = {
         ongoing: true,
         new: false
     },
-    "happy-vday_cookie-cake":{
+    "happy-vday_c-cake":{
         title: "Happy V-Day Cookie Cake",
         sizes:[
             { label: "Small (210g)", price: 9.00 },
@@ -478,7 +478,7 @@ const productData = {
         ongoing: true,
         new: false
     },
-    "xoxo_cookie-cake":{
+    "xoxo_c-cake":{
         title: "XOXO Cookie Cake",
         sizes:[
             { label: "Small (210g)", price: 9.00 },
