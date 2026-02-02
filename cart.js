@@ -20,14 +20,23 @@ function addToCart(productId, quantity){
     let displayTitle = product.title;
 
     // Logic for Cookie Cakes with multiple sizes
-    if (product.sizes) {
+    if(product.sizes){
         const sizeSelect = document.getElementById('size-select');
         const selectedIndex = sizeSelect ? sizeSelect.value : 0;
         const selectedSize = product.sizes[selectedIndex];
         
         finalPrice = selectedSize.price;
         displayTitle += ` (${selectedSize.label})`;
-    } else {
+    }
+    else if(product.toppings){
+        const toppingSelect = document.getElementById('topping-select');
+        const selectedIndex = toppingSelect ? toppingSelect.value : 0;
+        const selectedTopping = product.toppings[selectedIndex];
+
+        finalPrice = selectedTopping.price;
+        displayTitle += ` (${selectedTopping.label})`;
+    }
+    else{
         // Standard logic for breads and single cookies
         finalPrice = parseFloat(product.price.replace('$', ''));
     }

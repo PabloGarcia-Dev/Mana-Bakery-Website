@@ -71,7 +71,23 @@ const productData = {
     //----------- Other Treats -------------
     "banana-muffins_other-treats":{
         title: "Banana Muffins - 6 Pack",
-        price: "$18.00",
+        toppings:[
+            {
+                label: "Regular",
+                price: 18.00,
+                img: "../images/otherTreats/banana-muffins_other-treats_og_bg.jpeg"
+            },
+            {
+                label: "Nutella Chocolate Chip",
+                price: 20.00,
+                img: "../images/otherTreats/banana-muffins-nutella_other-treats_og_bg.webp"
+            },
+            {
+                label: "Buttercream Chocolate Chip",
+                price: 22.00,
+                img: "../images/otherTreats/banana-muffins-Buttercream_other-treats_og_bg.webp"
+            }
+        ],
         info: "6-pack of all natural banana muffins with no preservatives",
         ingredients: "Ingredients: Flour, Baking Soda, Baking Powder, salt, butter, sugar, eggs, bananas, sour cream, chocolate chips",
         mainImg: "../images/otherTreats/banana-muffins_other-treats_bg_val.png",
@@ -505,16 +521,17 @@ function loadProductDetails(){
         const item = productData[productId];
         const priceElement = document.querySelector('.product_price');
         const sizeContainer = document.querySelector('#size-selection-container');
+        const toppingContainer = document.querySelector('#topping-selection-container');
 
         // Update Information
         document.querySelector('.product_title').textContent = item.title;
         document.querySelector('.product_info').textContent = item.info;
         document.querySelector('.ingredients').textContent = item.ingredients;
-        if(item.ongoing){
+        if(item.ongoing && item.price){
             document.querySelector('.product_price').textContent = item.price;
         }
-        // Logic for Multi-size products (Cookie Cakes)
-        if (item.sizes) {
+        // Logic for Multi-size products (Like the Cookie Cakes)
+        if(item.sizes){
             let selectHTML = `<label for="size-select">Select Size: </label>`;
             selectHTML += `<select id="size-select" class="size-dropdown">`;
             
@@ -533,10 +550,40 @@ function loadProductDetails(){
                 const selectedIndex = e.target.value;
                 priceElement.textContent = `$${item.sizes[selectedIndex].price.toFixed(2)}`;
             });
-        } else {
-            // Standard price logic for breads/cookies
-            priceElement.textContent = item.price;
-            sizeContainer.innerHTML = ''; // Clear if not a cake
+        }
+        else if(item.toppings){ // Logic for Multi-topping products (Like the Banana Muffins)
+            let selectHTML = `<label for="topping-select">Select Topping: </label>`;
+            selectHTML += `<select id="topping-select" class="topping-dropdown">`;
+            
+            item.toppings.forEach((topping, index) => {
+                selectHTML += `<option value="${index}">${topping.label}</option>`;
+            });
+            selectHTML += `</select>`;
+            
+            toppingContainer.innerHTML = selectHTML;
+
+            // Set initial price
+            priceElement.textContent = `$${item.toppings[0].price.toFixed(2)}`;
+
+            // Add event listener to change price
+            document.getElementById('topping-select').addEventListener('change', (e) => {
+                const selectedIndex = e.target.value;
+                priceElement.textContent = `$${item.toppings[selectedIndex].price.toFixed(2)}`;
+            });
+
+            document.getElementById('topping-select').addEventListener('change', (e) => {
+                const selectedIndex = e.target.value;
+                const selectedTopping = item.toppings[selectedIndex];
+
+                // Update the price
+                priceElement.textContent = `$${selectedTopping.price.toFixed(2)}`;
+
+                // Update the secondary image if a topping image exists
+                if(selectedTopping.img) {
+                    sideImg2.style.backgroundImage = `url(${selectedTopping.img})`;
+                    mainImgDiv.style.backgroundImage = `url(${selectedTopping.img})`; // Makes the main image jump to the new image
+                }
+            });
         }
 
         // Update the image
