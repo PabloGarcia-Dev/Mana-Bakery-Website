@@ -80,12 +80,12 @@ const productData = {
             {
                 label: "Nutella Chocolate Chip",
                 price: 20.00,
-                img: "../images/otherTreats/banana-muffins-nutella_other-treats_og_bg.webp"
+                img: "../images/otherTreats/banana-muffins-nutella_other-treats_og_bg.png"
             },
             {
                 label: "Buttercream Chocolate Chip",
                 price: 22.00,
-                img: "../images/otherTreats/banana-muffins-Buttercream_other-treats_og_bg.webp"
+                img: "../images/otherTreats/banana-muffins-Buttercream_other-treats_og_bg.png"
             }
         ],
         info: "6-pack of all natural banana muffins with no preservatives",
