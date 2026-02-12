@@ -1,39 +1,36 @@
 function displayCart() {
     const container = document.getElementById('cart-items-container');
-    const alertBox = document.getElementById('min-order-alert'); // Found in orderRequests.html
+    const alertBox = document.getElementById('min-order-alert'); 
     const submitBtn = document.querySelector('#order-form .submit_btn');
     const dateInput = document.getElementById('pickup-date');
     
-    if(!container) return; // Guard
+    if(!container) return; 
 
     const cart = JSON.parse(localStorage.getItem('bakery_cart')) || [];
     
     // 1a. Logic to count total cookies in the cart
     const cookieCount = cart
-        .filter(item => item.id.includes('cookie')) // Identify cookies by ID
+        .filter(item => item.id.includes('cookie')) 
         .reduce((total, item) => total + item.quantity, 0);
 
     // 1b. Logic to count total breads
     const breadCount = cart
-        .filter(item => item.id.includes('sourdough')) // Identify breads by ID
+        .filter(item => item.id.includes('sourdough')) 
         .reduce((total, item) => total + item.quantity, 0);
 
-    // Checking how many breads we have to increase the minimum pick-up date
+    // Checking lead times
     if(dateInput){
         const today = new Date();
         const minLeadTime = new Date(today);
-        
-        // If more than 5 breads, set to 3 days. Otherwise, 2 days.
         const daysRequired = breadCount >= 5 ? 3 : 2;
         minLeadTime.setDate(today.getDate() + daysRequired);
 
         const formattedDate = minLeadTime.toISOString().split('T')[0];
         dateInput.setAttribute('min', formattedDate);
         
-        // If current selection is now invalid due to bread count, clear it
         if(dateInput.value && dateInput.value < formattedDate){
             dateInput.value = "";
-            alert(`Orders with ${breadCount} breads require at least 3 days notice. Please select a new date.`);
+            alert(`Orders with ${breadCount} breads require at least ${daysRequired} days notice. Please select a new date.`);
         }
     }
 
@@ -41,14 +38,10 @@ function displayCart() {
     const isCartEmpty = cart.length === 0;
     const insufficientCookies = cookieCount > 0 && cookieCount < 4;
 
-    // Toggle the UI state (Alert bar and Button)
     if(isCartEmpty || insufficientCookies){
-        if(alertBox){
-            // Only show the 4-cookie alert if they actually have cookies in the cart
-            alertBox.style.display = insufficientCookies ? 'block' : 'none';
-        }
+        if(alertBox) alertBox.style.display = insufficientCookies ? 'block' : 'none';
         if(submitBtn){
-            submitBtn.disabled = true; // Disable the submit button if it doesn't pass the check
+            submitBtn.disabled = true;
             submitBtn.style.opacity = '0.5';
             submitBtn.style.cursor = 'not-allowed';
             submitBtn.innerText = isCartEmpty ? "Add Items to Checkout" : "Need 4+ Cookies to Order";
@@ -93,13 +86,11 @@ function displayCart() {
                         <p class="unit-price">$${item.price.toFixed(2)}</p>
                     </div>
                 </div>
-                
                 <div class="quantity_selector" style="margin: 0 auto;">
                     <button type="button" class="quantity_btn" onclick="updateQty(${index}, -1)">−</button>
                     <input type="number" class="quantity_input" value="${item.quantity}" onchange="handleManualInput(${index}, this.value)">
                     <button type="button" class="quantity_btn" onclick="updateQty(${index}, 1)">+</button>
                 </div>
-
                 <div class="item-total-price">
                     $${itemTotal}
                     <i class="fa-regular fa-trash-can trash-btn" onclick="removeItem(${index})" style="margin-left: 1.5rem;"></i>
@@ -109,7 +100,27 @@ function displayCart() {
         summaryText += `${item.title} (x${item.quantity}), `;
     });
 
-    const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    // CHANGE: Use 'let' instead of 'const' so we can add the fee
+    let orderTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    const valPackCheckbox = document.getElementById('valPack');
+    if (valPackCheckbox && valPackCheckbox.checked) {
+        orderTotal += 1.00;
+        summaryText += " + Valentine's Packaging ($1.00)";
+        
+        // Visual line item in the cart list
+        cartHTML += `
+            <div class="cart-item-row" style="border-top: 1px dashed #ccc; padding-top: 10px;">
+                <div class="cart-product-info">
+                    <div class="product-details">
+                        <h4>Valentine's Packaging Fee</h4>
+                    </div>
+                </div>
+                <div style="margin: 0 auto;">1</div>
+                <div class="item-total-price">$1.00</div>
+            </div>
+        `;
+    }
 
     cartHTML += `
         </div> 
@@ -120,24 +131,20 @@ function displayCart() {
     `;
     
     container.innerHTML = cartHTML;
-    if(hiddenInput){
-        hiddenInput.value = summaryText;
-    }
+    if(hiddenInput) hiddenInput.value = summaryText;
 
     const totalInput = document.getElementById('hidden-total-input');
-    if (totalInput) {
-        totalInput.value = `$${orderTotal.toFixed(2)}`;
-    }
+    if (totalInput) totalInput.value = `$${orderTotal.toFixed(2)}`;
 }
 
-// Global window functions so the HTML buttons can reach them
+// Global window functions
 window.updateQty = function(index, change){
     let cartData = JSON.parse(localStorage.getItem('bakery_cart'));
     if(cartData[index].quantity + change > 0){
         cartData[index].quantity += change;
         localStorage.setItem('bakery_cart', JSON.stringify(cartData));
         displayCart();
-        if(typeof updateCartUI === "function") updateCartUI(); // Sync with sidebar
+        if(typeof updateCartUI === "function") updateCartUI(); 
     }
 };
 
@@ -159,75 +166,64 @@ window.handleManualInput = function(index, newValue){
     if(typeof updateCartUI === "function") updateCartUI();
 };
 
-// Function to strictly enforce date rules
 function enforceDateRules(){
     const dateInput = document.getElementById('pickup-date');
     if(!dateInput) return;
-
-    // 1. Run the cart logic to set the correct 'min' attribute based on bread count
     displayCart(); 
-
-    // 2. Force the browser to re-evaluate the current value against the new 'min'
     const minDate = dateInput.getAttribute('min');
-    if(dateInput.value && dateInput.value < minDate){
-        console.log("Invalid date detected on page load. Resetting...");
-        dateInput.value = ""; // Clear the illegal date
-    }
+    if(dateInput.value && dateInput.value < minDate) dateInput.value = ""; 
 }
 
-// Handle initial page load
-document.addEventListener('DOMContentLoaded', enforceDateRules);
-
-// Handle "Back" button and "Forward" button navigation (Page Show)
-window.addEventListener('pageshow', (event) => {
-    // This triggers even if the page is loaded from the browser cache
-    enforceDateRules(); 
-});
-
-// Sunday Blocking Logic (Keep this inside a listener)
 document.addEventListener('DOMContentLoaded', () => {
+    enforceDateRules();
+
+    // Sunday Blocking
     const dateInput = document.getElementById('pickup-date');
     if (dateInput) {
         dateInput.addEventListener('change', (e) => {
             const selectedDate = new Date(e.target.value);
-            const day = selectedDate.getUTCDay(); // 0 = Sunday
-            
-            if(day === 0){
+            if(selectedDate.getUTCDay() === 0){
                 alert("Mana Bakery is closed on Sundays. Please select a different pick-up date!");
                 e.target.value = "";
             }
         });
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Form Reset
     const orderForm = document.getElementById('order-form');
-
     if (orderForm) {
         orderForm.addEventListener('submit', () => {
-            // 1. Clear the specific cart key from localStorage
             localStorage.removeItem('bakery_cart');
-
-            // 2. Small delay to ensure the form submission initiates before the refresh
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
+            setTimeout(() => { window.location.reload(); }, 1000);
         });
     }
-});
 
-const checkbox = document.getElementById('toggle-instructions');
-const instructionsBox = document.getElementById('instructions-box');
+    // Special Instructions Logic
+    const instructionsCheckbox = document.getElementById('toggle-instructions');
+    const instructionsBox = document.getElementById('instructions-box');
+    const commentsTextarea = document.getElementById('comments-box'); // Corrected ID
 
-checkbox.addEventListener('change', function() {
-    if (this.checked) {
-        instructionsBox.style.display = 'block';
-        // Optional: Make the textarea required only when visible
-        document.getElementById('comments').setAttribute('required', '');
-    } else {
-        instructionsBox.style.display = 'none';
-        document.getElementById('comments').removeAttribute('required');
-        // Clear the text if they uncheck it
-        document.getElementById('comments').value = '';
+    if (instructionsCheckbox) {
+        instructionsCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                instructionsBox.style.display = 'block';
+                if (commentsTextarea) commentsTextarea.setAttribute('required', '');
+            } else {
+                instructionsBox.style.display = 'none';
+                if (commentsTextarea) {
+                    commentsTextarea.removeAttribute('required');
+                    commentsTextarea.value = ''; 
+                }
+            }
+        });
+    }
+
+    // Valentine's Packaging Listener
+    const valPackCheckbox = document.getElementById('valPack');
+    if (valPackCheckbox) {
+        valPackCheckbox.addEventListener('change', () => { displayCart(); });
+        if (valPackCheckbox.checked) displayCart(); 
     }
 });
+
+window.addEventListener('pageshow', () => { enforceDateRules(); });
