@@ -466,20 +466,6 @@ const productData = {
         },
         new: false
     },
-    "happy-valentines-day_c-cake":{
-        title: "Happy Valentine's Day Cookie Cake",
-        sizes:[
-            { label: "Small (210g)", price: 9.00 },
-            { label: "Medium (420g)", price: 18.00 },
-            { label: "Large (770g)", price: 27.00 }
-        ],
-        info: "Buttercream border, chocolate letters, chocolate roses",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
-        mainImg: "../images/seasonalProducts/happy-valentines-day_cookie-cake.png",
-        secondImg: "../images/seasonalProducts/Cookie-Cakes_bg.jpg",
-        ongoing: true,
-        new: false
-    },
     "happy-vday_c-cake":{
         title: "Happy V-Day Cookie Cake",
         sizes:[
