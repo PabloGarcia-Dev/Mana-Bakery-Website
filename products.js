@@ -95,13 +95,13 @@ const productData = {
         ongoing: true,
         new: true
     },
-    "chocolate-chip-cookies_other-treats":{
+    "mini-chocolate-chips_other-treats":{
         title: "Mini Chocolate Chip Cookies - 15 Pack",
         price: "$8.00",
         info: "15 mini chocolate chip cookies with a Nutella cup",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla.",
-        mainImg: "../images/otherTreats/chocolate-chip-cookies_other-treats_bg_val.png",
-        secondImg: "../images/otherTreats/chocolate-chip-cookies_other-treats_og_bg.jpeg",
+        mainImg: "../images/otherTreats/mini-chocolate-chips_other-treats_bg_val.png",
+        secondImg: "../images/otherTreats/mini-chocolate-chips_other-treats_og_bg.jpeg",
         ongoing: true,
         new: true
     },
