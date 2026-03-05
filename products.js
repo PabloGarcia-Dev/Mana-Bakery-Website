@@ -99,14 +99,14 @@ const productData = {
         },
         new: true
     },
-    "straberry-matcha_cookie":{
+    "strawberry-matcha_cookie":{
         title: "Strawberry Matcha Cookie",
         price: "$6.50",
-        info: "Vanilla cookie with chocolate chips, filled with white hazelnut cream, topped with a Kinder Bueno Hippo and white chocolate shavings",
+        info: "Ceremonial grade Matcha cookie with white chocolate chips, filled with strawberry cream, topped with white chocolate drizzle and dried strawberry shavings",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
-        ongoingProductImg: "../images/cookies/straberry-matcha_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/straberry-matcha_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/straberry-matcha_cookie_bg.jpg",
+        ongoingProductImg: "../images/cookies/strawberry-matcha_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/strawberry-matcha_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/strawberry-matcha_cookie_bg.jpg",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
@@ -129,8 +129,8 @@ const productData = {
     },
     "cocoa-coffee-toffee_cookie":{
         title: "Cocoa Coffee Toffee Cookie",
-        price: "$6.50",
-        info: "Vanilla cookie with chocolate chips, filled with white hazelnut cream, topped with a Kinder Bueno Hippo and white chocolate shavings",
+        price: "$6.20",
+        info: "Black cocoa espresso cookie with chocolate chips, mixed with toffee bits, topped with homemade toffee pieces",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
         ongoingProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_seasoned.png",
