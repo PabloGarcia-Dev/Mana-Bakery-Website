@@ -1216,12 +1216,12 @@ body{
     height: 2rem !important;
     cursor: pointer;
 }
-.comments .valentinesPack input[type="checkbox"]{
+.comments .holidayPack input[type="checkbox"]{
     width: 2rem !important;
     height: 2rem !important;
     cursor: pointer;
 }
-.comments .valentinesPack{
+.comments .holidayPack{
     padding-top: 3rem;
 }
 .comments label{

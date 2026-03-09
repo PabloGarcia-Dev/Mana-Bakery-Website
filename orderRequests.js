@@ -80,7 +80,7 @@ function displayCart() {
         cartHTML += `
             <div class="cart-item-row">
                 <div class="cart-product-info">
-                    <img src="${item.image}" alt="${item.title}">
+                    <a href="productView.html?id=${item.id}"><img src="${item.image}" alt="${item.title}"></a>
                     <div class="product-details">
                         <h4>${item.title}</h4>
                         <p class="unit-price">$${item.price.toFixed(2)}</p>
@@ -100,11 +100,12 @@ function displayCart() {
         summaryText += `${item.title} (x${item.quantity}), `;
     });
 
-    // CHANGE: Use 'let' instead of 'const' so we can add the fee
+    // Use 'let' instead of 'const' so we can add the fee
     let orderTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-    const valPackCheckbox = document.getElementById('valPack');
-    if (valPackCheckbox && valPackCheckbox.checked) {
+    /* ----------------------- Holiday Check Box -------------------------------------------
+    const holidayPackCheckbox = document.getElementById('holiPack');
+    if(holidayPackCheckbox && holidayPackCheckbox.checked){
         orderTotal += 1.00;
         summaryText += " + Valentine's Packaging ($1.00)";
         
@@ -119,8 +120,9 @@ function displayCart() {
                 <div style="margin: 0 auto;">1</div>
                 <div class="item-total-price">$1.00</div>
             </div>
-        `;
+        `;  
     }
+    */
 
     cartHTML += `
         </div> 
