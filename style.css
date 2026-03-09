@@ -343,6 +343,7 @@ body{
 
     /* Calculate animation duration based on content length */
     animation: horizontal-scroll 80s linear infinite;
+    will-change: transform;
 }
 .bago_card_container .bago_card_box:hover{
   animation-play-state: paused; /* Pause the animation on hover */
