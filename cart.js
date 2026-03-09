@@ -1,3 +1,10 @@
+// Check if the saved cart matches the current product version
+const savedVersion = localStorage.getItem('bakery_cart_version');
+if (savedVersion !== CART_VERSION) {
+    localStorage.removeItem('bakery_cart');
+    localStorage.setItem('bakery_cart_version', CART_VERSION);
+}
+
 // Load cart from storage or start empty
 let cart = JSON.parse(localStorage.getItem('bakery_cart')) || [];
 

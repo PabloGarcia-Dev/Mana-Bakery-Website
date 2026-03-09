@@ -1,8 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Logic for Baked Goods & Product View (Quantity +/- Buttons)
+// Sets up +/- and Add to Cart button listeners.
+// Called on DOMContentLoaded for static pages (productView),
+// and again manually after renderBakedGoods injects dynamic cards.
+function setupProductButtons(){
     const productPurchaseActions = document.querySelectorAll(".product_purchase_actions");
     
     productPurchaseActions.forEach((container) => {
+        // Skip if already initialized to avoid double-binding
+        if(container.dataset.initialized) return;
+        container.dataset.initialized = 'true';
+
         const plusBtn = container.querySelector(".quantity_btn:nth-of-type(2)");
         const minusBtn = container.querySelector(".quantity_btn:nth-of-type(1)");
         const qtyInput = container.querySelector(".quantity_input");
@@ -30,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             qtyInput.value = 1; // Reset after adding
         };
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupProductButtons();
 
     // Phone Masking Logic (For Cart Page)
     const phoneInput = document.getElementById('phone-input');
@@ -73,13 +83,10 @@ function renderNewProducts() {
     const scrollContainer = document.querySelector('.bago_card_box');
     if (!scrollContainer) return;
 
-    // Filter products where 'new' is true and 'ongoing' is true (to ensure they are purchasable)
-    // Convert the object to an array to filter it
     const newProducts = Object.entries(productData).filter(([id, product]) => {
         return product.new === true;
     });
 
-    // Generate the HTML for each card
     let htmlContent = "";
     newProducts.forEach(([id, product]) => {
         htmlContent += `
@@ -93,11 +100,8 @@ function renderNewProducts() {
         `;
     });
 
-    // Inject the items into the container
     scrollContainer.innerHTML = htmlContent;
 
-    // Infinite Loop Logic: Clone the contents so it scrolls seamlessly
-    // Only clone if there are actually items to scroll
     if (newProducts.length > 0) {
         scrollContainer.innerHTML += scrollContainer.innerHTML;
     }
@@ -105,3 +109,118 @@ function renderNewProducts() {
 
 // Run the function when the page loads
 document.addEventListener('DOMContentLoaded', renderNewProducts);
+
+// ─── Baked Goods Page Renderer ────────────────────────────────────────────────
+// Reads productData and builds all sections in bakedGoods.html automatically.
+// To add/remove a product, just update products.js — no HTML changes needed.
+
+function renderBakedGoods(){
+    const container = document.getElementById('all-goods_container');
+    if(!container) return; // Only runs on bakedGoods.html
+
+    // --- Section definitions: order on the page + display titles ---
+    // ongoingSubtitle: optional label shown above the active products in that section
+    const sections = [
+        {category: '_sourdough',        title: 'Sourdough Breads',   ongoingSubtitle: null},
+        {category: '_other-treats',     title: 'Our Other Treats',   ongoingSubtitle: null},
+        {category: '_holiday-specials', title: 'Holiday Specials',   ongoingSubtitle: null},
+        {category: '_cookie',           title: 'Cookies',            ongoingSubtitle: "Cookies of the Month"},
+    ];
+
+    let pageHTML = '';
+
+    sections.forEach((section) => {
+        // Filter products that belong to this section
+        const sectionProducts = Object.entries(productData).filter(([id]) =>
+            id.endsWith(section.category)
+        );
+
+        if(sectionProducts.length === 0) return; // Skip empty sections
+
+        // Separate ongoing (purchasable) from archived (display-only)
+        const ongoing = sectionProducts.filter(([, p]) => p.ongoing);
+        const archived = sectionProducts.filter(([, p]) => !p.ongoing);
+
+        // For holiday specials, only show the section if there are active items
+        if(section.category === '_holiday-specials' && ongoing.length === 0) return;
+
+        // Helper: build a single <li> card
+        function buildCard(id, product){
+            const isOngoing = product.ongoing;
+            const multipleChoices = !!(product.sizes || product.toppings);
+
+            let priceHTML = '';
+            if(isOngoing){
+                if(product.sizes){
+                    priceHTML = `<p class="bago_display_price">Starting at $${product.sizes[0].price.toFixed(2)}</p>`;
+                }
+                else if(product.toppings){
+                    priceHTML = `<p class="bago_display_price">Starting at $${product.toppings[0].price.toFixed(2)}</p>`;
+                }
+                else{
+                    priceHTML = `<p class="bago_display_price">${product.price}</p>`;
+                }
+            }
+
+            const cartHTML = (isOngoing && !multipleChoices) ? `
+                <div class="product_purchase_actions">
+                    <div class="quantity_selector">
+                        <button type="button" class="quantity_btn">−</button>
+                        <input type="number" class="quantity_input" value="1" min="1">
+                        <button type="button" class="quantity_btn">+</button>
+                    </div>
+                    <button type="submit" class="add_to_cart_btn">Add to Cart</button>
+                </div>` : '';
+
+            return `
+                <li class="bago_display">
+                    <a href="productView.html?id=${id}" title="Go to Product View">
+                        <img class="bago_display_image" src="${product.mainImg}" alt="Image of ${product.title}">
+                    </a>
+                    <div class="bago_display_info">
+                        <h3 class="bago_display_title">${product.title}</h3>
+                        ${priceHTML}
+                        ${cartHTML}
+                    </div>
+                </li>`;
+        }
+
+        // Optional subtitle above the ongoing products
+        const ongoingSubtitleHTML = section.ongoingSubtitle
+            ? `<h4 class="container_sub_title">${section.ongoingSubtitle}</h4>`
+            : '';
+
+        const ongoingCardsHTML = ongoing.map(([id, p]) => buildCard(id, p)).join('');
+
+        // Archived / past flavors block
+        let archivedHTML = '';
+        if(archived.length > 0){
+            const archivedCards = archived.map(([id, p]) => buildCard(id, p)).join('');
+            archivedHTML = `
+                <div class="section_divider"><hr></div>
+                <h4 class="container_sub_title cookies_title_pf">Past Flavors</h4>
+                <ul class="card_content">${archivedCards}</ul>`;
+        }
+
+        // Divider between sections — only if something has already been rendered
+        const divider = pageHTML.length > 0
+            ? `<div class="section_divider bread-cookies_divider"><hr></div>`
+            : '';
+
+        pageHTML += `
+            ${divider}
+            <div class="bago_display_deck_container" id="${section.category.replace('_', '')}">
+                <h3 class="container_title">${section.title}</h3>
+                ${ongoingSubtitleHTML}
+                <ul class="card_content">${ongoingCardsHTML}</ul>
+                ${archivedHTML}
+            </div>`;
+    });
+
+    container.innerHTML = pageHTML;
+
+    // Attach button listeners now that the cards are in the DOM
+    setupProductButtons();
+}
+
+document.addEventListener('DOMContentLoaded', renderBakedGoods);

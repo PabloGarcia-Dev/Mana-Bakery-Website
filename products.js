@@ -24,6 +24,7 @@
         new: true or false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     */
+const CART_VERSION = "v1";
 
 // Constant containing all of the product details
 const productData = {
@@ -477,7 +478,7 @@ const productData = {
         },
         new: false
     },
-    "happy-vday_c-cake":{
+    "happy-vday-c-cake_holiday-specials":{
         title: "Happy V-Day Cookie Cake",
         sizes:[
             { label: "Small (210g)", price: 9.00 },
@@ -488,10 +489,10 @@ const productData = {
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
         mainImg: "../images/seasonalProducts/happy-vday_cookie-cake.png",
         secondImg: "../images/seasonalProducts/Cookie-Cakes_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         new: false
     },
-    "xoxo_c-cake":{
+    "xoxo-c-cake_holiday-specials":{
         title: "XOXO Cookie Cake",
         sizes:[
             { label: "Small (210g)", price: 9.00 },
@@ -502,7 +503,7 @@ const productData = {
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla",
         mainImg: "../images/seasonalProducts/xoxo_cookie-cake.png",
         secondImg: "../images/seasonalProducts/Cookie-Cakes_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         new: false
     },
 
@@ -543,7 +544,7 @@ const productData = {
         ongoing: true,
         new: false
     },
-    "variety-pack_other-treats_sourdough":{
+    "variety-pack-sourdough_other-treats":{
         title: "Mini Sourdough Variety Pack - 4 Pack",
         price: "$15.00",
         info: "With four mini sourdough loaves of rosemary, cinnamon sugar, original sourdough, and chocolate chip, our variety pack gives you the best of our four flavors!",

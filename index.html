@@ -109,8 +109,8 @@
             </div>
 
             <div class="slider-nav">
-                <a href="#slide-1"></a>
-                <a href="#slide-2"></a>
+                <a href="#" onclick="scrollSlide(0); return false;"></a>
+                <a href="#" onclick="scrollSlide(1); return false;"></a>
             </div>
         </div>
     </div>
@@ -192,6 +192,12 @@
     <script>
         // Automatically sets the year to the current year
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        function scrollSlide(index) {
+            const slider = document.querySelector('.slider');
+            const card = slider.children[index];
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        }
     </script>
 
     <!-- Side Cart -->
