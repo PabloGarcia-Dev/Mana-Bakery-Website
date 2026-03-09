@@ -78,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
     reviews.forEach((el) => observer.observe(el));
 });
 
-// Function for the endless cycle in Home Page
-function renderNewProducts() {
+// -------------------------------------- Function for the endless cycle in Home Page ----------------------------------------------------------
+function renderNewProducts(){
     const scrollContainer = document.querySelector('.bago_card_box');
-    if (!scrollContainer) return;
+    if(!scrollContainer) return;
 
     const newProducts = Object.entries(productData).filter(([id, product]) => {
         return product.new === true;
@@ -110,7 +110,7 @@ function renderNewProducts() {
 // Run the function when the page loads
 document.addEventListener('DOMContentLoaded', renderNewProducts);
 
-// ─── Baked Goods Page Renderer ────────────────────────────────────────────────
+// ------------------------------------------ Baked Goods Page Renderer -------------------------------------------------------------
 // Reads productData and builds all sections in bakedGoods.html automatically.
 // To add/remove a product, just update products.js — no HTML changes needed.
 
@@ -119,11 +119,10 @@ function renderBakedGoods(){
     if(!container) return; // Only runs on bakedGoods.html
 
     // --- Section definitions: order on the page + display titles ---
-    // ongoingSubtitle: optional label shown above the active products in that section
     const sections = [
+        {category: '_holiday-specials', title: 'Holiday Specials',   ongoingSubtitle: null},
         {category: '_sourdough',        title: 'Sourdough Breads',   ongoingSubtitle: null},
         {category: '_other-treats',     title: 'Our Other Treats',   ongoingSubtitle: null},
-        {category: '_holiday-specials', title: 'Holiday Specials',   ongoingSubtitle: null},
         {category: '_cookie',           title: 'Cookies',            ongoingSubtitle: "Cookies of the Month"},
     ];
 
@@ -137,9 +136,9 @@ function renderBakedGoods(){
 
         if(sectionProducts.length === 0) return; // Skip empty sections
 
-        // Separate ongoing (purchasable) from archived (display-only)
+        // Separate ongoing (purchasable) from seasoned (display-only)
         const ongoing = sectionProducts.filter(([, p]) => p.ongoing);
-        const archived = sectionProducts.filter(([, p]) => !p.ongoing);
+        const seasoned = sectionProducts.filter(([, p]) => !p.ongoing);
 
         // For holiday specials, only show the section if there are active items
         if(section.category === '_holiday-specials' && ongoing.length === 0) return;
@@ -147,7 +146,7 @@ function renderBakedGoods(){
         // Helper: build a single <li> card
         function buildCard(id, product){
             const isOngoing = product.ongoing;
-            const multipleChoices = !!(product.sizes || product.toppings);
+            const multipleChoices = !!(product.sizes || product.toppings); // Checks to see if the product has either of the variables
 
             let priceHTML = '';
             if(isOngoing){
@@ -185,21 +184,21 @@ function renderBakedGoods(){
                 </li>`;
         }
 
-        // Optional subtitle above the ongoing products
+        // Subtitle above the ongoing products
         const ongoingSubtitleHTML = section.ongoingSubtitle
             ? `<h4 class="container_sub_title">${section.ongoingSubtitle}</h4>`
             : '';
 
         const ongoingCardsHTML = ongoing.map(([id, p]) => buildCard(id, p)).join('');
 
-        // Archived / past flavors block
-        let archivedHTML = '';
-        if(archived.length > 0){
-            const archivedCards = archived.map(([id, p]) => buildCard(id, p)).join('');
-            archivedHTML = `
+        // Past flavors block
+        let seasonedHTML = '';
+        if(seasoned.length > 0 && !(section.category === '_holiday-specials')){
+            const seasonedCards = seasoned.map(([id, p]) => buildCard(id, p)).join('');
+            seasonedHTML = `
                 <div class="section_divider"><hr></div>
                 <h4 class="container_sub_title cookies_title_pf">Past Flavors</h4>
-                <ul class="card_content">${archivedCards}</ul>`;
+                <ul class="card_content">${seasonedCards}</ul>`;
         }
 
         // Divider between sections — only if something has already been rendered
@@ -213,7 +212,7 @@ function renderBakedGoods(){
                 <h3 class="container_title">${section.title}</h3>
                 ${ongoingSubtitleHTML}
                 <ul class="card_content">${ongoingCardsHTML}</ul>
-                ${archivedHTML}
+                ${seasonedHTML}
             </div>`;
     });
 

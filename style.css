@@ -343,6 +343,7 @@ body{
 
     /* Calculate animation duration based on content length */
     animation: horizontal-scroll 80s linear infinite;
+    
     will-change: transform; /* Makes sure that this part of the page keeps being loeaded and doesn't stop due to recourse optimization*/
 }
 .bago_card_container .bago_card_box:hover{
