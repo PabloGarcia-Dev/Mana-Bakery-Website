@@ -36,6 +36,17 @@ exports.handler = async (event) => {
                 pickupTime: orderDetails.pickupTime,
                 specialInstructions: orderDetails.specialInstructions || 'None',
             },
+            
+            // so it shows up on the "Transactions" pages you shared.
+            payment_intent_data: {
+                metadata: {
+                    customerName: orderDetails.name,
+                    phone: orderDetails.phone,
+                    pickupDate: orderDetails.pickupDate,
+                    pickupTime: orderDetails.pickupTime,
+                },
+            },
+
             customer_email: orderDetails.email,
             success_url: `${event.headers.origin}/pages/orderConfirmation.html`,
             cancel_url: `${event.headers.origin}/pages/orderRequests.html`,
