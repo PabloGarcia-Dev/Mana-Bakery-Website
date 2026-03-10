@@ -45,7 +45,7 @@
             <hr>
         </div>
 
-        <form id="order-form" action="https://formspree.io/f/xvzgqoqa" method="POST" target="_blank">
+        <form id="order-form">
             <h3>Customer Information</h3>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <input type="text" name="Name" placeholder="Full Name" required>
@@ -117,17 +117,8 @@
             
             <input type="hidden" name="Purchased Products" id="hidden-cart-input">
 
-            <div class="payment-info">
-                <h3 id="payment-title">Payment Information</h3>
-                <p id="payment-message">We will reach out to you with the order confirmation <b>after</b> payment is recieved via <b id="blue-venmo">Venmo</b>.</p>
-                <p id="payment-message">Click on our <b>Venmo ID</b> to go to the payment page.</p>
-                <p class="venmo-logo">V</p>
-                <span id="venmo-id"><a href="https://venmo.com/code?user_id=4501663779915054712&created=1772917946.4515991&printed=1" target="_blank" title="Go to our Venmo Page">Venmo ID: @Mana-bakery</a></span>
-                <p id="order-warning">* Failure to send payment within <b>30 minutes</b> will result in automaic order cancellation *</p>
-            </div>
-
             <div class="message">
-                <p><b>By submitting, you are requesting an order</b>. We will contact you with your order confirmation once we receive your payment!</p>
+                <p>After submitting, you will be redirected to our <b>secure payment page</b> to complete your order.</p>
             </div>
             
             <button type="submit" class="submit_btn">Submit Order Request</button>

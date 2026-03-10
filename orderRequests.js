@@ -191,12 +191,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form Reset
+    // Stripe Checkout
     const orderForm = document.getElementById('order-form');
     if (orderForm) {
-        orderForm.addEventListener('submit', () => {
-            localStorage.removeItem('bakery_cart');
-            setTimeout(() => { window.location.reload(); }, 1000);
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Stop the old form submit
+
+            const cart = JSON.parse(localStorage.getItem('bakery_cart')) || [];
+            const submitBtn = orderForm.querySelector('.submit_btn');
+
+            // Gather the customer's order details to pass to Stripe
+            const orderDetails = {
+                name: orderForm.querySelector('[name="Name"]').value,
+                phone: orderForm.querySelector('[name="Phone Number"]').value,
+                email: document.getElementById('email-input').value,
+                pickupDate: document.getElementById('pickup-date').value,
+                pickupTime: document.getElementById('pickup-time').value,
+                specialInstructions: document.getElementById('comments-box')?.value || 'None',
+            };
+
+            // Disable button to prevent double clicks
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Redirecting to payment...';
+
+            try {
+                const response = await fetch('/.netlify/functions/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cartItems: cart, orderDetails }),
+                });
+
+                const data = await response.json();
+
+                if (data.url) {
+                    // Redirect to Stripe's hosted checkout page
+                    window.location.href = data.url;
+                } else {
+                    alert('Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Submit Order Request';
+                }
+            }
+            catch (error) {
+                alert('Something went wrong. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Submit Order Request';
+            }
         });
     }
 
