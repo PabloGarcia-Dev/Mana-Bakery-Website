@@ -6,7 +6,7 @@ exports.handler = async (event) => {
         return { statusCode: 405, body: 'Method Not Allowed' };
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const stripe = new Stripe(process.env.API_Secret_Key);
 
     try {
         const { cartItems, orderDetails } = JSON.parse(event.body);
