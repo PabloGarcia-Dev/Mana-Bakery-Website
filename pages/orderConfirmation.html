@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order Confirmed - Mana Bakery</title>
+    <meta name="color-scheme" content="light only">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/logos/Maná-logo_bg_semi-removed.png">
+    <script src="https://kit.fontawesome.com/58e49f57a0.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header class="header_container">
+        <div class="header">
+            <nav class="header_section social_links_icons">
+                <a href="https://m.facebook.com/profile.php?id=61584971847612" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mana.bakery.jax?igsh=ejdxdzRsa2gwdTNm" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mana.bakery.jax?_r=1&_t=ZP-927RXbzBLTi" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </nav>
+        </div>
+
+        <nav class="page_navigation">
+            <a href="bakedGoods.html" class="pn_link pn_text">Baked Goods</a>
+            <a href="../index.html" class="pn_link pn_link_logo">
+                <img src="../images/logos/Maná-Logo.png" alt="Mana Logo">
+            </a>
+            <a href="about.html" class="pn_link pn_text">About Us</a>
+        </nav>
+    </header>
+
+    <div class="section_divider header-content_divider">
+        <hr>
+    </div>
+
+    <main>
+        <div class="contact-container" style="text-align: center; padding: 4rem 2rem;">
+            <i class="fa-solid fa-circle-check" style="font-size: 5rem; color: #4CAF50; margin-bottom: 1.5rem;"></i>
+            <h2 class="section_title">Order Confirmed!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Thank you for your order! Your payment was received successfully.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">We'll reach out to confirm your pickup details. If you have any questions, feel free to contact us!</p>
+            <a href="../index.html" class="checkout-btn_order-con">Back to Home</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <nav class="footer_item page_navigation_container_footer">
+            <a class="single_pn_link_footer" href="../index.html">Home</a>
+            <a class="single_pn_link_footer" href="bakedGoods.html">Baked Goods</a>
+            <a class="single_pn_link_footer" href="about.html">About us</a>
+        </nav>
+        <div class="footer_item logo-info">
+            <img src="../images/logos/Maná-logo_bg_removed.png" alt="Mana Bakery Logo">
+            <p>"All Mana Bakery products are made in a cottage food operation that is not subject to</p>
+            <p>Florida's food safety regulations</p>
+            <p>Products are produced in a home kitchen that handles treenuts and peanuts"</p>
+        </div>
+        <nav class="footer_item social_links_info">
+            <h2>Check out our socials!</h2>
+            <div class="social_links_icons">
+                <a href="https://m.facebook.com/profile.php?id=61584971847612" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mana.bakery.jax?igsh=ejdxdzRsa2gwdTNm" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mana.bakery.jax?_r=1&_t=ZP-927RXbzBLTi" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </nav>
+    </footer>
+    <div class="developer-credit">
+        <p>© <span id="year"></span> Mana Bakery. All rights reserved. Site Developed by <a href="https://pablodgarl.wixsite.com/pablogarciaportfolio" target="_blank">Pablo Garcia</a></p>
+    </div>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        // Clear the cart after successful payment
+        localStorage.removeItem('bakery_cart');
+    </script>
+</body>
+</html>
