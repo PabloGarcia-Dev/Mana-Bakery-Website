@@ -180,8 +180,8 @@ body{
     padding: 2rem;
     border-top: 1px solid #ddd;
 }
-/* Sidebar Footer (The teal button) */
-.cart-sidebar-footer .checkout-btn {
+/* Sidebar Footer */
+.cart-sidebar-footer .checkout-btn{
     background-color: var(--tertiary_color); /* Teal color matching the image */
     color: white;
     text-transform: none; /* Keeps "Order Now" from being all caps if preferred */
@@ -189,7 +189,7 @@ body{
     padding: 1.5rem;
     border-radius: 4px;
     transition: background-color 0.3s;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 .cart-sidebar-footer .checkout-btn:hover {

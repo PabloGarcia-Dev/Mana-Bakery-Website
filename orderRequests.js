@@ -53,7 +53,7 @@ function displayCart() {
             submitBtn.disabled = false;
             submitBtn.style.opacity = '1';
             submitBtn.style.cursor = 'pointer';
-            submitBtn.innerText = "Submit Order Request";
+            submitBtn.innerText = "Submit Order";
         }
     }
 
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Disable button to prevent double clicks
             submitBtn.disabled = true;
-            submitBtn.innerText = 'Redirecting to payment...';
+            submitBtn.innerText = 'Redirecting to Payment...';
 
             try {
                 const response = await fetch('/.netlify/functions/create-checkout-session', {
@@ -229,13 +229,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     alert('Something went wrong. Please try again.');
                     submitBtn.disabled = false;
-                    submitBtn.innerText = 'Submit Order Request';
+                    submitBtn.innerText = 'Submit Order';
                 }
             }
             catch (error) {
                 alert('Something went wrong. Please try again.');
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'Submit Order Request';
+                submitBtn.innerText = 'Submit Order';
             }
         });
     }
