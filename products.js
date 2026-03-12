@@ -31,7 +31,7 @@ const productData = {
     //----------- Sourdough Breads -------------
     "original_sourdough":{
         title: "Original Sourdough Bread",
-        price: "$8.00",
+        price: "$8.20",
         info: "Naturally leavened sourdough bread with a crisp, golden crust and a soft, chewy interior. Slow-fermented for deep, tangy flavor and perfect for slicing, toasting, or enjoying fresh",
         ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 810g",
         mainImg: "../images/sourdough/original_sourdough_bg.png",
@@ -41,7 +41,7 @@ const productData = {
     },
     "rosemary-focaccia_sourdough":{
         title: "Rosemary Sourdough Focaccia",
-        price: "$8.00",
+        price: "$8.20",
         info: "Bubbly and airy with a chewy crumb, this naturally leavened sourdough focaccia is topped with fresh rosemary and extra-virgin olive oil. Ideal for dipping or enjoying all on its own",
         ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary. Weight: 611g",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
@@ -51,7 +51,7 @@ const productData = {
     },
     "oregano-garlic-focaccia_sourdough":{
         title: "Oregano-Garlic Sourdough Focaccia",
-        price: "$10.00",
+        price: "$10.20",
         info: "Naturally fermented sourdough focaccia made with fresh oregano, garlic powder, and olive oil. Light, airy, and full of flavor, this focaccia pairs beautifully with soups, salads, dips, or enjoyed on its own",
         ingredients: "Ingredients: Bread Flour, Water, Sourdough Starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Extra Virgin Olive Oil, Fresh Oregano, Garlic Powder, Sea Salt (for topping). Weight: 611g",
         mainImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_bg.png",
@@ -546,7 +546,7 @@ const productData = {
     },
     "variety-pack-sourdough_other-treats":{
         title: "Mini Sourdough Variety Pack - 4 Pack",
-        price: "$15.00",
+        price: "$15.30",
         info: "With four mini sourdough loaves of rosemary, cinnamon sugar, original sourdough, and chocolate chip, our variety pack gives you the best of our four flavors!",
         ingredients: 'Ingredients: Bread flour, Water, Sourdough starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Fresh Rosemary, Semi Sweet Chocolate Chip, Butter, Brown Sugar, Cinnamon (250 grams each)',
         mainImg: "../images/otherTreats/variety-pack_sourdough_other-treats_bg.png",
