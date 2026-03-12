@@ -124,6 +124,31 @@ function displayCart() {
     }
     */
 
+    // Dynamically update the offset checkbox label with the actual amount
+    const offsetAmount = ((orderTotal * 0.029) + 0.30).toFixed(2);
+    const offsetCheckBoxLabel = document.querySelector('#offsetBox + label');
+    if(offsetCheckBoxLabel) offsetCheckBoxLabel.textContent = `Would you like to contribute $${offsetAmount} to help offset the processing costs?`;
+
+    const offsetCheckBox = document.getElementById('offsetBox');
+    if(offsetCheckBox && offsetCheckBox.checked){
+        let orderOffset = (orderTotal*0.029)+.30;
+        orderTotal += orderOffset;
+        summaryText += " + Processing Cost Offset";
+        
+        // Visual line item in the cart list
+        cartHTML += `
+            <div class="cart-item-row" style="border-top: 1px dashed #ccc; padding-top: 10px;">
+                <div class="cart-product-info">
+                    <div class="product-details">
+                        <h4>Processing Cost Offset</h4>
+                    </div>
+                </div>
+                <div style="margin: 0 auto;">1</div>
+                <div class="item-total-price">$${orderOffset.toFixed(2)}</div>
+            </div>
+        `;  
+    }
+
     cartHTML += `
         </div> 
         <div class="cart-total-footer">
@@ -196,10 +221,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (orderForm) {
         orderForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // Stop the old form submit
-
+ 
             const cart = JSON.parse(localStorage.getItem('bakery_cart')) || [];
             const submitBtn = orderForm.querySelector('.submit_btn');
-
+ 
+            // If customer opted to offset processing costs, add it as a line item
+            const offsetCheckBox = document.getElementById('offsetBox');
+            if (offsetCheckBox && offsetCheckBox.checked) {
+                const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const offsetAmount = parseFloat(((cartTotal * 0.029) + 0.30).toFixed(2));
+                cart.push({
+                    id: 'processing-offset',
+                    title: 'Processing Cost Offset',
+                    price: offsetAmount,
+                    quantity: 1,
+                    image: '',
+                });
+            }
+ 
             // Gather the customer's order details to pass to Stripe
             const orderDetails = {
                 name: orderForm.querySelector('[name="Name"]').value,
@@ -209,20 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 pickupTime: document.getElementById('pickup-time').value,
                 specialInstructions: document.getElementById('comments-box')?.value || 'None',
             };
-
+ 
             // Disable button to prevent double clicks
             submitBtn.disabled = true;
             submitBtn.innerText = 'Redirecting to Payment...';
-
+ 
             try {
                 const response = await fetch('/.netlify/functions/create-checkout-session', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ cartItems: cart, orderDetails }),
                 });
-
+ 
                 const data = await response.json();
-
+ 
                 if (data.url) {
                     // Redirect to Stripe's hosted checkout page
                     window.location.href = data.url;
@@ -260,11 +299,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Valentine's Packaging Listener
+    
+    /* Valentine's Packaging Listener
     const valPackCheckbox = document.getElementById('valPack');
     if (valPackCheckbox) {
         valPackCheckbox.addEventListener('change', () => { displayCart(); });
         if (valPackCheckbox.checked) displayCart(); 
+    }
+    */
+
+    // Processing Cost Offset Listener
+    const offsetCheckbox = document.getElementById('offsetBox');
+    if (offsetCheckbox) {
+        offsetCheckbox.addEventListener('change', () => { displayCart(); });
     }
 });
 

@@ -1224,6 +1224,19 @@ body{
 .comments .holidayPack{
     padding-top: 3rem;
 }
+
+.comments .offsetBoxCheck input[type="checkbox"]{
+    width: 2rem !important;
+    height: 2rem !important;
+    cursor: pointer;
+}
+.comments .offsetBoxCheck{
+    padding-top: 3rem;
+}
+
+
+
+
 .comments label{
     font-size: 1.8rem;
 }
