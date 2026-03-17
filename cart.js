@@ -4,10 +4,10 @@ if (savedVersion !== CART_VERSION) {
     localStorage.removeItem('bakery_cart');
     localStorage.setItem('bakery_cart_version', CART_VERSION);
 }
-
+ 
 // Load cart from storage or start empty
 let cart = JSON.parse(localStorage.getItem('bakery_cart')) || [];
-
+ 
 // Toggle Sidebar Visibility
 function toggleCart(){
     const sidebar = document.getElementById('cart-sidebar');
@@ -17,15 +17,22 @@ function toggleCart(){
         overlay.classList.toggle('active');
     }
 }
-
+ 
 // Add to Cart Function
 function addToCart(productId, quantity){
     const product = productData[productId];
     if(!product) return;
-
+ 
     let finalPrice;
     let displayTitle = product.title;
-
+ 
+    // Check for the sliced option on sourdough products
+    const slicedCheckbox = document.getElementById(`sliced-${productId}`) ||
+                           document.querySelector('.sliced-checkbox');
+    if(slicedCheckbox && slicedCheckbox.checked){
+        displayTitle = `[SLICED] ${displayTitle}`;
+    }
+ 
     // Logic for Cookie Cakes with multiple sizes
     if(product.sizes){
         const sizeSelect = document.getElementById('size-select');
@@ -39,7 +46,7 @@ function addToCart(productId, quantity){
         const toppingSelect = document.getElementById('topping-select');
         const selectedIndex = toppingSelect ? toppingSelect.value : 0;
         const selectedTopping = product.toppings[selectedIndex];
-
+ 
         finalPrice = selectedTopping.price;
         displayTitle += ` (${selectedTopping.label})`;
     }
@@ -47,10 +54,10 @@ function addToCart(productId, quantity){
         // Standard logic for breads and single cookies
         finalPrice = parseFloat(product.price.replace('$', ''));
     }
-
+ 
     // Check if THIS specific version (size) is already in the cart
     const existingItem = cart.find(item => item.title === displayTitle);
-
+ 
     if(existingItem){
         existingItem.quantity += quantity;
     }
@@ -63,19 +70,19 @@ function addToCart(productId, quantity){
             quantity: quantity
         });
     }
-
+ 
     localStorage.setItem('bakery_cart', JSON.stringify(cart));
     updateCartUI();
     toggleCart(); 
 }
-
+ 
 // Remove from Cart
 function removeFromCart(index){
     cart.splice(index, 1);
     localStorage.setItem('bakery_cart', JSON.stringify(cart));
     updateCartUI();
 }
-
+ 
 // Update Sidebar UI
 function updateCartUI(){
     const cartContent = document.getElementById('sidebar-cart-content');
@@ -104,7 +111,7 @@ function updateCartUI(){
         totalPriceEl.textContent = `$${total.toFixed(2)}`;
     }
 }
-
+ 
 // Setup Listeners
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();

@@ -18,7 +18,7 @@
     transform: translateX(-50%); /* Scroll right until you go through 50% of the items */
   }
 }
-
+ 
 :root{
     --main-color: #F9E4BC;
     --secondary_color: #e8cebe;
@@ -78,7 +78,7 @@ body{
 .header_container .header .social_links_icons a:hover{
     color: var(--tertiary_color);
 }
-
+ 
 /*--------------------------------------------- Shopping Icons ---------------------------------------------*/
 .header_container .header .shopping_icons{
     width: 16rem;
@@ -112,7 +112,7 @@ body{
 .cart-sidebar.active {
     right: 0;
 }
-
+ 
 .cart-sidebar-header {
     padding: 2rem;
     display: flex;
@@ -120,18 +120,18 @@ body{
     align-items: center;
     border-bottom: 1px solid #ddd;
 }
-
+ 
 .close-cart {
     font-size: 2.5rem;
     cursor: pointer;
 }
-
+ 
 .sidebar-cart-content {
     flex-grow: 1;
     overflow-y: auto;
     padding: 2rem;
 }
-
+ 
 /* Individual Item Style */
 .sidebar-item {
     display: flex;
@@ -140,7 +140,7 @@ body{
     align-items: center;
     border-bottom: 1px solid #f0f0f0; /* Light divider between items */
 }
-
+ 
 .sidebar-item img {
     width: 70px;
     height: 70px;
@@ -161,7 +161,7 @@ body{
     color: var(--tertiary_color); /* The teal/green color from your image */
     font-weight: bold;
 }
-
+ 
 /* The "X" Remove Button */
 .sidebar-item .remove-item{
     font-size: 1.8rem;
@@ -170,12 +170,12 @@ body{
     padding: 0.5rem;
     transition: transform 0.2s;
 }
-
+ 
 .sidebar-item .remove-item:hover{
     transform: scale(1.2);
     color: #ff4d4d; /* Red on hover */
 }
-
+ 
 .cart-sidebar-footer {
     padding: 2rem;
     border-top: 1px solid #ddd;
@@ -191,11 +191,11 @@ body{
     transition: background-color 0.3s;
     margin-bottom: 1rem;
 }
-
+ 
 .cart-sidebar-footer .checkout-btn:hover {
     background-color: #a15e78;
 }
-
+ 
 .total-container {
     display: flex;
     justify-content: space-between;
@@ -203,7 +203,7 @@ body{
     font-weight: bold;
     margin-bottom: 1.5rem;
 }
-
+ 
 .checkout-btn {
     display: block;
     text-align: center;
@@ -214,7 +214,7 @@ body{
     text-decoration: none;
     font-weight: bold;
 }
-
+ 
 /* Dimming Background Overlay */
 .cart-overlay {
     position: fixed;
@@ -226,7 +226,7 @@ body{
     display: none;
     z-index: 999;
 }
-
+ 
 .cart-overlay.active {
     display: block;
 }
@@ -316,9 +316,9 @@ body{
     display: flex;
     width: 90%;
     margin: 0 auto;
-
+ 
     --fade-size: 7rem;
-
+ 
     -webkit-mask-image: linear-gradient(
         to right,
         transparent,
@@ -326,7 +326,7 @@ body{
         black calc(100% - var(--fade-size)),
         transparent
     );
-
+ 
     mask-image: linear-gradient(
         to right,
         transparent,
@@ -340,7 +340,7 @@ body{
     gap: 3rem;
     padding: 1rem;
     width: fit-content;
-
+ 
     /* Calculate animation duration based on content length */
     animation: horizontal-scroll 80s linear infinite;
     
@@ -436,7 +436,7 @@ body{
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
-
+ 
     display: flex;
     overflow: auto;
     scrollbar-width: none;
@@ -523,7 +523,7 @@ body{
     text-align: right;
     padding: 2rem;
     border-radius: .5rem;
-
+ 
     opacity: 0;
     filter: blur(.1rem);
     transform: translateY(30px); /* Slide up effect */
@@ -532,11 +532,11 @@ body{
 .all-reviews .reviews-container .review-spaced-1 {
     transform: translateX(-50px); /* Slide in from left */
 }
-
+ 
 .all-reviews .reviews-container .review-spaced-2 {
     transform: translateX(50px); /* Slide in from right */
 }
-
+ 
 /* 3. The state triggered by JavaScript */
 .all-reviews .reviews-container .review.show-review {
     opacity: 1;
@@ -656,13 +656,13 @@ body{
     font-size: 1.2rem;
     letter-spacing: 1px;
 }
-
+ 
 .developer-credit a {
     color: var(--secondary_color); /* Use your existing theme color for the link */
     font-weight: bold;
     text-decoration: underline;
 }
-
+ 
 .developer-credit a:hover {
     color: white;
 }
@@ -679,7 +679,7 @@ body{
     background-color: rgb(232, 142, 192);
 }
 /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
+ 
 .all-goods_container .bago_display_deck_container .container_sub_title{
     font-size: clamp(22px, 3vw, 3rem);
     margin: 0 4rem;
@@ -734,7 +734,7 @@ body{
     width: 100%;
     margin-top: .5rem;
 }
-
+ 
 .product_purchase_actions .quantity_selector{
     display: flex;
     align-items: center;
@@ -743,7 +743,7 @@ body{
     border-radius: .4rem;
     padding: .5rem;
 }
-
+ 
 .product_purchase_actions .quantity_selector .quantity_btn{
     background: none;
     border: none;
@@ -752,11 +752,11 @@ body{
     cursor: pointer;
     padding: 0 1.5rem;
 }
-
+ 
 .product_purchase_actions .quantity_selector .quantity_btn:hover{
     color: #9f647b;
 }
-
+ 
 .product_purchase_actions .quantity_selector .quantity_input{
     border: none;
     text-align: center;
@@ -765,7 +765,7 @@ body{
     font-family: 'Dosis', sans-serif;
     outline: none;
 }
-
+ 
 .quantity_input::-webkit-inner-spin-button{
     display: none;
 }
@@ -779,10 +779,35 @@ body{
     font-weight: bold;
     cursor: pointer;
 }
-
+ 
 .product_purchase_actions .add_to_cart_btn:hover{
     background-color: #9f647b; /* A lighter shade of mauve */
 }
+ 
+/*------------- Sliced Option (Sourdough only) -------------*/
+.sliced-option{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    font-size: 1.8rem;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+    color: var(--tertiary_color);
+    cursor: pointer;
+}
+ 
+.sliced-option input[type="checkbox"]{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    accent-color: var(--tertiary_color);
+    flex-shrink: 0;
+}
+ 
+.sliced-option label{
+    cursor: pointer;
+}
+ 
 /*----------------------------------------------------------------------------------------------- Product View Page -----------------------------------------------------------------------------------------------*/
 .product-view-display{
     display: flex;
@@ -862,7 +887,7 @@ body{
     font-weight: bold;
     margin-bottom: 5px;
 }
-
+ 
 .topping-dropdown{
     padding: 8px;
     font-size: 1.7rem;
@@ -879,7 +904,7 @@ body{
     font-weight: bold;
     margin-bottom: 5px;
 }
-
+ 
 .product-view-display .product_info_container .product_info{
     font-size: 1.6rem;
     padding-bottom: 2rem;
@@ -951,7 +976,22 @@ body{
     width: 75%;
     margin: 0 auto;
 }
-
+ 
+.sliced-option {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: -1.8rem;
+    font-size: 2rem;
+}
+ 
+.sliced-option input[type="checkbox"] {
+    width: 1.6rem;
+    height: 1.6rem;
+    cursor: pointer;
+    accent-color: var(--tertiary_color);
+}
+ 
 /*----------------------------------------------------------------------------------------------- Cart Checkout -----------------------------------------------------------------------------------------------*/
 /* Cart Page Specific Layout */
 .cart-header-row{
@@ -977,7 +1017,7 @@ body{
 .cart-list{
     margin-top: 2rem;
 }
-
+ 
 .cart-item-row{
     display: grid;
     grid-template-columns: 2fr 1fr 1fr; /* Matches the header */
@@ -985,31 +1025,31 @@ body{
     padding: 3rem 0;
     border-bottom: 1px solid #eee;
 }
-
+ 
 .cart-product-info{
     display: flex;
     align-items: center;
     gap: 2rem;
 }
-
+ 
 .cart-product-info img{
     width: 8.3rem;
     height: 8.3rem;
     object-fit: cover;
     border-radius: 4px;
 }
-
+ 
 .product-details h4{
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 0.5rem;
 }
-
+ 
 .product-details .unit-price{
     font-size: 1.4rem;
     color: #666;
 }
-
+ 
 .cart-item-row .quantity_selector{
     display: flex;
     align-items: center;
@@ -1020,7 +1060,7 @@ body{
     background-color: transparent;
     width: 9rem; /* Specific width to fit the grid */
 }
-
+ 
 .cart-item-row .quantity_selector .quantity_btn{
     background: none;
     border: none;
@@ -1030,7 +1070,7 @@ body{
     padding: 0 .5rem;
     line-height: 1;
 }
-
+ 
 .cart-item-row .quantity_selector .quantity_input{
     border: none;
     text-align: center;
@@ -1040,12 +1080,12 @@ body{
     font-family: 'Dosis', sans-serif;
     outline: none;
 }
-
+ 
 /* Hide spin buttons for a cleaner look */
 .cart-item-row .quantity_input::-webkit-outer-spin-button{
     -webkit-appearance: none;
 }
-
+ 
 .cart-item-row .item-total-price{
     font-size: 1.8rem;
     font-weight: bold;
@@ -1055,13 +1095,13 @@ body{
     justify-content: flex-end;
     gap: 2rem;
 }
-
+ 
 .trash-btn{
     color: #888;
     cursor: pointer;
     font-size: 1.6rem;
 }
-
+ 
 .trash-btn:hover{
     color: #ff4d4d;
 }
@@ -1074,7 +1114,7 @@ body{
     margin-top: 1rem;
     border-top: 2px solid #333; /* Darker line to separate total from items */
 }
-
+ 
 /* "Total" text placement */
 .cart-total-footer .total-label{
     grid-column: 4; /* Moves the label under the Quantity column */
@@ -1085,7 +1125,7 @@ body{
     padding-right: 2rem;
     align-self: center;
 }
-
+ 
 /* Grand Total price placement */
 .cart-total-footer .total-amount{
     grid-column: 5; /* Moves the price under the Total column */
@@ -1109,7 +1149,7 @@ body{
     margin-bottom: 1rem;
     color: var(--tertiary_color);
 }
-
+ 
 #order-form input{
     width: 100%;
     padding: 1.5rem;
@@ -1121,7 +1161,7 @@ body{
 #email-input{
     text-transform: none;
 }
-
+ 
 #order-form input:hover{
     border-color: var(--tertiary_color);
     background-color: #fffafb; /* Slight tint when clicking box */
@@ -1130,7 +1170,7 @@ body{
     border-color: var(--tertiary_color);
     background-color: #fffafb; /* Slight tint when clicking box */
 }
-
+ 
 /* Styling for the Pick-up Date Section */
 .date-picker-group{
     margin-bottom: 2rem;
@@ -1138,13 +1178,13 @@ body{
     flex-direction: column;
     gap: 0.8rem;
 }
-
+ 
 .date-picker-group label {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--tertiary_color);
 }
-
+ 
 .pick-up_time select{
     border: .1rem solid var(--shadow_color);
     padding: 1.8rem;
@@ -1155,7 +1195,7 @@ body{
     border-color: var(--tertiary_color);
     background-color: #fffafb;
 }
-
+ 
 .terms-container #terms-and-conditions-title{
     font-size: 1.8rem;
     font-weight: bold;
@@ -1168,12 +1208,12 @@ body{
     color: #333;
     border: .1rem solid var(--shadow_color);
 }
-
+ 
 #order-form input[type="date"]:hover{
     border-color: var(--tertiary_color);
     background-color: #fffafb; /* Slight tint when clicking box */
 }
-
+ 
 /* Terms and Conditions Styling */
 .terms-container{
     display: flex;
@@ -1204,7 +1244,7 @@ body{
 .term-item:hover label {
     color: var(--tertiary_color);
 }
-
+ 
 .comments{
     margin-top: 1.8rem;
     font-family: Dosis;
@@ -1224,7 +1264,7 @@ body{
 .comments .holidayPack{
     padding-top: 3rem;
 }
-
+ 
 .comments .offsetBoxCheck input[type="checkbox"]{
     width: 2rem !important;
     height: 2rem !important;
@@ -1233,10 +1273,7 @@ body{
 .comments .offsetBoxCheck{
     padding-top: 3rem;
 }
-
-
-
-
+ 
 .comments label{
     font-size: 1.8rem;
 }
@@ -1253,7 +1290,7 @@ body{
     resize: vertical; /* Allows users to expand the box if needed */
     text-transform: none;
 }
-
+ 
 .payment-info{
     background-color: #f9f9f9;
     padding: 2rem;
@@ -1261,7 +1298,7 @@ body{
     margin-top: 2rem;
     border: .1rem solid var(--tertiary_color);
 }
-
+ 
 #payment-message{
     font-size: 1.5rem; 
     line-height: 1.4;
@@ -1300,14 +1337,14 @@ body{
 .payment-info b{
     border-bottom: .1rem solid black;
 }
-
+ 
 /* Response Message text size */
 .message p{
     font-size: 1.6rem;
     line-height: 1.6;
     padding: 1rem;
 }
-
+ 
 /* Submit Button size */
 #order-form .submit_btn{
     font-size: 2rem;
@@ -1448,7 +1485,7 @@ body{
     background-color: whitesmoke;
     color: black;
 }
-
+ 
 /*--------------------------------- Order Confirmation Page --------------------------------------------*/
 .checkout-btn_order-con{
     display: inline-block;
@@ -1456,15 +1493,15 @@ body{
     border: .1rem solid whitesmoke;
     border-radius: .8rem;
 }
-
+ 
 .checkout-btn_order-con:hover{
     transform: scale(1.1);
     background-color: whitesmoke;
     color: var(--tertiary_color);
 }
-
-
-
+ 
+ 
+ 
 /* --- Desktop Override --- */
 @media (min-width: 768px) {
     /*--------------------------------- All Pages --------------------------------------------*/
@@ -1486,25 +1523,25 @@ body{
     .all-reviews .reviews-container .review .stars{
         margin-left: 74%;
     }
-
+ 
     /*--------------------------------- Baked Goods Page --------------------------------------------*/
     .all-goods_container .bago_display_deck_container .card_content .bago_display img{
         height: 35rem; /* Desktop height */
         width: 35rem;  /* Desktop width */
     }
-
+ 
     .all-goods_container .bago_display_deck_container .card_content .bago_display_info{
         font-size: 1.9rem; /* Desktop title font */
     }
     .product_purchase_actions .quantity_selector .quantity_btn{
         font-size: 2rem; /* Desktop Selector Button */
     }
-
+ 
     .product_purchase_actions .quantity_selector .quantity_input{
         font-size: 1.2rem; /* Desktop Input Font */
         width: 15rem;      /* Desktop Input Width */
     }
-
+ 
     .product_purchase_actions .add_to_cart_btn{
         font-size: 1.1rem; /* Desktop Add to Cart Font */
     }
@@ -1537,8 +1574,8 @@ body{
         font-size: 2.5rem;
         padding: 3rem 5rem;
     }
-
-
+ 
+ 
     /*--------------------------------- Product View --------------------------------------------*/
     .product-view-display .all-images .other-images{
         position: relative;
@@ -1547,7 +1584,7 @@ body{
         height: 45rem;
         width: 45rem;
     }
-
+ 
     /*--------------------------------- Order Requests --------------------------------------------*/
     .cart-product-info img{
         width: 120px;
@@ -1566,7 +1603,7 @@ body{
         font-size: 1.4rem;
         width: 4rem;
     }
-
+ 
     .cart-sidebar-footer .checkout-btn {
         margin-bottom: 0;
     }

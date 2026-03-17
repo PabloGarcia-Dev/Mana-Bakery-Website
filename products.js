@@ -632,6 +632,16 @@ function loadProductDetails(){
             });
         }
 
+        // Inject sliced checkbox for sourdough products
+        const slicedContainer = document.querySelector('#size-selection-container');
+        if(productId.endsWith('_sourdough') && slicedContainer){
+            slicedContainer.innerHTML = `
+                <div class="sliced-option">
+                    <input type="checkbox" class="sliced-checkbox" id="sliced-${productId}">
+                    <label for="sliced-${productId}">Would you like the loaf sliced?</label>
+                </div>`;
+        }
+
         // Update the image
         const mainImgDiv = document.querySelector('.main-product-image');
         const sideImg1 = document.querySelector('#side-image-1');
