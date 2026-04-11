@@ -31,7 +31,7 @@ const productData = {
     //----------- Sourdough Breads -------------
     "original_sourdough":{
         title: "Original Sourdough Bread",
-        price: "$8.20",
+        price: "$8.30",
         info: "Naturally leavened sourdough bread with a crisp, golden crust and a soft, chewy interior. Slow-fermented for deep, tangy flavor and perfect for slicing, toasting, or enjoying fresh",
         ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 810g",
         mainImg: "../images/sourdough/original_sourdough_bg.png",
@@ -41,7 +41,7 @@ const productData = {
     },
     "rosemary-focaccia_sourdough":{
         title: "Rosemary Sourdough Focaccia",
-        price: "$8.20",
+        price: "$8.30",
         info: "Bubbly and airy with a chewy crumb, this naturally leavened sourdough focaccia is topped with fresh rosemary and extra-virgin olive oil. Ideal for dipping or enjoying all on its own",
         ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary. Weight: 611g",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.png",
@@ -51,7 +51,7 @@ const productData = {
     },
     "oregano-garlic-focaccia_sourdough":{
         title: "Oregano-Garlic Sourdough Focaccia",
-        price: "$10.20",
+        price: "$10.30",
         info: "Naturally fermented sourdough focaccia made with fresh oregano, garlic powder, and olive oil. Light, airy, and full of flavor, this focaccia pairs beautifully with soups, salads, dips, or enjoyed on its own",
         ingredients: "Ingredients: Bread Flour, Water, Sourdough Starter (Bread flour, All purpose flour, Water), Pink Himalayan Salt, Extra Virgin Olive Oil, Fresh Oregano, Garlic Powder, Sea Salt (for topping). Weight: 611g",
         mainImg: "../images/sourdough/oregano_garlic_focaccia_sourdough_bg.png",
@@ -74,7 +74,7 @@ const productData = {
     //----------- Cookies -------------
     "kinder-bueno_cookie":{
         title: "Kinder Bueno Cookie",
-        price: "$5.50",
+        price: "$8.00",
         info: "Vanilla cookie with chocolate chips, mixed bueno spread, filled with bueno spread, topped with white chocolate and kinder bueno square",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
         ongoingProductImg: "../images/cookies/kinder-bueno_cookie_bg_ongoing.png",
