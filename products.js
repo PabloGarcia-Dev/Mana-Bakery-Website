@@ -17,14 +17,14 @@
         ongoingProductImg: "Main-ongoing-product-image",
         seasonedProductImg: "Main-seasoned-product-image",
         secondImg: "Second-product-image",
-        ongoing: true or false, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true or false // Controlls if the item gets displayed in the Home Page's product carrousel
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     */
-const CART_VERSION = "v1";
+const CART_VERSION = "v1.1";
 
 // Constant containing all of the product details
 const productData = {
@@ -67,24 +67,122 @@ const productData = {
         mainImg: "../images/sourdough/honey-oat_sourdough_bg.png",
         secondImg: "../images/sourdough/honey-oat_sourdough_og_bg.jpg",
         ongoing: true,
-        new: true
+        new: false
     },
 
 
     //----------- Cookies -------------
-    "kinder-bueno-hippo_cookie":{
-        title: "Kinder Bueno Hippo Cookie",
-        price: "$6.50",
-        info: "Vanilla cookie with chocolate chips, filled with white hazelnut cream, topped with a Kinder Bueno Hippo and white chocolate shavings",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
-        ongoingProductImg: "../images/cookies/kinder-bueno-hippo_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/kinder-bueno-hippo_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/kinder-bueno-hippo_cookie_bg.jpg",
+    "kinder-bueno_cookie":{
+        title: "Kinder Bueno Cookie",
+        price: "$5.50",
+        info: "Vanilla cookie with chocolate chips, mixed bueno spread, filled with bueno spread, topped with white chocolate and kinder bueno square",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/kinder-bueno_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/kinder-bueno_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/kinder-bueno_cookie_bg.png",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: true
+    },
+    "chocolate-chip_cookie":{
+        title: "Chocolate Chip Cookie",
+        price: "$6.20",
+        info: "Chocolate chip cookie topped with sea salt",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/chocolate-chip_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/chocolate-chip_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/chocolate-chip_cookie_bg.png",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "ferrero-macadamia_cookie":{
+        title: "Ferrero Macadamia Cookie",
+        price: "$8.60",
+        info: "Chocolate cookies with chocolate chips, mixed with macadamia nuts, filled with a Ferrero and Nutella, topped with half a Ferrero ",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/ferrero-macademia_cookie_bg_ongoing.png",
+        seasonedProductImg: "",
+        secondImg: "../images/cookies/ferrero-macademia_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "biscoff_cookie":{
+        title: "Biscoff Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with white chocolate chips, mixed with Biscoff cookie bits, filled with Biscoff cookie butter, topped with half a Biscoff cookie",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/biscoff_cookie_bg_ongoing.png",
+        seasonedProductImg: "",
+        secondImg: "../images/cookies/biscoff_cookie_bg_white.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "mana-duo_cookie":{
+        title: "The Maná Duo",
+        price: "$8.00",
+        info: "Half vanilla, half chocolate cookie mixed with chocolate chips",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/mana-duo_cookie_bg_ongoing.png",
+        seasonedProductImg: "",
+        secondImg: "../images/cookies/mana-duo_cookie_bg_white.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "tiramisu_cookie":{
+        title: "Tiramisu Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with chocolate chips, mixed with ladyfinger cookie bits, filled with tiramisu spread, topped with cocoa powder",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/tiramisu_cookie_bg_ongoing.png",
+        seasonedProductImg: "",
+        secondImg: "../images/cookies/tiramisu_cookie_bg_white.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "dubai-pistachio_cookie":{
+        title: "Dubai Pistachio Cookie",
+        price: "$8.60",
+        info: "Vanilla cookie with chocolate chips, mixed with pistachios, filled with pistachio spread and crunchy kataifi, topped with chocolate and pistachios",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/dubai-pistachio_cookie_bg_ongoing.png",
+        seasonedProductImg: "",
+        secondImg: "../images/cookies/dubai-pistachio_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "kinder-bueno-hippo_cookie":{
+        title: "Kinder Bueno Hippo Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with chocolate chips, filled with white hazelnut cream, topped with a Kinder Bueno Hippo and white chocolate shavings",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
+        ongoingProductImg: "../images/cookies/kinder-bueno-hippo_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/kinder-bueno-hippo_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/kinder-bueno-hippo_cookie_bg.jpg",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
     },
     "reeses-peanut-butter-cup_cookie":{
         title: "Reese’s Peanut Butter Cup Cookie",
@@ -94,11 +192,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/reeses-peanut-butter-cup_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/reeses-peanut-butter-cup_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/reeses-peanut-butter-cup_cookie_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: false
     },
     "strawberry-matcha_cookie":{
         title: "Strawberry Matcha Cookie",
@@ -108,11 +206,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/strawberry-matcha_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/strawberry-matcha_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/strawberry-matcha_cookie_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: false
     },
     "guava-dulce-de-leche_cookie":{
         title: "Guava-Dulce de Leche Cookie",
@@ -122,11 +220,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/guava-dulce-de-leche_cookie_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: false
     },
     "cocoa-coffee-toffee_cookie":{
         title: "Cocoa Coffee Toffee Cookie",
@@ -136,11 +234,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: false
     },
     "dubai-choco_cookie":{
         title: "Dubai Chocolate Cookie", /*Change back after Febuary (Currently Valentine's Day Themed Name)*/
@@ -150,11 +248,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/dubai-choco_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/dubai-choco_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/dubai-choco_cookie_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: false
     },
     "s-mores_cookie":{
         title: "S'Mores Cookie",
@@ -164,25 +262,11 @@ const productData = {
         ongoingProductImg: "../images/cookies/s-mores_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/s-mores_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/s-mores_cookie_bg.jpg",
-        ongoing: true,
+        ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
-    },
-    "chocolate-chip_cookie":{
-        title: "Chocolate Chip Cookie",
-        price: "$4.00",
-        info: "Chocolate chip cookie topped with sea salt",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
-        ongoingProductImg: "../images/cookies/chocolate-chip_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/chocolate-chip_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/chocolate-chip_cookie_rbg-1.jpeg",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
+        new: false
     },
     "red-velvet_cookie":{
         title: "Red Velvet Cookie",
@@ -318,20 +402,6 @@ const productData = {
         ongoingProductImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_seasoned.png",
         secondImg: "../images/cookies/ghirardelli_choco-caramel_cookie_bg_white.png",
-        ongoing: false,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: false
-    },
-    "kinder-bueno_cookie":{
-        title: "Kinder Bueno Cookie",
-        price: "$5.50",
-        info: "White and milk chocolate chip cookie mixed with Bueno squares, filled with white chocolate hazelnut spread, topped with Bueno squares and white chocolate hazelnut drizzle",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 160g",
-        ongoingProductImg: "../images/cookies/kinder-bueno_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/kinder-bueno_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/kinder-bueno_cookie_bg_white.png",
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
