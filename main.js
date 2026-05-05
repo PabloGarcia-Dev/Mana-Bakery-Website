@@ -124,6 +124,7 @@ function renderBakedGoods(){
         {category: '_sourdough',        title: 'Sourdough Breads',   ongoingSubtitle: null},
         {category: '_other-treats',     title: 'Our Other Treats',   ongoingSubtitle: null},
         {category: '_cookie',           title: 'Cookies',            ongoingSubtitle: "Cookies of the Month"},
+        {category: '_special-gifts',    title: 'Special Gifts',      ongoingSubtitle: null},
     ];
 
     let pageHTML = '';
@@ -146,11 +147,14 @@ function renderBakedGoods(){
         // Helper: build a single <li> card
         function buildCard(id, product){
             const isOngoing = product.ongoing;
-            const multipleChoices = !!(product.sizes || product.toppings); // Checks to see if the product has either of the variables
+            const multipleChoices = !!(product.isVoucher || product.sizes || product.toppings); // Checks to see if the product has either of the variables
 
             let priceHTML = '';
             if(isOngoing){
-                if(product.sizes){
+                if(product.isVoucher){
+                    priceHTML = `<p class="bago_display_price">$10 – $150</p>`;
+                }
+                else if(product.sizes){
                     priceHTML = `<p class="bago_display_price">Starting at $${product.sizes[0].price.toFixed(2)}</p>`;
                 }
                 else if(product.toppings){

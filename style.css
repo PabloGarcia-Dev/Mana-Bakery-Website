@@ -904,6 +904,36 @@ body{
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+.voucher-amount-selector{
+    margin-top: 1rem;
+}
+.voucher-amount-selector label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+.voucher-amount-input{
+    padding: 12px 16px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    background-color: white;
+    margin-top: 1rem;
+    width: 25rem;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+.voucher-amount-input:focus{
+    outline: none;
+    border-color: var(--tertiary_color);
+}
+.voucher-amount-input::-webkit-inner-spin-button,
+.voucher-amount-input::-webkit-outer-spin-button{
+    opacity: 1;
+    transform: scale(1.4);
+}
  
 .product-view-display .product_info_container .product_info{
     font-size: 1.6rem;

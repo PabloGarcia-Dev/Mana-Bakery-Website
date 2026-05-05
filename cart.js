@@ -33,8 +33,19 @@ function addToCart(productId, quantity){
         displayTitle = `[SLICED] ${displayTitle}`;
     }
  
+    // Logic for Gift Vouchers with a custom amount
+    if(product.isVoucher){
+        const voucherInput = document.getElementById('voucher-amount');
+        const amount = voucherInput ? parseFloat(voucherInput.value) : NaN;
+        if(isNaN(amount) || amount < 10 || amount > 150){
+            alert('Please enter a valid voucher amount between $10 and $150.');
+            return;
+        }
+        finalPrice = parseFloat(amount.toFixed(2));
+        displayTitle += ` ($${finalPrice.toFixed(2)})`;
+    }
     // Logic for Cookie Cakes with multiple sizes
-    if(product.sizes){
+    else if(product.sizes){
         const sizeSelect = document.getElementById('size-select');
         const selectedIndex = sizeSelect ? sizeSelect.value : 0;
         const selectedSize = product.sizes[selectedIndex];
@@ -54,6 +65,7 @@ function addToCart(productId, quantity){
         // Standard logic for breads and single cookies
         finalPrice = parseFloat(product.price.replace('$', ''));
     }
+
  
     // Check if THIS specific version (size) is already in the cart
     const existingItem = cart.find(item => item.title === displayTitle);
