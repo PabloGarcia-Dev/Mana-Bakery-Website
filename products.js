@@ -24,7 +24,7 @@
         new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     */
-const CART_VERSION = "v1.1.2";
+const CART_VERSION = "v1.1.3";
 
 // Constant containing all of the product details
 const productData = {
@@ -72,52 +72,38 @@ const productData = {
 
 
     //----------- Cookies -------------
-    "strawberry-samba_cookie":{
-        title: "Strawberry Samba Cookie",
+    "fudge-brownie_cookie":{
+        title: "Fudge Brownie Cookie",
         price: "$8.00",
-        info: "Vanilla cookie with chocolate chips, mixed with samba bits, filled with strawberry spread, topped with a strawberry spread dollip",
+        info: "Vanilla cookie with chocolate chips, mixed with brownie bits, filled with a brownie and Nutella, topped with a brownie",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/strawberry-samba_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/strawberry-samba_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/strawberry-samba_cookie_bg.png",
-        ongoing: true,
+        ongoingProductImg: "../images/cookies/fudge-brownie_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/fudge-brownie_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/fudge-brownie_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
-    "strawberry-matcha_cookie":{
-        title: "Strawberry Matcha Cookie",
+    "chocolate-dulce-de-leche_cookie":{
+        title: "Chocolate Dulce de Leche Cookie",
         price: "$8.00",
-        info: "Ceremonial grade Matcha cookie with white chocolate chips, filled with strawberry cream, topped with white chocolate drizzle and dried strawberry shavings",
+        info: "Chocolate cookie with chocolate chips, filled with dulce de leche, topped with dulce de leche and chocolate bits",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/strawberry-matcha_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/strawberry-matcha_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/strawberry-matcha_cookie_bg.png",
-        ongoing: true,
+        ongoingProductImg: "../images/cookies/chocolate-dulce-de-leche_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/chocolate-dulce-de-leche_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/chocolate-dulce-de-leche_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
-    },
-    "chocolate-brigadeiro_cookie":{
-        title: "Chocolate Brigadeiro Cookie",
-        price: "$8.00",
-        info: "Vanilla cookie with chocolate chips, filled with chocolate brigadeiro, rolled in chocolate sprinkles",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/chocolate-brigadeiro_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/chocolate-brigadeiro_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/chocolate-brigadeiro_cookie_bg.png",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "dubai-pistachio_cookie":{
         title: "Dubai Pistachio Cookie",
-        price: "$8.00",
-        info: "Vanilla cookie with chocolate chips, mixed with pistachios, filled with pistachio spread and crunchy kataifi, topped with chocolate and pistachios",
+        price: "$8.50",
+        info: "Chocolate cookie with chocolate chips, mixed with pistachios, filled with pistachio spread and crispy Kataifi, topped with pistachios",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
         ongoingProductImg: "../images/cookies/dubai-pistachio_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/dubai-pistachio_cookie_bg_seasoned.png",
@@ -128,50 +114,8 @@ const productData = {
         },
         new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
-    "guava-dulce-de-leche_cookie":{
-        title: "Guava Dulce De Leche Cookie",
-        price: "$7.00",
-        info: "Vanilla cookie mixed with white chocolate chips, filled with guava paste and dulce de leche",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/guava-dulce-de-leche_cookie_bg.png",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
-    },
-    "nutella-smores_cookie":{
-        title: "Nutella S'mores Cookie",
-        price: "$8.00",
-        info: "Vanilla cookie with chocolate chips, mixed with graham cracker bits, filled with Nutella, topped with a medium torched marshmallow and Hershey square",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/nutella-smores_cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/nutella-smores_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/nutella-smores_cookie_bg.png",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
-    },
-    "biscoreo_cookie":{
-        title: "Biscoreo Cookie",
-        price: "$8.00",
-        info: "Vanilla cookie with chocolate chips, mixed with Biscoff and Oreo cookie bits, filled with cookie butter, topped with half a Biscoff cookie",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/biscoreo-cookie_bg_ongoing.png",
-        seasonedProductImg: "../images/cookies/biscoreo-cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/biscoreo-cookie_bg.png",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
-    },
     "chocolate-chip_cookie":{
-        title: "Chocolate Chip Cookie",
+        title: "Classic Chocolate Chip Cookie",
         price: "$6.20",
         info: "Chocolate chip cookie topped with sea salt",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
@@ -183,6 +127,146 @@ const productData = {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: true
+    },
+    "nutella-biscuit_cookie":{
+        title: "Nutella Biscuit Cookie",
+        price: "$8.00",
+        info: "Half vanilla, half chocolate cookie with chocolate chips, filled with Nutella, topped with a Nutella Biscuit",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/nutella-biscuit_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/nutella-biscuit_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/nutella-biscuit_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "pb-and-j-toast_cookie":{
+        title: "PB&J Toast Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with white chocolate chips, filled with peanut butter and raspberry jelly, rolled in buttered sourdough crumbs, topped with a white chocolate square",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/pb-and-j-toast_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/pb-and-j-toast_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/pb-and-j-toast_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "salted-caramel-pretzel_cookie":{
+        title: "Salted Caramel Pretzel Cookie",
+        price: "$8.00",
+        info: "anilla cookie with chocolate chips, mixed with pretzel pieces and caramel pearls, filled with caramel, topped with chocolate, sea salt, and a pretzel",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/salted-caramel-pretzel_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/salted-caramel-pretzel_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/salted-caramel-pretzel_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "raffaello-coconut_cookie":{
+        title: "Raffaello Coconut Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with white chocolate chips, mixed with almonds and coconut flakes, filled with a Raffaello and white chocolate, dipped in white chocolate and coconut flakes",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/raffaello-coconut_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/raffaello-coconut_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/raffaello-coconut_cookie_bg.png",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "strawberry-samba_cookie":{
+        title: "Strawberry Samba Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with chocolate chips, mixed with samba bits, filled with strawberry spread, topped with a strawberry spread dollip",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/strawberry-samba_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/strawberry-samba_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/strawberry-samba_cookie_bg.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "strawberry-matcha_cookie":{
+        title: "Strawberry Matcha Cookie",
+        price: "$8.00",
+        info: "Ceremonial grade Matcha cookie with white chocolate chips, filled with strawberry cream, topped with white chocolate drizzle and dried strawberry shavings",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/strawberry-matcha_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/strawberry-matcha_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/strawberry-matcha_cookie_bg.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "chocolate-brigadeiro_cookie":{
+        title: "Chocolate Brigadeiro Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with chocolate chips, filled with chocolate brigadeiro, rolled in chocolate sprinkles",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/chocolate-brigadeiro_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/chocolate-brigadeiro_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/chocolate-brigadeiro_cookie_bg.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "guava-dulce-de-leche_cookie":{
+        title: "Guava Dulce De Leche Cookie",
+        price: "$7.00",
+        info: "Vanilla cookie mixed with white chocolate chips, filled with guava paste and dulce de leche",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/guava-dulce-de-leche_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/guava-dulce-de-leche_cookie_bg.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "nutella-smores_cookie":{
+        title: "Nutella S'mores Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with chocolate chips, mixed with graham cracker bits, filled with Nutella, topped with a medium torched marshmallow and Hershey square",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/nutella-smores_cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/nutella-smores_cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/nutella-smores_cookie_bg.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "biscoreo_cookie":{
+        title: "Biscoreo Cookie",
+        price: "$8.00",
+        info: "Vanilla cookie with chocolate chips, mixed with Biscoff and Oreo cookie bits, filled with cookie butter, topped with half a Biscoff cookie",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/biscoreo-cookie_bg_ongoing.png",
+        seasonedProductImg: "../images/cookies/biscoreo-cookie_bg_seasoned.png",
+        secondImg: "../images/cookies/biscoreo-cookie_bg.png",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
     },
     "kinder-bueno_cookie":{
         title: "Kinder Bueno Cookie",
@@ -633,6 +717,7 @@ const productData = {
         new: false
     },
 
+
     //----------- Other Treats -------------
     "banana-muffins_other-treats":{
         title: "Banana Muffins - 6 Pack",
@@ -680,6 +765,17 @@ const productData = {
         ongoing: true,
         new: false
     },
+    "3-tier-c-cake_other-treats":{
+        title: "3-Tier Cookie Cake",
+        price: "$45.00",
+        info: "Chocolate chip cookie cake, layered together by Nutella, topped with white vegan buttercream and rainbow sprinkles. Includes 6 cake toppers and a bear candle",
+        ingredients: 'General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 1,300 grams',
+        mainImg: "../images/otherTreats/3-tier-c-cake_other-treats_bg.png",
+        secondImg: "../images/otherTreats/3-tier-c-cake_other-treats_og_bg.png",
+        ongoing: true,
+        new: true
+    },
+
     //----------- Special Gifts -------------
     "gift-voucher_special-gifts":{
         title: "Gift Voucher",
