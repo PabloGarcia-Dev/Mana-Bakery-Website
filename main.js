@@ -123,8 +123,8 @@ function renderBakedGoods(){
         {category: '_holiday-specials', title: 'Holiday Specials',   ongoingSubtitle: null},
         {category: '_sourdough',        title: 'Sourdough Breads',   ongoingSubtitle: null},
         {category: '_other-treats',     title: 'Our Other Treats',   ongoingSubtitle: null},
-        {category: '_cookie',           title: 'Cookies',            ongoingSubtitle: "Cookies of the Month"},
-        {category: '_special-gifts',    title: 'Special Gifts',      ongoingSubtitle: null},
+        {category: '_cookie',           title: 'Cookies',            ongoingSubtitle: "Cookies of the Month"}//,
+        //{category: '_special-gifts',    title: 'Special Gifts',      ongoingSubtitle: null},
     ];
 
     let pageHTML = '';

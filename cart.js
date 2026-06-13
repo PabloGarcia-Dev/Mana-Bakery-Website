@@ -33,7 +33,7 @@ function addToCart(productId, quantity){
         displayTitle = `[SLICED] ${displayTitle}`;
     }
  
-    // Logic for Gift Vouchers with a custom amount
+    /* Logic for Gift Vouchers with a custom amount
     if(product.isVoucher){
         const voucherInput = document.getElementById('voucher-amount');
         const amount = voucherInput ? parseFloat(voucherInput.value) : NaN;
@@ -44,6 +44,8 @@ function addToCart(productId, quantity){
         finalPrice = parseFloat(amount.toFixed(2));
         displayTitle += ` ($${finalPrice.toFixed(2)})`;
     }
+    */
+           
     // Logic for Cookie Cakes with multiple sizes
     else if(product.sizes){
         const sizeSelect = document.getElementById('size-select');

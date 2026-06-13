@@ -24,7 +24,7 @@
         new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     */
-const CART_VERSION = "v1.1.3";
+const CART_VERSION = "v1.1.4";
 
 // Constant containing all of the product details
 const productData = {
@@ -776,7 +776,7 @@ const productData = {
         new: true
     },
 
-    //----------- Special Gifts -------------
+    /*----------- Special Gifts -------------
     "gift-voucher_special-gifts":{
         title: "Gift Voucher",
         info: "Give the gift of Maná! Set any amount between $10–$150 and we'll prepare a physical gift card for the recipient to use on a future order. Perfect for birthdays, holidays, or just because!",
@@ -787,6 +787,7 @@ const productData = {
         isVoucher: true,
         new: true
     }
+    */
 };
 
 // Function to open the page content
