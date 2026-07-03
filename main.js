@@ -227,3 +227,35 @@ function renderBakedGoods(){
 }
 
 document.addEventListener('DOMContentLoaded', renderBakedGoods);
+
+const STORAGE_KEY = 'manaBakeryPromoDismissed';
+const popup = document.getElementById('promoPopup');
+ 
+function openPromoPopup() {
+    popup.classList.add('active');
+}
+ 
+function closePromoPopup() {
+    popup.classList.remove('active');
+    // dismissal for the day:
+    localStorage.setItem(STORAGE_KEY, new Date().toDateString());
+}
+ 
+// Close on overlay click (outside the card)
+popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePromoPopup();
+});
+ 
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePromoPopup();
+});
+ 
+// Auto-show shortly after page load
+window.addEventListener('DOMContentLoaded', () => {
+    // check localStorage first so it doesn't nag returning visitors:
+    const dismissedToday = localStorage.getItem(STORAGE_KEY) === new Date().toDateString();
+    // if (dismissedToday) return;
+ 
+    setTimeout(openPromoPopup, 800);
+});

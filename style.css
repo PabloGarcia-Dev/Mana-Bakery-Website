@@ -285,6 +285,89 @@ body{
 .header_container .page_navigation a img:hover{
     transform: scale(1.05);
 }
+/*--------------------------------------------- Promo Popup ---------------------------------------------*/
+.popup-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease-in-out;
+}
+.popup-overlay.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+.popup-card{
+    background-color: var(--main-color);
+    border: .1rem solid #c1923c;
+    border-radius: 2rem;
+    max-width: 40rem;
+    width: 90%;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow: .5rem .5rem .2rem var(--shadow_color);
+    transform: scale(.9) translateY(1rem);
+    transition: transform .25s ease-in-out;
+    position: relative;
+}
+.popup-overlay.active .popup-card{
+    transform: scale(1) translateY(0);
+}
+.popup-close{
+    position: absolute;
+    top: .1rem;
+    right: 1.8rem;
+    background: none;
+    font-size: 6rem;
+    color: var(--tertiary_color);
+    cursor: pointer;
+    line-height: 1;
+}
+.popup-close:hover{
+    color: #4d303b;
+}
+.popup-badge{
+    display: inline-block;
+    background-color: var(--tertiary_color);
+    color: whitesmoke;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    padding: .4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 1.4rem;
+}
+.popup-card h2{
+    font-family: var(--header_font);
+    font-size: 3rem;
+    color: var(--tertiary_color);
+    margin-bottom: 1rem;
+}
+.popup-card p{
+    font-family: var(--text_font);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #4d303b;
+    margin-bottom: 2rem;
+}
+.popup-cta{
+    display: inline-block;
+    background-color: var(--tertiary_color);
+    color: whitesmoke;
+    padding: 1.1rem 2.6rem;
+    border-radius: .8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.popup-cta:hover{
+    background-color: #a15e78;
+    transform: scale(1.05);
+}
 /*--------------------------------------------- Section Diviers ---------------------------------------------*/
 .section_divider{
     margin: 2rem 0;
