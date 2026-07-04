@@ -53,32 +53,73 @@
                 <input type="email" name="Email" placeholder="Email Address" style="grid-column: span 2;" id="email-input" required>
 
                 <div class="terms-container" style="grid-column: span 2;">
-                    <div class="date-picker-group">
-                        <label for="pickup-date">Pick-up Date</label>
-                        <input type="date" id="pickup-date" name="Pick-up Date" required>
+
+                    <div class="fulfillment-toggle" style="grid-column: span 2; margin-bottom: 1.5rem;">
+                        <label><input type="radio" name="Fulfillment" value="Pickup" id="fulfillment-pickup" checked> Pickup</label>
+                        <label><input type="radio" name="Fulfillment" value="Delivery" id="fulfillment-delivery"> Delivery</label>
                     </div>
 
-                    <div class="date-picker-group pick-up_time">
-                        <label for="pickup-date">Preferred Pick-up Time</label>
-                        <select id="pickup-time" name="Pick-up Time" required>
-                            <option value="" disabled selected hidden>-- Choose a Pick-up Option! --</option>
-                            <option value="12:00pm - 1:00pm">12:00pm - 1:00pm</option>
-                            <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
-                            <option value="2:00pm - 3:00pm">2:00pm - 3:00pm</option>
-                            <option value="3:00pm - 4:00pm">3:00pm - 4:00pm</option>
-                            <option value="4:00pm - 5:00pm">4:00pm - 5:00pm</option>
-                            <option value="5:00pm - 6:00pm">5:00pm - 6:00pm</option>
-                        </select>
+                    <div id="pickup-fields" style="display: contents;">
+                        <div class="date-picker-group">
+                            <label for="pickup-date">Pick-up Date</label>
+                            <input type="date" id="pickup-date" name="Pick-up Date" required>
+                        </div>
+
+                        <div class="date-picker-group pick-up_time">
+                            <label for="pickup-time">Preferred Pick-up Time</label>
+                            <select id="pickup-time" name="Pick-up Time" required>
+                                <option value="" disabled selected hidden>-- Choose a Pick-up Option! --</option>
+                                <option value="12:00pm - 1:00pm">12:00pm - 1:00pm</option>
+                                <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
+                                <option value="2:00pm - 3:00pm">2:00pm - 3:00pm</option>
+                                <option value="3:00pm - 4:00pm">3:00pm - 4:00pm</option>
+                                <option value="4:00pm - 5:00pm">4:00pm - 5:00pm</option>
+                                <option value="5:00pm - 6:00pm">5:00pm - 6:00pm</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="delivery-fields" style="display: none; grid-column: span 2;">
+                        <div class="date-picker-group">
+                            <label for="delivery-address">Delivery Address</label>
+                            <input type="text" id="delivery-address" name="Delivery Address" placeholder="e.g. 123 Main St, Jacksonville, FL 32217">
+                        </div>
+
+                        <div class="date-picker-group">
+                            <label for="delivery-unit">Apt / Suite / Unit (optional)</label>
+                            <input type="text" id="delivery-unit" name="Delivery Unit" placeholder="e.g. Apt 4B">
+                        </div>
+
+                        <button type="button" id="check-delivery-btn">Check Delivery Fee</button>
+                        <p id="delivery-fee-result"></p>
+                        <input type="hidden" name="Delivery Fee" id="hidden-delivery-fee" value="0">
+
+                        <div class="date-picker-group">
+                            <label for="delivery-date">Delivery Date</label>
+                            <input type="date" id="delivery-date" name="Delivery Date">
+                        </div>
+                        <div class="date-picker-group pick-up_time">
+                            <label for="delivery-time">Preferred Delivery Window</label>
+                            <select id="delivery-time" name="Delivery Time">
+                                <option value="12:00pm - 2:00pm">12:00pm - 2:00pm</option>
+                                <option value="2:00pm - 4:00pm">2:00pm - 4:00pm</option>
+                                <option value="4:00pm - 6:00pm">4:00pm - 6:00pm</option>
+                            </select>
+                        </div>
                     </div>
 
                     <label for="term-item" id="terms-and-conditions-title">Terms and Conditions</label>
                     <div class="term-item">
                         <input type="checkbox" name="Terms and Conditions" id="refunds" required>
-                        <label for="refunds">I understand that orders are non-refundable and must be picked up during the scheduled pick-up time.</label>
+                        <label for="refunds">I understand that orders are non-refundable and must be picked up/delivered during the scheduled window.</label>
                     </div>
-                    <div class="term-item">
+                    <div class="term-item" id="pickup-window-wrap">
                         <input type="checkbox" name="Terms and Conditions" id="pickup-window" required>
                         <label for="pickup-window">I understand that if I miss my pick-up window, I cannot receive a refund.</label>
+                    </div>
+                    <div class="term-item" id="delivery-window-wrap" style="display: none;">
+                        <input type="checkbox" name="Terms and Conditions" id="delivery-window">
+                        <label for="delivery-window">I understand someone must be available to receive the delivery during the scheduled window.</label>
                     </div>
                     <div class="term-item">
                         <input type="checkbox" name="Terms and Conditions" id="allergens" required>

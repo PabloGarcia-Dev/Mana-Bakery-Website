@@ -79,8 +79,24 @@ exports.handler = async (event) => {
                                 </tr>
                             </table>
 
-                            <h3 style="color: #5a3e2b; margin-top: 20px;">Pickup Details</h3>
+                            <h3 style="color: #5a3e2b; margin-top: 20px;">
+                                ${meta.fulfillmentType === 'Delivery' ? '🚗 Delivery Details' : '🏠 Pickup Details'}
+                            </h3>
                             <table style="width: 100%; border-collapse: collapse;">
+                                ${meta.fulfillmentType === 'Delivery' ? `
+                                <tr>
+                                    <td style="padding: 8px; font-weight: bold; width: 40%;">Delivery Address</td>
+                                    <td style="padding: 8px;">${meta.deliveryAddress || '—'}</td>
+                                </tr>
+                                <tr style="background: #fdf6ee;">
+                                    <td style="padding: 8px; font-weight: bold;">Delivery Date</td>
+                                    <td style="padding: 8px;">${meta.deliveryDate || '—'}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px; font-weight: bold;">Delivery Window</td>
+                                    <td style="padding: 8px;">${meta.deliveryTime || '—'}</td>
+                                </tr>
+                                ` : `
                                 <tr>
                                     <td style="padding: 8px; font-weight: bold; width: 40%;">Pickup Date</td>
                                     <td style="padding: 8px;">${meta.pickupDate || '—'}</td>
@@ -89,7 +105,8 @@ exports.handler = async (event) => {
                                     <td style="padding: 8px; font-weight: bold;">Pickup Time</td>
                                     <td style="padding: 8px;">${meta.pickupTime || '—'}</td>
                                 </tr>
-                                <tr>
+                                `}
+                                <tr style="background: ${meta.fulfillmentType === 'Delivery' ? '#fdf6ee' : 'transparent'};">
                                     <td style="padding: 8px; font-weight: bold;">Special Instructions</td>
                                     <td style="padding: 8px;">${meta.specialInstructions || 'None'}</td>
                                 </tr>

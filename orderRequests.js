@@ -1,3 +1,5 @@
+let deliveryFee = 0;
+
 function displayCart() {
     const container = document.getElementById('cart-items-container');
     const alertBox = document.getElementById('min-order-alert'); 
@@ -37,14 +39,16 @@ function displayCart() {
     // Logic to determine if the button should be locked
     const isCartEmpty = cart.length === 0;
     const insufficientCookies = cookieCount > 0 && cookieCount < 4;
+    const fulfillmentElCheck = document.querySelector('input[name="Fulfillment"]:checked');
+    const deliveryNotReady = fulfillmentElCheck && fulfillmentElCheck.value === 'Delivery' && deliveryFee <= 0;
 
-    if(isCartEmpty || insufficientCookies){
+    if(isCartEmpty || insufficientCookies || deliveryNotReady){
         if(alertBox) alertBox.style.display = insufficientCookies ? 'block' : 'none';
         if(submitBtn){
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.5';
             submitBtn.style.cursor = 'not-allowed';
-            submitBtn.innerText = isCartEmpty ? "Add Items to Checkout" : "Need 4+ Cookies to Order";
+            submitBtn.innerText = isCartEmpty ? "Add Items to Checkout" : insufficientCookies ? "Need 4+ Cookies to Order" : "Check Delivery Fee First";
         }
     }
     else{
@@ -149,6 +153,26 @@ function displayCart() {
         `;  
     }
 
+    // Add delivery fee if delivery is selected and a fee has been checked
+    const fulfillmentEl = document.querySelector('input[name="Fulfillment"]:checked');
+    const isDelivery = fulfillmentEl && fulfillmentEl.value === 'Delivery';
+    if(isDelivery && deliveryFee > 0){
+        orderTotal += deliveryFee;
+        summaryText += ` + Delivery Fee ($${deliveryFee.toFixed(2)})`;
+
+        cartHTML += `
+            <div class="cart-item-row" style="border-top: 1px dashed #ccc; padding-top: 10px;">
+                <div class="cart-product-info">
+                    <div class="product-details">
+                        <h4>Delivery Fee</h4>
+                    </div>
+                </div>
+                <div style="margin: 0 auto;">1</div>
+                <div class="item-total-price">$${deliveryFee.toFixed(2)}</div>
+            </div>
+        `;
+    }
+
     cartHTML += `
         </div> 
         <div class="cart-total-footer">
@@ -239,13 +263,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
  
+            const isDeliveryOrder = document.getElementById('fulfillment-delivery').checked;
+
+            // Add delivery fee as its own line item, same pattern as the offset
+            if (isDeliveryOrder) {
+                if (deliveryFee <= 0) {
+                    alert('Please check your delivery fee before submitting.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Submit Order';
+                    return;
+                }
+                cart.push({
+                    id: 'delivery-fee',
+                    title: 'Delivery Fee',
+                    price: deliveryFee,
+                    quantity: 1,
+                    image: '',
+                });
+            }
+
+            const unit = document.getElementById('delivery-unit').value.trim();
+            const fullDeliveryAddress = unit
+                ? `${document.getElementById('delivery-address').value} (${unit})`
+                : document.getElementById('delivery-address').value;
+
             // Gather the customer's order details to pass to Stripe
             const orderDetails = {
                 name: orderForm.querySelector('[name="Name"]').value,
                 phone: orderForm.querySelector('[name="Phone Number"]').value,
                 email: document.getElementById('email-input').value,
-                pickupDate: document.getElementById('pickup-date').value,
-                pickupTime: document.getElementById('pickup-time').value,
+                fulfillmentType: isDeliveryOrder ? 'Delivery' : 'Pickup',
+                pickupDate: isDeliveryOrder ? '' : document.getElementById('pickup-date').value,
+                pickupTime: isDeliveryOrder ? '' : document.getElementById('pickup-time').value,
+                deliveryAddress: isDeliveryOrder ? fullDeliveryAddress : '',
+                deliveryDate: isDeliveryOrder ? document.getElementById('delivery-date').value : '',
+                deliveryTime: isDeliveryOrder ? document.getElementById('delivery-time').value : '',
                 specialInstructions: document.getElementById('comments-box')?.value || 'None',
             };
  
@@ -312,6 +364,99 @@ document.addEventListener('DOMContentLoaded', () => {
     const offsetCheckbox = document.getElementById('offsetBox');
     if (offsetCheckbox) {
         offsetCheckbox.addEventListener('change', () => { displayCart(); });
+    }
+
+    // Fulfillment toggle (Pickup vs Delivery)
+    const pickupRadio = document.getElementById('fulfillment-pickup');
+    const deliveryRadio = document.getElementById('fulfillment-delivery');
+    const pickupFields = document.getElementById('pickup-fields');
+    const deliveryFields = document.getElementById('delivery-fields');
+    const pickupDateInput = document.getElementById('pickup-date');
+    const pickupTimeInput = document.getElementById('pickup-time');
+    const deliveryDateInput = document.getElementById('delivery-date');
+    const pickupWindowCheckbox = document.getElementById('pickup-window');
+    const deliveryWindowCheckbox = document.getElementById('delivery-window');
+    const pickupWindowWrap = document.getElementById('pickup-window-wrap');
+    const deliveryWindowWrap = document.getElementById('delivery-window-wrap');
+
+    function toggleFulfillmentMode(){
+        const deliverySelected = deliveryRadio.checked;
+
+        pickupFields.style.display = deliverySelected ? 'none' : 'contents';
+        deliveryFields.style.display = deliverySelected ? 'block' : 'none';
+        pickupWindowWrap.style.display = deliverySelected ? 'none' : 'grid';
+        deliveryWindowWrap.style.display = deliverySelected ? 'grid' : 'none';
+
+        pickupDateInput.required = !deliverySelected;
+        pickupTimeInput.required = !deliverySelected;
+        pickupWindowCheckbox.required = !deliverySelected;
+        deliveryWindowCheckbox.required = deliverySelected;
+        deliveryDateInput.required = deliverySelected;
+
+        if(!deliverySelected){
+            deliveryFee = 0;
+            document.getElementById('hidden-delivery-fee').value = '0';
+            document.getElementById('delivery-fee-result').textContent = '';
+        }
+        displayCart();
+    }
+
+    if(pickupRadio && deliveryRadio){
+        pickupRadio.addEventListener('change', toggleFulfillmentMode);
+        deliveryRadio.addEventListener('change', toggleFulfillmentMode);
+    }
+
+    // Delivery date: block Sundays too
+    if(deliveryDateInput){
+        deliveryDateInput.addEventListener('change', (e) => {
+            const selectedDate = new Date(e.target.value);
+            if(selectedDate.getUTCDay() === 0){
+                alert("Mana Bakery is closed on Sundays. Please select a different delivery date!");
+                e.target.value = "";
+            }
+        });
+    }
+
+    // Check delivery fee button
+    const checkDeliveryBtn = document.getElementById('check-delivery-btn');
+    if(checkDeliveryBtn){
+        checkDeliveryBtn.addEventListener('click', async () => {
+            const address = document.getElementById('delivery-address').value.trim();
+            const resultEl = document.getElementById('delivery-fee-result');
+
+            if(!address){
+                resultEl.textContent = "Please enter an address first.";
+                return;
+            }
+
+            resultEl.textContent = "Checking...";
+            checkDeliveryBtn.disabled = true;
+
+            try {
+                const res = await fetch('/.netlify/functions/delivery-fee', {
+                    method: 'POST',
+                    body: JSON.stringify({ address })
+                });
+                const data = await res.json();
+
+                if(!res.ok || !data.deliverable){
+                    resultEl.textContent = data.error || "Sorry, that address is outside our delivery range. Pickup is still available!";
+                    deliveryFee = 0;
+                }
+                else{
+                    deliveryFee = data.fee;
+                    resultEl.textContent = `Delivery fee: $${data.fee.toFixed(2)} (${data.miles} mi away)`;
+                }
+            }
+            catch(err){
+                resultEl.textContent = "Couldn't check that address. Please try again.";
+                deliveryFee = 0;
+            }
+
+            document.getElementById('hidden-delivery-fee').value = deliveryFee.toFixed(2);
+            checkDeliveryBtn.disabled = false;
+            displayCart();
+        });
     }
 });
 

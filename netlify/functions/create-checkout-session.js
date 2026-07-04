@@ -32,8 +32,12 @@ exports.handler = async (event) => {
                 customerName: orderDetails.name,
                 phone: orderDetails.phone,
                 email: orderDetails.email,
-                pickupDate: orderDetails.pickupDate,
-                pickupTime: orderDetails.pickupTime,
+                fulfillmentType: orderDetails.fulfillmentType || 'Pickup',
+                pickupDate: orderDetails.pickupDate || '',
+                pickupTime: orderDetails.pickupTime || '',
+                deliveryAddress: orderDetails.deliveryAddress || '',
+                deliveryDate: orderDetails.deliveryDate || '',
+                deliveryTime: orderDetails.deliveryTime || '',
                 specialInstructions: orderDetails.specialInstructions || 'None',
             },
             
@@ -42,8 +46,10 @@ exports.handler = async (event) => {
                 metadata: {
                     customerName: orderDetails.name,
                     phone: orderDetails.phone,
-                    pickupDate: orderDetails.pickupDate,
-                    pickupTime: orderDetails.pickupTime,
+                    fulfillmentType: orderDetails.fulfillmentType || 'Pickup',
+                    pickupDate: orderDetails.pickupDate || '',
+                    pickupTime: orderDetails.pickupTime || '',
+                    deliveryAddress: orderDetails.deliveryAddress || '',
                 },
             },
 
