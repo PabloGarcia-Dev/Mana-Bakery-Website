@@ -21,18 +21,29 @@ function displayCart() {
         .reduce((total, item) => total + item.quantity, 0);
 
     // Checking lead times
-    if(dateInput){
+    const deliveryDateInput = document.getElementById('delivery-date');
+    if(dateInput || deliveryDateInput){
         const today = new Date();
         const minLeadTime = new Date(today);
         const daysRequired = breadCount >= 5 ? 3 : 2;
         minLeadTime.setDate(today.getDate() + daysRequired);
 
         const formattedDate = minLeadTime.toISOString().split('T')[0];
-        dateInput.setAttribute('min', formattedDate);
-        
-        if(dateInput.value && dateInput.value < formattedDate){
-            dateInput.value = "";
-            alert(`Orders with ${breadCount} breads require at least ${daysRequired} days notice. Please select a new date.`);
+
+        if(dateInput){
+            dateInput.setAttribute('min', formattedDate);
+            if(dateInput.value && dateInput.value < formattedDate){
+                dateInput.value = "";
+                alert(`Orders with ${breadCount} breads require at least ${daysRequired} days notice. Please select a new date.`);
+            }
+        }
+
+        if(deliveryDateInput){
+            deliveryDateInput.setAttribute('min', formattedDate);
+            if(deliveryDateInput.value && deliveryDateInput.value < formattedDate){
+                deliveryDateInput.value = "";
+                alert(`Orders with ${breadCount} breads require at least ${daysRequired} days notice. Please select a new delivery date.`);
+            }
         }
     }
 
@@ -219,10 +230,18 @@ window.handleManualInput = function(index, newValue){
 
 function enforceDateRules(){
     const dateInput = document.getElementById('pickup-date');
-    if(!dateInput) return;
+    const deliveryDateInput = document.getElementById('delivery-date');
+    if(!dateInput && !deliveryDateInput) return;
     displayCart(); 
-    const minDate = dateInput.getAttribute('min');
-    if(dateInput.value && dateInput.value < minDate) dateInput.value = ""; 
+
+    if(dateInput){
+        const minDate = dateInput.getAttribute('min');
+        if(dateInput.value && dateInput.value < minDate) dateInput.value = "";
+    }
+    if(deliveryDateInput){
+        const minDeliveryDate = deliveryDateInput.getAttribute('min');
+        if(deliveryDateInput.value && deliveryDateInput.value < minDeliveryDate) deliveryDateInput.value = "";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
