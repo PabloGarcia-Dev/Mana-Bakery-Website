@@ -184,7 +184,7 @@ const productData = {
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
         ongoingProductImg: "../images/cookies/cookies-&-cream_cookie_bg_ongoing.png",
         seasonedProductImg: "../images/cookies/cookies-&-cream_cookie_bg_seasoned.png",
-        secondImg: "../images/cookies/cookies-&-cream_cookie_bg_white.png",
+        secondImg: "../images/cookies/cookies-&-cream_cookie_bg.png",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
