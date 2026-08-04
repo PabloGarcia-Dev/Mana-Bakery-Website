@@ -229,6 +229,7 @@ function renderBakedGoods(){
 document.addEventListener('DOMContentLoaded', renderBakedGoods);
 
 const STORAGE_KEY = 'manaBakeryPromoDismissed';
+/* --------------- PRO POP UP ---------------
 const popup = document.getElementById('promoPopup');
  
 function openPromoPopup() {
@@ -259,3 +260,4 @@ window.addEventListener('DOMContentLoaded', () => {
  
     setTimeout(openPromoPopup, 800);
 });
+*/

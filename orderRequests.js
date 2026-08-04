@@ -1,5 +1,19 @@
 let deliveryFee = 0;
 
+function buildLeadTimeMessage(daysRequired, breadCount, cookieCount){
+        if(breadCount > 0 && cookieCount > 0){
+            return `Orders with ${breadCount} bread(s) and ${cookieCount} cookie(s) require at least ${daysRequired} days notice. Please select a new date.`;
+        }
+        else if(cookieCount > 0){
+            return `Orders with ${cookieCount} cookie(s) require at least ${daysRequired} days notice. Please select a new date.`;
+        }
+        else if(breadCount > 0){
+            return `Orders with ${breadCount} bread(s) require at least ${daysRequired} days notice. Please select a new date.`;
+        }
+        return `This order requires at least ${daysRequired} days notice. Please select a new date.`;
+    }
+
+
 function displayCart() {
     const container = document.getElementById('cart-items-container');
     const alertBox = document.getElementById('min-order-alert'); 
@@ -34,7 +48,7 @@ function displayCart() {
             dateInput.setAttribute('min', formattedDate);
             if(dateInput.value && dateInput.value < formattedDate){
                 dateInput.value = "";
-                alert(`Orders with ${breadCount} breads require at least ${daysRequired} days notice. Please select a new date.`);
+                alert(buildLeadTimeMessage(daysRequired, breadCount, cookieCount));
             }
         }
 
@@ -42,7 +56,7 @@ function displayCart() {
             deliveryDateInput.setAttribute('min', formattedDate);
             if(deliveryDateInput.value && deliveryDateInput.value < formattedDate){
                 deliveryDateInput.value = "";
-                alert(`Orders with ${breadCount} breads require at least ${daysRequired} days notice. Please select a new delivery date.`);
+                alert(buildLeadTimeMessage(daysRequired, breadCount, cookieCount));
             }
         }
     }

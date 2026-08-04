@@ -27,8 +27,7 @@ function addToCart(productId, quantity){
     let displayTitle = product.title;
  
     // Check for the sliced option on sourdough products
-    const slicedCheckbox = document.getElementById(`sliced-${productId}`) ||
-                           document.querySelector('.sliced-checkbox');
+    const slicedCheckbox = document.getElementById(`sliced-${productId}`) || document.querySelector('.sliced-checkbox');
     if(slicedCheckbox && slicedCheckbox.checked){
         displayTitle = `[SLICED] ${displayTitle}`;
     }
@@ -47,7 +46,7 @@ function addToCart(productId, quantity){
     */
            
     // Logic for Cookie Cakes with multiple sizes
-    else if(product.sizes){
+    if(product.sizes){
         const sizeSelect = document.getElementById('size-select');
         const selectedIndex = sizeSelect ? sizeSelect.value : 0;
         const selectedSize = product.sizes[selectedIndex];
