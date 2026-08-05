@@ -93,7 +93,7 @@ function renderNewProducts(){
             <li class="bago_card">
                 <h3 class="bago_card_title">${product.title}</h3>
                 <a href="pages/productView.html?id=${id}" title="Go to Product View">
-                    <img class="bago_card_image" src="${product.mainImg.replace('../', '')}" alt="Image of ${product.title}">
+                    <img class="bago_card_image" src="${product.mainImg.replace('../', '')}" alt="Image of ${product.title}" loading="lazy">
                 </a>
                 <p class="bago_card_description">${product.info}</p>
             </li>
@@ -178,7 +178,7 @@ function renderBakedGoods(){
             return `
                 <li class="bago_display">
                     <a href="productView.html?id=${id}" title="Go to Product View">
-                        <img class="bago_display_image" src="${product.mainImg}" alt="Image of ${product.title}">
+                        <img class="bago_display_image" src="${product.mainImg}" alt="Image of ${product.title}" loading="lazy">
                     </a>
                     <div class="bago_display_info">
                         <h3 class="bago_display_title">${product.title}</h3>

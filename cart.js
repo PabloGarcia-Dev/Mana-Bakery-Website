@@ -112,7 +112,7 @@ function updateCartUI(){
             total += item.price * item.quantity;
             html += `
                 <div class="sidebar-item">
-                    <img src="${item.image}" alt="${item.title}">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
                     <div class="item-details">
                         <h4>${item.title}</h4>
                         <p>$${item.price.toFixed(2)} x ${item.quantity}</p> </div>

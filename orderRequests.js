@@ -109,7 +109,7 @@ function displayCart() {
         cartHTML += `
             <div class="cart-item-row">
                 <div class="cart-product-info">
-                    <a href="productView.html?id=${item.id}"><img src="${item.image}" alt="${item.title}"></a>
+                    <a href="productView.html?id=${item.id}"><img src="${item.image}" alt="${item.title}" loading="lazy"></a>
                     <div class="product-details">
                         <h4>${item.title}</h4>
                         <p class="unit-price">$${item.price.toFixed(2)}</p>
