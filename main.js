@@ -108,7 +108,82 @@ function renderNewProducts(){
 }
 
 // Run the function when the page loads
-document.addEventListener('DOMContentLoaded', renderNewProducts);
+document.addEventListener('DOMContentLoaded', () => {
+    renderNewProducts();
+    setupCarouselDrag();
+});
+
+function setupCarouselDrag(){
+    const track = document.querySelector('.bago_card_box');
+    if(!track) return;
+
+    const LOOP_DURATION = 80; // seconds — matches the old 80s animation pace
+    let halfWidth = 0;
+    let speed = 0;            // px per second, auto-scroll speed
+    let offset = 0;           // current translateX in px
+    let isDragging = false;
+    let startX = 0;
+    let startOffset = 0;
+    let lastTimestamp = null;
+
+    function recalc(){
+        halfWidth = track.scrollWidth / 2; // content is duplicated once for the loop
+        speed = halfWidth > 0 ? halfWidth / LOOP_DURATION : 0;
+    }
+    recalc();
+    window.addEventListener('resize', recalc);
+
+    function applyTransform(){
+    track.style.transform = `translateX(${offset}px)`;
+}
+
+    function normalizeOffset(){
+        if(halfWidth <= 0) return;
+        offset = offset % halfWidth;
+        if(offset > 0) offset -= halfWidth;
+    }
+
+    function tick(timestamp){
+        if(lastTimestamp === null) lastTimestamp = timestamp;
+        let dt = (timestamp - lastTimestamp) / 1000;
+        dt = Math.min(dt, 0.05); // cap dt so a paused/backgrounded tab can't cause a big jump
+        lastTimestamp = timestamp;
+
+        if(!isDragging){
+            offset -= speed * dt;
+            normalizeOffset(); // only wrap when NOT dragging
+        }
+        applyTransform();
+        requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    track.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startOffset = offset;
+        track.setPointerCapture(e.pointerId);
+        track.style.cursor = 'grabbing';
+    });
+
+    track.addEventListener('pointermove', (e) => {
+        if(!isDragging) return;
+        offset = startOffset + (e.clientX - startX);
+    });
+
+    function endDrag(){
+        if(!isDragging) return;
+        isDragging = false;
+        normalizeOffset();
+        track.style.cursor = 'grab';
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('pointerleave', endDrag);
+
+    // Stop the browser's native image-drag-ghost from fighting the custom drag
+    track.querySelectorAll('img').forEach(img => { img.draggable = false; });
+}
 
 // ------------------------------------------ Baked Goods Page Renderer -------------------------------------------------------------
 // Reads productData and builds all sections in bakedGoods.html automatically.

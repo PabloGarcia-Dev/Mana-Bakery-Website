@@ -235,7 +235,7 @@ body{
     background-color: #7A9E7E;
     height: 35rem;
     width: 100%;
-    background-image: url(images/banner/Mana-banner_v5.png);
+    background-image: url(images/banner/Mana-banner_v5.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -423,11 +423,10 @@ body{
     gap: 3rem;
     padding: 1rem;
     width: fit-content;
- 
-    /* Calculate animation duration based on content length */
-    animation: horizontal-scroll 80s linear infinite;
-    
-    will-change: transform; /* Makes sure that this part of the page keeps being loeaded and doesn't stop due to recourse optimization*/
+    touch-action: pan-y;   /* lets vertical page-scroll still work on touch, horizontal drag handled by JS */
+    user-select: none;     /* stops text/image selection while dragging */
+    cursor: grab;
+    will-change: transform;
 }
 .bago_card_container .bago_card_box:hover{
   animation-play-state: paused; /* Pause the animation on hover */
@@ -653,7 +652,7 @@ body{
     height: 2.5rem;
     width: 12rem;
     font-size: 1.5rem;
-    background-image: url(images/misc/stars.png);
+    background-image: url(images/misc/stars.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1642,14 +1641,14 @@ body{
 }
 .about-us-container .about-us-images-container #image1-small{   
     transform: rotate(-2deg);
-    background-image: url(images/misc/victoria-img.jpeg);
+    background-image: url(images/misc/victoria-img.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 .about-us-container .about-us-images-container #image2-small{   
     transform: rotate(2deg);
-    background-image: url(images/misc/valentina-img.jpeg);
+    background-image: url(images/misc/valentina-img.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
