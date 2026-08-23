@@ -118,24 +118,26 @@ function setupCarouselDrag(){
     if(!track) return;
 
     const LOOP_DURATION = 80; // seconds — matches the old 80s animation pace
+    const DRAG_THRESHOLD = 6; // px of movement before this counts as a drag, not a click
+
     let halfWidth = 0;
-    let speed = 0;            // px per second, auto-scroll speed
-    let offset = 0;           // current translateX in px
-    let isDragging = false;
-    let startX = 0;
-    let startOffset = 0;
+    let speed = 0;
+    let offset = 0;
     let lastTimestamp = null;
 
+    let isPointerDown = false;
+    let isDragging = false;
+    let wasDragging = false;
+    let startX = 0;
+    let startOffset = 0;
+    let activePointerId = null;
+
     function recalc(){
-        halfWidth = track.scrollWidth / 2; // content is duplicated once for the loop
+        halfWidth = track.scrollWidth / 2;
         speed = halfWidth > 0 ? halfWidth / LOOP_DURATION : 0;
     }
     recalc();
     window.addEventListener('resize', recalc);
-
-    function applyTransform(){
-    track.style.transform = `translateX(${offset}px)`;
-}
 
     function normalizeOffset(){
         if(halfWidth <= 0) return;
@@ -143,15 +145,19 @@ function setupCarouselDrag(){
         if(offset > 0) offset -= halfWidth;
     }
 
+    function applyTransform(){
+        track.style.transform = `translateX(${offset}px)`;
+    }
+
     function tick(timestamp){
         if(lastTimestamp === null) lastTimestamp = timestamp;
         let dt = (timestamp - lastTimestamp) / 1000;
-        dt = Math.min(dt, 0.05); // cap dt so a paused/backgrounded tab can't cause a big jump
+        dt = Math.min(dt, 0.05); // cap dt so a backgrounded tab can't cause a big jump
         lastTimestamp = timestamp;
 
         if(!isDragging){
             offset -= speed * dt;
-            normalizeOffset(); // only wrap when NOT dragging
+            normalizeOffset();
         }
         applyTransform();
         requestAnimationFrame(tick);
@@ -159,29 +165,50 @@ function setupCarouselDrag(){
     requestAnimationFrame(tick);
 
     track.addEventListener('pointerdown', (e) => {
-        isDragging = true;
+        isPointerDown = true;
+        wasDragging = false;
         startX = e.clientX;
         startOffset = offset;
-        track.setPointerCapture(e.pointerId);
+        activePointerId = e.pointerId;
         track.style.cursor = 'grabbing';
     });
 
     track.addEventListener('pointermove', (e) => {
-        if(!isDragging) return;
-        offset = startOffset + (e.clientX - startX);
+        if(!isPointerDown) return;
+
+        const dx = e.clientX - startX;
+
+        if(!isDragging && Math.abs(dx) > DRAG_THRESHOLD){
+            isDragging = true;
+            wasDragging = true;
+            track.setPointerCapture(activePointerId);
+        }
+
+        if(isDragging){
+            offset = startOffset + dx;
+        }
     });
 
     function endDrag(){
-        if(!isDragging) return;
+        if(!isPointerDown) return;
+        isPointerDown = false;
+        if(isDragging){
+            normalizeOffset();
+        }
         isDragging = false;
-        normalizeOffset();
         track.style.cursor = 'grab';
     }
     track.addEventListener('pointerup', endDrag);
     track.addEventListener('pointercancel', endDrag);
     track.addEventListener('pointerleave', endDrag);
 
-    // Stop the browser's native image-drag-ghost from fighting the custom drag
+    track.addEventListener('click', (e) => {
+        if(wasDragging){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+
     track.querySelectorAll('img').forEach(img => { img.draggable = false; });
 }
 

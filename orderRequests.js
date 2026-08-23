@@ -1,17 +1,17 @@
 let deliveryFee = 0;
 
 function buildLeadTimeMessage(daysRequired, breadCount, cookieCount){
-        if(breadCount > 0 && cookieCount > 0){
-            return `Orders with ${breadCount} bread(s) and ${cookieCount} cookie(s) require at least ${daysRequired} days notice. Please select a new date.`;
-        }
-        else if(cookieCount > 0){
-            return `Orders with ${cookieCount} cookie(s) require at least ${daysRequired} days notice. Please select a new date.`;
-        }
-        else if(breadCount > 0){
-            return `Orders with ${breadCount} bread(s) require at least ${daysRequired} days notice. Please select a new date.`;
-        }
-        return `This order requires at least ${daysRequired} days notice. Please select a new date.`;
+    if(breadCount > 0 && cookieCount > 0){
+        return `Orders with ${breadCount} bread(s) and ${cookieCount} cookie(s) require at least ${daysRequired} days notice. Please select a new date.`;
     }
+    else if(cookieCount > 0){
+        return `Orders with ${cookieCount} cookie(s) require at least ${daysRequired} days notice. Please select a new date.`;
+    }
+    else if(breadCount > 0){
+        return `Orders with ${breadCount} bread(s) require at least ${daysRequired} days notice. Please select a new date.`;
+    }
+    return `This order requires at least ${daysRequired} days notice. Please select a new date.`;
+}
 
 
 function displayCart() {
@@ -36,17 +36,18 @@ function displayCart() {
 
     // Checking lead times
     const deliveryDateInput = document.getElementById('delivery-date');
+
     if(dateInput || deliveryDateInput){
         const today = new Date();
         const minLeadTime = new Date(today);
         const daysRequired = breadCount >= 5 ? 3 : 2;
         minLeadTime.setDate(today.getDate() + daysRequired);
-
         const formattedDate = minLeadTime.toISOString().split('T')[0];
 
+        const isCookieExemptDate = (dateVal) => cookieCount > 0 && breadCount === 0 && dateVal === "2026-08-29"; // If we want a specific date blocked for cookies
         if(dateInput){
             dateInput.setAttribute('min', formattedDate);
-            if(dateInput.value && dateInput.value < formattedDate){
+            if(dateInput.value && dateInput.value < formattedDate && !isCookieExemptDate(dateInput.value)){
                 dateInput.value = "";
                 alert(buildLeadTimeMessage(daysRequired, breadCount, cookieCount));
             }
@@ -54,7 +55,7 @@ function displayCart() {
 
         if(deliveryDateInput){
             deliveryDateInput.setAttribute('min', formattedDate);
-            if(deliveryDateInput.value && deliveryDateInput.value < formattedDate){
+            if(deliveryDateInput.value && deliveryDateInput.value < formattedDate && !isCookieExemptDate(deliveryDateInput.value)){
                 deliveryDateInput.value = "";
                 alert(buildLeadTimeMessage(daysRequired, breadCount, cookieCount));
             }
@@ -63,7 +64,8 @@ function displayCart() {
 
     // Logic to determine if the button should be locked
     const isCartEmpty = cart.length === 0;
-    const insufficientCookies = cookieCount > 0 && cookieCount < 4;
+    const isAugust29 = (dateInput && dateInput.value === "2026-08-29") || (deliveryDateInput && deliveryDateInput.value === "2026-08-29");
+    const insufficientCookies = cookieCount > 0 && cookieCount < 4 && !isAugust29;
     const fulfillmentElCheck = document.querySelector('input[name="Fulfillment"]:checked');
     const deliveryNotReady = fulfillmentElCheck && fulfillmentElCheck.value === 'Delivery' && deliveryFee <= 0;
 
@@ -246,16 +248,7 @@ function enforceDateRules(){
     const dateInput = document.getElementById('pickup-date');
     const deliveryDateInput = document.getElementById('delivery-date');
     if(!dateInput && !deliveryDateInput) return;
-    displayCart(); 
-
-    if(dateInput){
-        const minDate = dateInput.getAttribute('min');
-        if(dateInput.value && dateInput.value < minDate) dateInput.value = "";
-    }
-    if(deliveryDateInput){
-        const minDeliveryDate = deliveryDateInput.getAttribute('min');
-        if(deliveryDateInput.value && deliveryDateInput.value < minDeliveryDate) deliveryDateInput.value = "";
-    }
+    displayCart();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -270,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Mana Bakery is closed on Sundays. Please select a different pick-up date!");
                 e.target.value = "";
             }
+            displayCart(); // recompute cookie exemption + button lock now that the date changed
         });
     }
 
@@ -447,6 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Mana Bakery is closed on Sundays. Please select a different delivery date!");
                 e.target.value = "";
             }
+            displayCart();
         });
     }
 
