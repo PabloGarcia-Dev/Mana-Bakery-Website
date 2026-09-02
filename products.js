@@ -24,7 +24,7 @@
         new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     */
-const CART_VERSION = "v1.1.6";
+const CART_VERSION = "v1.1.7";
 
 // Constant containing all of the product details
 const productData = {
