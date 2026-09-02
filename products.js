@@ -250,7 +250,7 @@ const productData = {
         new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "walnut-chocolate-chip_cookie":{
-        title: "Carrot Cake Cookie",
+        title: "Walnut Chocolate Chip Cookie",
         price: "$8.25",
         info: "Classic chocolate chip cookie mixed with roasted walnuts",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
