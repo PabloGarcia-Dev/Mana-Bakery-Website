@@ -47,7 +47,7 @@ const productData = {
         mainImg: "../images/sourdough/oregano-parmesian_sourdough_bg.webp",
         secondImg: "../images/sourdough/oregano-parmesian_sourdough_og_bg.webp",
         ongoing: true,
-        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+        new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "rosemary-loaf_sourdough":{
         title: "Rosemary Sourdough Loaf",
@@ -57,7 +57,7 @@ const productData = {
         mainImg: "../images/sourdough/rosemary-sourdough-loaf_sourdough_bg.webp",
         secondImg: "../images/sourdough/rosemary-sourdough-loaf_sourdough_og_bg.webp",
         ongoing: true,
-        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+        new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "original-freshly-milled_sourdough":{
         title: "Original Freshly Milled Sourdough",
@@ -67,7 +67,7 @@ const productData = {
         mainImg: "../images/sourdough/original-freshly-milled_sourdough_bg.webp",
         secondImg: "../images/sourdough/original-freshly-milled_sourdough_og_bg.webp",
         ongoing: true,
-        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+        new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "jalapeno-cheddar_sourdough":{
         title: "Jalapeño Cheddar Sourdough Loaf",
@@ -77,7 +77,7 @@ const productData = {
         mainImg: "../images/sourdough/jalapeno-cheddar_sourdough_bg.webp",
         secondImg: "../images/sourdough/jalapeno-cheddar_sourdough_og_bg.webp",
         ongoing: true,
-        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+        new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "chocolate-chip-loaf_sourdough":{
         title: "Chocolate Chip Loaf Sourdough",
@@ -98,7 +98,7 @@ const productData = {
         mainImg: "../images/sourdough/chocolate-chip-loaf_mini_sourdough_bg.webp",
         secondImg: "../images/sourdough/chocolate-chip-loaf_mini_sourdough_og_bg.webp",
         ongoing: true,
-        new: true
+        new: false
     },
     "rosemary-focaccia_sourdough":{
         title: "Rosemary Sourdough Focaccia",
