@@ -23,8 +23,11 @@
         },
         new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
+
+    images are all 87% webp
+
     */
-const CART_VERSION = "v1.1.7";
+const CART_VERSION = "v1.1.8";
 
 // Constant containing all of the product details
 const productData = {
@@ -165,42 +168,56 @@ const productData = {
 
 
     //----------- Cookies -------------
-    "carrot-cake_cookie":{
-        title: "Carrot Cake Cookie",
+    "cookies-and-cream_cookie":{
+        title: "Cookies & Cream Cookie",
         price: "$8.25",
-        info: "Vanilla cookie with cream cheese chocolate chips, mixed with pecans, stuffed with carrot cake",
+        info: "Vanilla cookie with chocolate chips, mixed with Oreo bits, filled with cookies and cream spread, topped with half an Oreo",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/carrot-cake_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/carrot-cake_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/carrot-cake_cookie_bg.webp",
+        ongoingProductImg: "../images/cookies/cookies-&-cream_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/cookies-&-cream_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/cookies-&-cream_cookie_bg.webp",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: true
     },
-    "pumpkin-spice-latte_cookie":{
-        title: "Pumpkin Spice Latte Cookie",
+    "dubai-pistachio_cookie":{
+        title: "Dubai Pistachio Cookie",
         price: "$8.25",
-        info: "Pumpkin spice cookie with cream cheese chocolate chips, stuffed with a coffee spread",
+        info: "Chocolate cookie with chocolate chips, mixed with pistachios, filled with pistachio spread and crispy Kataifi, topped with pistachios",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/pumpkin-spice-latte_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/pumpkin-spice-latte_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/pumpkin-spice-latte_cookie_bg.webp",
-        ongoing: true,
+        ongoingProductImg: "../images/cookies/dubai-pistachio_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/dubai-pistachio_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/dubai-pistachio_cookie_bg.webp",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
-        new: true
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
     },
-    "pecan-dulce-de-leche_cookie":{
-        title: "Pecan Dulce de Leche Cookie",
+    "brookie_cookie":{
+        title: "Brookie",
         price: "$8.25",
-        info: "Vanilla cookie with chocolate chips, mixed with pecans, stuffed with dulce de leche",
+        info: "Vanilla cookie with chocolate chips, mixed with brownie bits, filled with a brownie and Nutella, topped with a brownie",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/pecan-dulce-de-leche_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/pecan-dulce-de-leche_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/pecan-dulce-de-leche_cookie_bg.webp",
+        ongoingProductImg: "../images/cookies/brookie_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/brookie_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/brookie_cookie_bg.webp",
+        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "walnut-guava-dulce-de-leche_cookie":{
+        title: "Walnut Guava Dulce de Leche Cookie",
+        price: "$8.25",
+        info: "Vanilla cookie with white chocolate chips, mixed with walnut bits, filled with guava paste and dulce de leche",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/walnut-guava-dulce-de-leche_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/walnut-guava-dulce-de-leche_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/walnut-guava-dulce-de-leche_cookie_bg.webp",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
@@ -221,48 +238,6 @@ const productData = {
         },
         new: true
     },
-    "cocoa-coffee-toffee_cookie":{
-        title: "Cocoa Coffee Toffee Cookie",
-        price: "$8.25",
-        info: "Black cocoa espresso cookie with chocolate chips, mixed with bits of toffee",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg.webp",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
-    },
-    "peanut-butter-reeses_cookie":{
-        title: "Peanut Butter Reese's Cookie",
-        price: "$8.25",
-        info: "Chocolate cookie with chocolate chips, mixed with Reese’s pieces, filled with peanut butter and a Reese’s peanut butter cup",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/peanut-butter-reeses_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/peanut-butter-reeses_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/peanut-butter-reeses_cookie_bg.webp",
-        ongoing: true, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true // Controlls if the item gets displayed in the Home Page's product carrousel
-    },
-    "walnut-chocolate-chip_cookie":{
-        title: "Walnut Chocolate Chip Cookie",
-        price: "$8.25",
-        info: "Classic chocolate chip cookie mixed with roasted walnuts",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/walnut-chocolate-chip_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/walnut-chocolate-chip_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/walnut-chocolate-chip_cookie_bg.webp",
-        ongoing: true,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: true
-    },
     "chocolate-chip_cookie":{
         title: "Classic Chocolate Chip Cookie",
         price: "$7.00",
@@ -277,7 +252,50 @@ const productData = {
         },
         new: true
     },
-    
+
+    // - Flavors of the Month
+    "carrot-cake_cookie":{
+        title: "Carrot Cake Cookie",
+        price: "$8.25",
+        info: "Vanilla cookie with cream cheese chocolate chips, mixed with pecans, stuffed with carrot cake",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/carrot-cake_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/carrot-cake_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/carrot-cake_cookie_bg.webp",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "creme-brulee_cookie":{
+        title: "Crème Brûlée Cookie",
+        price: "$8.25",
+        info: "Vanilla cookie with white chocolate chips, mixed with toffee bits, filled with custard, topped with a crunchy sugar top",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/creme-brulee_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/creme-brulee_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/creme-brulee_cookie_bg.webp",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
+    "kinder-bueno-nutella_cookie":{
+        title: "Kinder Bueno Nutella Cookie",
+        price: "$8.25",
+        info: "Chocolate cookie with chocolate chips, filled with Nutella and KInder Bueno squares",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/kinder-bueno-nutella_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/kinder-bueno-nutella_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/kinder-bueno-nutella_cookie_bg.webp",
+        ongoing: true,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: true
+    },
     
     
     
@@ -295,7 +313,7 @@ const productData = {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: false
-    },
+    },  
     "biscoff_cookie":{
         title: "Biscoff Cookie",
         price: "$8.00",
@@ -366,6 +384,20 @@ const productData = {
         },
         new: false
     },
+    "cocoa-coffee-toffee_cookie":{
+        title: "Cocoa Coffee Toffee Cookie",
+        price: "$8.25",
+        info: "Black cocoa espresso cookie with chocolate chips, mixed with bits of toffee",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/cocoa-coffee-toffee_cookie_bg.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
     "cookie-monster_cookie":{
         title: "Cookie Monster Cookie",
         price: "$5.50",
@@ -374,20 +406,6 @@ const productData = {
         ongoingProductImg: "../images/cookies/cookie-monster_cookie_bg_ongoing.webp",
         seasonedProductImg: "../images/cookies/cookie-monster_cookie_bg_seasoned.webp",
         secondImg: "../images/cookies/cookie-monster_cookie_bg_white.webp",
-        ongoing: false,
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: false
-    },
-    "cookies-and-cream_cookie":{
-        title: "Cookies & Cream Cookie",
-        price: "$8.25",
-        info: "Vanilla cookie with chocolate chips, mixed with Oreo bits, filled with cookies and cream spread, topped with half an Oreo",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/cookies-&-cream_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/cookies-&-cream_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/cookies-&-cream_cookie_bg.webp",
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
@@ -421,20 +439,6 @@ const productData = {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: false
-    },
-    "dubai-pistachio_cookie":{
-        title: "Dubai Pistachio Cookie",
-        price: "$8.25",
-        info: "Chocolate cookie with chocolate chips, mixed with pistachios, filled with pistachio spread and crispy Kataifi, topped with pistachios",
-        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/dubai-pistachio_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/dubai-pistachio_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/dubai-pistachio_cookie_bg.webp",
-        ongoing: false, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
-        get mainImg() {
-            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
-        },
-        new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
     "ferrero-kisses_cookie":{
         title: "Ferrero Kisses Cookie",
@@ -730,6 +734,34 @@ const productData = {
         },
         new: false
     },
+    "peanut-butter-reeses_cookie":{
+        title: "Peanut Butter Reese's Cookie",
+        price: "$8.25",
+        info: "Chocolate cookie with chocolate chips, mixed with Reese’s pieces, filled with peanut butter and a Reese’s peanut butter cup",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/peanut-butter-reeses_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/peanut-butter-reeses_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/peanut-butter-reeses_cookie_bg.webp",
+        ongoing: false, // Controlls whether the item gets a price when the user clicks from the bakedGoods page and changes the background
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "pecan-dulce-de-leche_cookie":{
+        title: "Pecan Dulce de Leche Cookie",
+        price: "$8.25",
+        info: "Vanilla cookie with chocolate chips, mixed with pecans, stuffed with dulce de leche",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/pecan-dulce-de-leche_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/pecan-dulce-de-leche_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/pecan-dulce-de-leche_cookie_bg.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
     "pb-and-j-toast_cookie":{
         title: "PB&J Toast Cookie",
         price: "$8.25",
@@ -743,6 +775,20 @@ const productData = {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: false // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "pumpkin-spice-latte_cookie":{
+        title: "Pumpkin Spice Latte Cookie",
+        price: "$8.25",
+        info: "Pumpkin spice cookie with cream cheese chocolate chips, stuffed with a coffee spread",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/pumpkin-spice-latte_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/pumpkin-spice-latte_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/pumpkin-spice-latte_cookie_bg.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
     },
     "raffaello-coconut_cookie":{
         title: "Raffaello Coconut Cookie",
@@ -869,6 +915,20 @@ const productData = {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: false // Controlls if the item gets displayed in the Home Page's product carrousel
+    },
+    "walnut-chocolate-chip_cookie":{
+        title: "Walnut Chocolate Chip Cookie",
+        price: "$8.25",
+        info: "Classic chocolate chip cookie mixed with roasted walnuts",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/walnut-chocolate-chip_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/walnut-chocolate-chip_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/walnut-chocolate-chip_cookie_bg.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
     },
     "winter-hot-cocoa_cookie":{
         title: "Winter Hot Cocoa",
