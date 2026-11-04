@@ -27,7 +27,7 @@
     images are all 87% webp
 
     */
-const CART_VERSION = "v1.1.8";
+const CART_VERSION = "v1.1.9";
 
 // Constant containing all of the product details
 const productData = {
@@ -254,50 +254,48 @@ const productData = {
     },
 
     // - Flavors of the Month
-    "carrot-cake_cookie":{
-        title: "Carrot Cake Cookie",
+    "banana-bread-biscoff_cookie":{
+        title: "Banana Bread Biscoff",
         price: "$8.25",
-        info: "Vanilla cookie with cream cheese chocolate chips, mixed with pecans, stuffed with carrot cake",
+        info: "Vanilla cookie with chocolate chips, filled with Maná’s signature banana bread and Biscoff spread, topped with a half Biscoff cookie",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/carrot-cake_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/carrot-cake_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/carrot-cake_cookie_bg.webp",
+        ongoingProductImg: "../images/cookies/banana-bread-biscoff_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/banana-bread-biscoff_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/banana-bread-biscoff_cookie_bg.webp",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: true
     },
-    "creme-brulee_cookie":{
-        title: "Crème Brûlée Cookie",
+    "pistachio-delight_cookie":{
+        title: "Pistachio delight",
         price: "$8.25",
-        info: "Vanilla cookie with white chocolate chips, mixed with toffee bits, filled with custard, topped with a crunchy sugar top",
+        info: "Vanilla cookie with white chocolate chips, mixed with pistachios, filled with a creamy pistachio cream",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/creme-brulee_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/creme-brulee_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/creme-brulee_cookie_bg.webp",
+        ongoingProductImg: "../images/cookies/pistachio-delight_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/pistachio-delight_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/pistachio-delight_cookie_bg.webp",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: true
     },
-    "kinder-bueno-nutella_cookie":{
-        title: "Kinder Bueno Nutella Cookie",
-        price: "$8.25",
-        info: "Chocolate cookie with chocolate chips, filled with Nutella and KInder Bueno squares",
+    "brown-butter-choco-chip_cookie":{
+        title: "Flat Brown Butter chocolate chip",
+        price: "$3.25",
+        info: "Brown butter chocolate chip cookie topped with sea salt",
         ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
-        ongoingProductImg: "../images/cookies/kinder-bueno-nutella_cookie_bg_ongoing.webp",
-        seasonedProductImg: "../images/cookies/kinder-bueno-nutella_cookie_bg_seasoned.webp",
-        secondImg: "../images/cookies/kinder-bueno-nutella_cookie_bg.webp",
+        ongoingProductImg: "../images/cookies/brown-butter-choco-chip_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/brown-butter-choco-chip_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/brown-butter-choco-chip_cookie_bg.webp",
         ongoing: true,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
         },
         new: true
     },
-    
-    
     
     
     "apple-pie_cookie":{
@@ -336,6 +334,20 @@ const productData = {
         ongoingProductImg: "../images/cookies/biscoreo-cookie_bg_ongoing.webp",
         seasonedProductImg: "../images/cookies/biscoreo-cookie_bg_seasoned.webp",
         secondImg: "../images/cookies/biscoreo-cookie_bg.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "carrot-cake_cookie":{
+        title: "Carrot Cake Cookie",
+        price: "$8.25",
+        info: "Vanilla cookie with cream cheese chocolate chips, mixed with pecans, stuffed with carrot cake",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/carrot-cake_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/carrot-cake_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/carrot-cake_cookie_bg.webp",
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
@@ -406,6 +418,20 @@ const productData = {
         ongoingProductImg: "../images/cookies/cookie-monster_cookie_bg_ongoing.webp",
         seasonedProductImg: "../images/cookies/cookie-monster_cookie_bg_seasoned.webp",
         secondImg: "../images/cookies/cookie-monster_cookie_bg_white.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "creme-brulee_cookie":{
+        title: "Crème Brûlée Cookie",
+        price: "$8.25",
+        info: "Vanilla cookie with white chocolate chips, mixed with toffee bits, filled with custard, topped with a crunchy sugar top",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/creme-brulee_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/creme-brulee_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/creme-brulee_cookie_bg.webp",
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
@@ -588,6 +614,20 @@ const productData = {
         ongoingProductImg: "../images/cookies/kinder-bueno-hippo_cookie_bg_ongoing.webp",
         seasonedProductImg: "../images/cookies/kinder-bueno-hippo_cookie_bg_seasoned.webp",
         secondImg: "../images/cookies/kinder-bueno-hippo_cookie_bg.webp",
+        ongoing: false,
+        get mainImg() {
+            return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
+        },
+        new: false
+    },
+    "kinder-bueno-nutella_cookie":{
+        title: "Kinder Bueno Nutella Cookie",
+        price: "$8.25",
+        info: "Chocolate cookie with chocolate chips, filled with Nutella and KInder Bueno squares",
+        ingredients: "General Ingredients: Flour, Sugar, Brown Sugar, Eggs, Butter, Baking Powder, Baking Soda, Corn Starch, Salt, Vanilla. Weight: 6oz+",
+        ongoingProductImg: "../images/cookies/kinder-bueno-nutella_cookie_bg_ongoing.webp",
+        seasonedProductImg: "../images/cookies/kinder-bueno-nutella_cookie_bg_seasoned.webp",
+        secondImg: "../images/cookies/kinder-bueno-nutella_cookie_bg.webp",
         ongoing: false,
         get mainImg() {
             return this.ongoing ? this.ongoingProductImg : this.seasonedProductImg;
