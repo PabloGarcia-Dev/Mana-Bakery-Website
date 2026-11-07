@@ -27,7 +27,7 @@
     images are all 87% webp
 
     */
-const CART_VERSION = "v1.1.9";
+const CART_VERSION = "v1.1.10";
 
 // Constant containing all of the product details
 const productData = {
@@ -62,6 +62,7 @@ const productData = {
         ongoing: true,
         new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
+    /*
     "original-freshly-milled_sourdough":{
         title: "Original Freshly Milled Sourdough",
         price: "$10.00",
@@ -72,6 +73,7 @@ const productData = {
         ongoing: true,
         new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
+    */
     "jalapeno-cheddar_sourdough":{
         title: "Jalapeño Cheddar Sourdough Loaf",
         price: "$14.00",
