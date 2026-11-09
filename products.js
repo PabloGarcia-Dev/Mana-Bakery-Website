@@ -27,14 +27,14 @@
     images are all 87% webp
 
     */
-const CART_VERSION = "v1.1.10";
+const CART_VERSION = "v1.1.11";
 
 // Constant containing all of the product details
 const productData = {
     //----------- Sourdough Breads -------------
     "original_sourdough":{
         title: "Original Sourdough Loaf",
-        price: "$8.30",
+        price: "$9.00",
         info: "Artisan sourdough bread made from homemade starter",
         ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 810g",
         mainImg: "../images/sourdough/original_sourdough_bg.webp",
@@ -62,7 +62,6 @@ const productData = {
         ongoing: true,
         new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
-    /*
     "original-freshly-milled_sourdough":{
         title: "Original Freshly Milled Sourdough",
         price: "$10.00",
@@ -73,7 +72,6 @@ const productData = {
         ongoing: true,
         new: false // Controlls if the item gets displayed in the Home Page's product carrousel
     },
-    */
     "jalapeno-cheddar_sourdough":{
         title: "Jalapeño Cheddar Sourdough Loaf",
         price: "$14.00",
@@ -107,7 +105,7 @@ const productData = {
     },
     "rosemary-focaccia_sourdough":{
         title: "Rosemary Sourdough Focaccia",
-        price: "$8.30",
+        price: "$9.00",
         info: "Sourdough focaccia brushed with butter, garnished with rosemary and sea salt flakes",
         ingredients: "Ingredients: Bread flour, Sourdough starter (Bread flour, All purpose Flour, Water), Water, Olive oil, Pink Himalayan salt, Extra Virgin Olive Oil, Rosemary. Weight: 611g",
         mainImg: "../images/sourdough/rosemary_focaccia_sourdough_bg.webp",
@@ -127,7 +125,7 @@ const productData = {
     },
     "pumpkin-shaped-original_sourdough":{
         title: "Pumpkin-Shaped Original Sourdough Loaf",
-        price: "$9.00",
+        price: "$10.00",
         info: "Artisan sourdough bread made from homemade starter in the shape of a pumpkin",
         ingredients: "Ingredients: Bread flour, water, sourdough starter (All purpose flour, bread flour, water), pink Himalayan salt. Weight: 611g",
         mainImg: "../images/sourdough/pumpkin-shaped-original_sourdough_bg.webp",
