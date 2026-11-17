@@ -1090,6 +1090,8 @@ const productData = {
 
 // Function to open the page content
 function loadProductDetails(){
+    if(!document.querySelector('.product-view-display')) return; // only run on productView
+    
     // Get the ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
@@ -1230,7 +1232,7 @@ function loadProductDetails(){
         // Logic for the sizes
     }
     else{
-        console.error("Product not found or no ID provided in URL.");
+        console.error(`Product not found or no ID provided in URL. ID: ${productId}`);
     }
 }
 

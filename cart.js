@@ -100,6 +100,8 @@ function removeFromCart(index){
 function updateCartUI(){
     const cartContent = document.getElementById('sidebar-cart-content');
     const totalPriceEl = document.getElementById('cart-total-price');
+    if(!cartContent || !totalPriceEl) return; // page has no side cart (e.g. orderRequests)
+
     
     if(cart.length === 0){
         cartContent.innerHTML = "<p style='text-align:center; font-size:1.4rem; margin-top:20px;'>Your cart is empty.</p>";
