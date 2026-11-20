@@ -74,18 +74,18 @@ function displayCart() {
 
     // Logic to determine if the button should be locked
     const isCartEmpty = cart.length === 0;
-    const isAugust29 = (dateInput && dateInput.value === "2026-08-29") || (deliveryDateInput && deliveryDateInput.value === "2026-08-29");
-    const insufficientCookies = cookieCount > 0 && cookieCount < 4 /* && !isAugust29*/;
+    // const isAugust29 = (dateInput && dateInput.value === "2026-08-29") || (deliveryDateInput && deliveryDateInput.value === "2026-08-29");
+    // const insufficientCookies = cookieCount > 0 && cookieCount < 4 /* && !isAugust29*/;
     const fulfillmentElCheck = document.querySelector('input[name="Fulfillment"]:checked');
     const deliveryNotReady = fulfillmentElCheck && fulfillmentElCheck.value === 'Delivery' && deliveryFee <= 0;
 
-    if(isCartEmpty || insufficientCookies || deliveryNotReady){
-        if(alertBox) alertBox.style.display = insufficientCookies ? 'block' : 'none';
+    if(isCartEmpty || /*insufficientCookies ||*/ deliveryNotReady){
+        if(alertBox) alertBox.style.display = /*insufficientCookies ? 'block' :*/ 'none';
         if(submitBtn){
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.5';
             submitBtn.style.cursor = 'not-allowed';
-            submitBtn.innerText = isCartEmpty ? "Add Items to Checkout" : insufficientCookies ? "Need 4+ Cookies to Order" : "Check Delivery Fee First";
+            submitBtn.innerText = isCartEmpty ? "Add Items to Checkout" : /*insufficientCookies ? "Need 4+ Cookies to Order" :*/ "Check Delivery Fee First";
         }
     }
     else{
