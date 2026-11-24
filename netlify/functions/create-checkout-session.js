@@ -17,7 +17,11 @@ exports.handler = async (event) => {
                 currency: 'usd',
                 product_data: {
                     name: item.title,
-                    metadata: { productId: item.id }
+                    metadata: { 
+                        productId: item.id,
+                        variant: item.variant ?? '',
+                        sliced: String(item.sliced ?? false),
+                    }
                 },
                 unit_amount: Math.round(item.price * 100), // Stripe uses cents
             },

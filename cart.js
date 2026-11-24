@@ -25,11 +25,14 @@ function addToCart(productId, quantity){
  
     let finalPrice;
     let displayTitle = product.title;
+    let selectedVariantLabel = '';
+    let isSliced = false;
  
     // Check for the sliced option on sourdough products
     const slicedCheckbox = document.getElementById(`sliced-${productId}`) || document.querySelector('.sliced-checkbox');
     if(slicedCheckbox && slicedCheckbox.checked){
         displayTitle = `[SLICED] ${displayTitle}`;
+        isSliced = true;
     }
  
     /* Logic for Gift Vouchers with a custom amount
@@ -53,6 +56,7 @@ function addToCart(productId, quantity){
         
         finalPrice = selectedSize.price;
         displayTitle += ` (${selectedSize.label})`;
+        selectedVariantLabel = selectedSize.label;
     }
     else if(product.toppings){
         const toppingSelect = document.getElementById('topping-select');
@@ -61,6 +65,7 @@ function addToCart(productId, quantity){
  
         finalPrice = selectedTopping.price;
         displayTitle += ` (${selectedTopping.label})`;
+        selectedVariantLabel = selectedTopping.label;
     }
     else{
         // Standard logic for breads and single cookies
@@ -80,7 +85,9 @@ function addToCart(productId, quantity){
             title: displayTitle, // Includes the size label for cookie cakes
             price: finalPrice,
             image: product.mainImg,
-            quantity: quantity
+            quantity: quantity,
+            variant: selectedVariantLabel,
+            sliced: isSliced
         });
     }
  

@@ -27,7 +27,7 @@
     images are all 87% webp
 
     */
-const CART_VERSION = "v1.1.11";
+const CART_VERSION = "v1.1.12";
 
 // Constant containing all of the product details
 const productData = {
