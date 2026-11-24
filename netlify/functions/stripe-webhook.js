@@ -47,6 +47,12 @@ exports.handler = async (event) => {
 
         // Send email via Resend
         try {
+            const isTestOrder = !session.livemode;
+
+            const recipientEmail = isTestOrder ? process.env.TEST_ORDER_EMAIL : 'Mana.bakery@outlook.com';
+            const originalSubject = `🧁 New Order from ${meta.customerName || session.customer_details?.name || 'A Customer'}!`;
+            const emailSubject = isTestOrder ? `[TEST] ${originalSubject}` : originalSubject;
+
             const emailResponse = await fetch('https://api.resend.com/emails', {
                 method: 'POST',
                 headers: {
@@ -55,8 +61,8 @@ exports.handler = async (event) => {
                 },
                 body: JSON.stringify({
                     from: 'orders@manabakeryjax.com',
-                    to: 'Mana.bakery@outlook.com',
-                    subject: `🧁 New Order from ${meta.customerName || session.customer_details?.name || 'A Customer'}!`,
+                    to: recipientEmail,
+                    subject: emailSubject,
                     html: `
                         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
                             <h2 style="color: #5a3e2b; border-bottom: 2px solid #f0e0c8; padding-bottom: 10px;">
