@@ -27,7 +27,7 @@
     images are all 87% webp
 
     */
-const CART_VERSION = "v1.1.12";
+const CART_VERSION = "v1.1.13";
 
 // Constant containing all of the product details
 const productData = {
@@ -1027,11 +1027,6 @@ const productData = {
                 label: "Nutella Chocolate Chip",
                 price: 20.60,
                 img: "../images/otherTreats/banana-muffins-nutella_other-treats_og_bg.webp"
-            },
-            {
-                label: "Buttercream Chocolate Chip",
-                price: 22.66,
-                img: "../images/otherTreats/banana-muffins-Buttercream_other-treats_og_bg.webp"
             }
         ],
         info: "6-pack of all natural banana muffins with no preservatives",
