@@ -32,7 +32,7 @@ exports.handler = async (event) => {
         let itemsList = 'See Stripe dashboard for full item details.';
         try {
             const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
-                expand: ['line_items'],
+                expand: ['line_items.data.price.product'],
             });
             if (fullSession.line_items && fullSession.line_items.data.length > 0) {
                 itemsList = fullSession.line_items.data

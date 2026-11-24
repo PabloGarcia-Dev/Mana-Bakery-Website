@@ -17,6 +17,7 @@ exports.handler = async (event) => {
                 currency: 'usd',
                 product_data: {
                     name: item.title,
+                    metadata: { productId: item.id }
                 },
                 unit_amount: Math.round(item.price * 100), // Stripe uses cents
             },
@@ -64,6 +65,7 @@ exports.handler = async (event) => {
         };
     }
     catch (error) {
+        console.error('Checkout session error:', error.message);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.message }),
