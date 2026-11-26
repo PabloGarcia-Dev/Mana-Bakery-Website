@@ -145,7 +145,67 @@ exports.handler = async (event) => {
         } catch (emailErr) {
             console.error('Failed to send email:', emailErr.message);
         }
+
+        try {
+            await saveOrderForInventoryApp(stripe, session);
+        }
+        catch(inventoryError){
+            // The owners still get the email, and the sale can be recorded by hand
+            console.error('Could not save order for the inventory app:', inventoryError.message);
+        }
     }
 
     return { statusCode: 200, body: JSON.stringify({ received: true }) };
 };
+
+async function saveOrderForInventoryApp(stripe, session) {
+    const ingestTestOrders = process.env.INGEST_TEST_ORDERS === 'true';
+    if (!session.livemode && !ingestTestOrders) return;
+
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SECRET_KEY) {
+        console.error('Inventory app not configured: missing SUPABASE_URL or SUPABASE_SECRET_KEY');
+        return;
+    }
+
+    // listLineItems returns up to 100 lines; expanding on the session would stop at 10
+    const lineItemList = await stripe.checkout.sessions.listLineItems(session.id, {
+        limit: 100,
+        expand: ['data.price.product'],
+    });
+
+    const lines = lineItemList.data.map((lineItem) => {
+        const productMetadata = lineItem.price?.product?.metadata || {};
+        return {
+            product_id: productMetadata.productId || '',
+            variant: productMetadata.variant || '',
+            sliced: productMetadata.sliced === 'true',
+            quantity: lineItem.quantity,
+            description: lineItem.description,
+            amount: lineItem.amount_total / 100,
+        };
+    });
+
+    const response = await fetch(`${process.env.SUPABASE_URL}/rest/v1/rpc/ingest_online_order`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            apikey: process.env.SUPABASE_SECRET_KEY,
+            Authorization: `Bearer ${process.env.SUPABASE_SECRET_KEY}`,
+        },
+        body: JSON.stringify({
+            order_payload: {
+                stripe_session_id: session.id,
+                created_unix: session.created,
+                customer_name: session.metadata?.customerName || session.customer_details?.name || '',
+                customer_email: session.customer_details?.email || '',
+                amount_total: session.amount_total / 100,
+                metadata: session.metadata || {},
+                lines,
+            },
+        }),
+    });
+    if (!response.ok) {
+        throw new Error(`Supabase responded ${response.status}: ${await response.text()}`);
+    }
+    console.log('Order saved for the inventory app');
+}
