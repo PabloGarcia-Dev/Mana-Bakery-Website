@@ -15,7 +15,7 @@ exports.handler = async (event) => {
 
     // Step 1: Geocode the customer's address
     const geoRes = await fetch(
-      `https://api.openrouteservice.org/geocode/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(address)}&boundary.country=US&size=1`
+      `https://api.heigit.org/pelias/v1/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(address)}&boundary.country=US&size=1`
     );
     const geoData = await geoRes.json();
     const coords = geoData.features?.[0]?.geometry?.coordinates; // [lng, lat]
@@ -27,7 +27,7 @@ exports.handler = async (event) => {
     const [custLng, custLat] = coords;
 
     // Step 2: Get driving distance from bakery to customer
-    const routeRes = await fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
+    const routeRes = await fetch("https://api.heigit.org/openrouteservice/v2/directions/driving-car", {
       method: "POST",
       headers: {
         "Authorization": ORS_API_KEY,
